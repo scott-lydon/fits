@@ -14,6 +14,7 @@
 		333E27981E7CA27600306FEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 333E27961E7CA27600306FEB /* LaunchScreen.storyboard */; };
 		337D9A6B1E8073910032824D /* FitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337D9A6A1E8073910032824D /* FitVC.swift */; };
 		337D9A6D1E80746B0032824D /* FitPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337D9A6C1E80746B0032824D /* FitPageVC.swift */; };
+		337D9A6F1E8089400032824D /* Fit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337D9A6E1E8089400032824D /* Fit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		333E27991E7CA27600306FEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		337D9A6A1E8073910032824D /* FitVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FitVC.swift; sourceTree = "<group>"; };
 		337D9A6C1E80746B0032824D /* FitPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FitPageVC.swift; sourceTree = "<group>"; };
+		337D9A6E1E8089400032824D /* Fit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Fit.swift; path = fits/Fit.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +46,7 @@
 			children = (
 				337D9A6A1E8073910032824D /* FitVC.swift */,
 				337D9A6C1E80746B0032824D /* FitPageVC.swift */,
+				337D9A6E1E8089400032824D /* Fit.swift */,
 				333E278C1E7CA27600306FEB /* fits */,
 				333E278B1E7CA27600306FEB /* Products */,
 			);
@@ -60,9 +63,9 @@
 		333E278C1E7CA27600306FEB /* fits */ = {
 			isa = PBXGroup;
 			children = (
-				333E278D1E7CA27600306FEB /* AppDelegate.swift */,
 				333E278F1E7CA27600306FEB /* ViewController.swift */,
 				333E27911E7CA27600306FEB /* Main.storyboard */,
+				333E278D1E7CA27600306FEB /* AppDelegate.swift */,
 				333E27941E7CA27600306FEB /* Assets.xcassets */,
 				333E27961E7CA27600306FEB /* LaunchScreen.storyboard */,
 				333E27991E7CA27600306FEB /* Info.plist */,
@@ -145,6 +148,7 @@
 			files = (
 				333E27901E7CA27600306FEB /* ViewController.swift in Sources */,
 				337D9A6B1E8073910032824D /* FitVC.swift in Sources */,
+				337D9A6F1E8089400032824D /* Fit.swift in Sources */,
 				333E278E1E7CA27600306FEB /* AppDelegate.swift in Sources */,
 				337D9A6D1E80746B0032824D /* FitPageVC.swift in Sources */,
 			);

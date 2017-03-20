@@ -16,7 +16,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        table.rowHeight = 0.45 * view.frame.size.height
+        table.rowHeight = 0.70 * view.frame.size.height
         
         for _ in 0...6 {
             

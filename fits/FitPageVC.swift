@@ -70,16 +70,7 @@ extension FitPageVC : UIPageViewControllerDataSource {
         }
         
         return viewControllerAtIndex(index)
-        
-        
+                
     }
-    
-    func presentationCount(for pageViewController: UIPageViewController) -> Int {
-        return 5
-    }
-    
-    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
-        return selectedPageIndex
-    }
-    
+
 }

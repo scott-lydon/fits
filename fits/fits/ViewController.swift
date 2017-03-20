@@ -11,13 +11,19 @@ import UIKit
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var table: UITableView!
+    var pageViewControllers = [FitPageVC]()
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
-    }
-    
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 340
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        table.rowHeight = 0.45 * view.frame.size.height
+        
+        for _ in 0...6 {
+            
+            let pageViewController = FitPageVC(images: ["1","2","3","4","5"] )
+            pageViewControllers.append(pageViewController)
+        }
+        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -25,26 +31,33 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 6
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "fitCell", for: indexPath) as! fitCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "fitCell", for: indexPath)
         
+        
+        let pageViewController = pageViewControllers[indexPath.row]
+        addChildViewController(pageViewController)
+        pageViewController.view.frame = cell.contentView.bounds
+        pageViewController.didMove(toParentViewController: self)
+        cell.contentView.addSubview(pageViewController.view)
         
         return cell
         
     }
     
- 
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-       
-        table.register(UINib(nibName: "fitCell", bundle: nil), forCellReuseIdentifier: "fitCell")
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let pageViewController = pageViewControllers[indexPath.row]
+        pageViewController.removeFromParentViewController()
+        pageViewController.view.removeFromSuperview()
 
     }
+ 
+    
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

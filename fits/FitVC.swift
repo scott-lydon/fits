@@ -10,6 +10,8 @@ import UIKit
 
 class FitVC: UIViewController {
     
+    @IBOutlet weak var pageControl: UIPageControl!
+    
     @IBOutlet weak var imageView: UIImageView!
     var image: UIImage?
     
@@ -27,20 +29,37 @@ class FitVC: UIViewController {
     }
     
     
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if let pageVC = segue.destination as? FitPageVC {
+//            pageVC.fitPageVCDelegate = self
+//        }
+//    }
+    
     func setValues(_ image:UIImage, index:Int) {
         
         self.image = image
-        self.index=index
+        self.index = index
     }
 
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//         Get the new view controller using segue.destinationViewController.
+//         Pass the selected object to the new view controller.
+//    }
+   
 
 }
+
+
+//extension FitVC : FitPageVCDelegate {
+//    
+//    func pageVCCount(pageVC: FitPageVC, didUpdateCount count: Int) {
+//        pageControl.numberOfPages = count
+//    }
+//    
+//    func pageVCIndex(pageVC: FitPageVC, didUpdateIndex index: Int) {
+//        pageControl.currentPage = index
+//    }
+//}

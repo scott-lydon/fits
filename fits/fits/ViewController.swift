@@ -13,6 +13,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var table: UITableView!
     var pageViewControllers = [FitPageVC]()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

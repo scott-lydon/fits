@@ -11,13 +11,23 @@ import UIKit
 class FitPageVC: UIPageViewController {
     
     var items : [String]?
-    var selectedPageIndex = 0
-
+    var selectedPageIndex  = 0
+//    weak var fitPageVCDelegate : FitPageVCDelegate?
+    
+    var pageControl : UIPageControl = UIPageControl(frame: CGRect(x: UIScreen.main.bounds.width - 70, y: 316, width: 30, height: 20))
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.dataSource = self
-
+//        selectedPageIndex = 0
+        
         setViewControllers([viewControllerAtIndex(0)], direction: .forward, animated: true, completion: nil)
+        
+        self.pageControl.currentPage = 0
+        self.pageControl.numberOfPages = 5
+        self.pageControl.pageIndicatorTintColor = UIColor(red:0.60, green:0.60, blue:0.60, alpha:0.3)
+        self.pageControl.currentPageIndicatorTintColor = UIColor.black
+        self.view.addSubview(pageControl)
         
     }
 
@@ -42,8 +52,26 @@ class FitPageVC: UIPageViewController {
         selectedPageIndex = index
         return fitVC
     }
+    
 
 }
+
+//
+//extension FitPageVC: UIPageViewControllerDelegate {
+//    
+//    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+//        if let index = selectedPageIndex {
+//            fitPageVCDelegate?.pageVCIndex(pageVC: self, didUpdateIndex: index)
+//        }
+//    }
+//}
+//
+//
+//protocol FitPageVCDelegate:class {
+//    
+//    func pageVCCount(pageVC: FitPageVC, didUpdateCount count:Int)
+//    func pageVCIndex(pageVC: FitPageVC, didUpdateIndex index: Int)
+//}
 
 
 extension FitPageVC : UIPageViewControllerDataSource {
@@ -51,10 +79,11 @@ extension FitPageVC : UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
         var index = (viewController as! FitVC).index
+        self.pageControl.currentPage = index
+
         if index == 0 {
             return nil
         }
-        
         index -= 1
         return viewControllerAtIndex(index)
     }
@@ -62,9 +91,10 @@ extension FitPageVC : UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         
         var index = (viewController as! FitVC).index
-        
+        self.pageControl.currentPage = index
+
         index += 1
-        
+
         if index == 5 {
             return nil
         }

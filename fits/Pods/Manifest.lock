@@ -1,0 +1,23 @@
+PODS:
+  - Contentful (0.3.1):
+    - Decodable (~> 0.5)
+    - Interstellar (~> 2.0.0)
+  - Decodable (0.5)
+  - Interstellar (2.0.0):
+    - Interstellar/Core (= 2.0.0)
+    - Interstellar/Warpdrive (= 2.0.0)
+  - Interstellar/Core (2.0.0)
+  - Interstellar/Warpdrive (2.0.0):
+    - Interstellar/Core
+
+DEPENDENCIES:
+  - Contentful (~> 0.3.0)
+
+SPEC CHECKSUMS:
+  Contentful: 2b3ffedfdf360e97a49f722148526c85d4f40e60
+  Decodable: 7c90acc68d357b71d0d6efc120faf9c53c644b7e
+  Interstellar: 63a760ff3a3657f791a4523de4b89727c51edec3
+
+PODFILE CHECKSUM: 6fe136c75dbd47d115355974692a2f4481036b59
+
+COCOAPODS: 1.2.0

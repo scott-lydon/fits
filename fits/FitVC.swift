@@ -10,17 +10,27 @@ import UIKit
 
 class FitVC: UIViewController {
     
-    @IBOutlet weak var pageControl: UIPageControl!
-    
     @IBOutlet weak var imageView: UIImageView!
+    
+    @IBOutlet weak var name: UILabel!
+   
+    @IBOutlet weak var text: UILabel!
+    
+    @IBOutlet weak var button: UIButton!
+    
+    @IBOutlet weak var price: UILabel!
+    
     var image: UIImage?
     
     var index = 0
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.imageView.image = image
         // Do any additional setup after loading the view.
+        
     }
 
     override func didReceiveMemoryWarning() {

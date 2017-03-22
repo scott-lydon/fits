@@ -1,0 +1,7 @@
+use_frameworks!
+
+target 'fits' do
+    platform :ios, '8.0'
+
+    pod 'Contentful', '~> 0.3.0'
+end

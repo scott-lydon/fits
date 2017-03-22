@@ -14,10 +14,11 @@ class FitPageVC: UIPageViewController {
     var selectedPageIndex  = 0
 //    weak var fitPageVCDelegate : FitPageVCDelegate?
     
-    var pageControl : UIPageControl = UIPageControl(frame: CGRect(x: UIScreen.main.bounds.width - 70, y: 316, width: 30, height: 20))
+    var pageControl : UIPageControl = UIPageControl(frame: CGRect(x: UIScreen.main.bounds.width - 70, y: 466, width: 30, height: 20))
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.dataSource = self
 //        selectedPageIndex = 0
         

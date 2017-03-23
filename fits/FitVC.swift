@@ -20,15 +20,41 @@ class FitVC: UIViewController {
     
     @IBOutlet weak var price: UILabel!
     
-    var image: UIImage?
+    var fit : Fit?
     
     var index = 0
     
-    
+    private func loadImage(atURL url: URL) -> UIImage? {
+        
+        if let data = try? Data(contentsOf: url) {
+            return UIImage(data: data)
+        }
+        
+        return nil
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.imageView.image = image
+        
+        if index == 0 {
+            
+            self.imageView.image = loadImage(atURL: (fit?.imageURL)!)
+            self.name.text = fit?.name
+            self.text.text = fit?.text
+            self.price.text = " "
+            self.button.isHidden = true
+            
+
+        } else {
+            
+            self.imageView.image = loadImage(atURL: (fit?.productImage[index-1])!)
+            self.name.text = fit?.brand[index-1]
+            self.text.text = fit?.productName[index-1]
+            self.price.text = "$ " + "\(fit?.price[index-1])"
+            self.button.titleLabel?.text = "Buy at " + (fit?.storeName[index-1])!
+            
+        }
+        
         // Do any additional setup after loading the view.
         
     }
@@ -39,15 +65,9 @@ class FitVC: UIViewController {
     }
     
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if let pageVC = segue.destination as? FitPageVC {
-//            pageVC.fitPageVCDelegate = self
-//        }
-//    }
-    
-    func setValues(_ image:UIImage, index:Int) {
+    func setValues(fit:Fit, index:Int) {
         
-        self.image = image
+        self.fit = fit
         self.index = index
     }
 
@@ -62,14 +82,3 @@ class FitVC: UIViewController {
 
 }
 
-
-//extension FitVC : FitPageVCDelegate {
-//    
-//    func pageVCCount(pageVC: FitPageVC, didUpdateCount count: Int) {
-//        pageControl.numberOfPages = count
-//    }
-//    
-//    func pageVCIndex(pageVC: FitPageVC, didUpdateIndex index: Int) {
-//        pageControl.currentPage = index
-//    }
-//}

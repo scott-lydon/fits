@@ -15,52 +15,58 @@ let ACCESS_TOKEN = "53feb22a0f6700e51ae6308aaa809fba1c700e13a9f65d9395132d8b812f
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var fits = [Fit]()
-
-    let client: Client = Client(spaceIdentifier: SPACE_ID, accessToken: ACCESS_TOKEN)
-
-
-    @IBOutlet weak var table: UITableView!
     var pageViewControllers = [FitPageVC]()
-
-
-    private func loadImage(atURL url: URL) -> UIImage? {
+    
+    let client: Client = Client(spaceIdentifier: SPACE_ID, accessToken: ACCESS_TOKEN)
+    
+    private let main = OperationQueue.main
+    
+    private let async: OperationQueue = {
         
-        if let data = try? Data(contentsOf: url) {
-            return UIImage(data: data)
-        }
+        let operationQueue = OperationQueue()
         
-        return nil
-    }
-
+        operationQueue.maxConcurrentOperationCount = 8
+        return operationQueue
+    }()
+    
+    @IBOutlet weak var table: UITableView!
+    
+    
     override func viewDidLoad() {
+        reload()
+        table.rowHeight = 0.90 * view.frame.size.height
         super.viewDidLoad()
         
-        client.fetchEntries(matching: ["limit": 5]) { [weak self] (result: Result<Contentful.Array<Entry>>) in
+    }
+    
+    func reload() {
+        
+        self.client.fetchEntries(matching: ["limit": 100]) { [weak self] (result: Result<Contentful.Array<Entry>>) in
             switch result {
             case .success(let entries):
                 entries.items.forEach { entree in
-                                        
-                    self?.fits.append(Fit(entry: entree))
+                    
+                    self!.pageViewControllers.append(FitPageVC(fit : Fit(entry: entree)))
                     
                 }
+                
+                DispatchQueue.main.async {
+                    self?.table.reloadData()
+                }
+                
             case .error(let error):
                 self?.handle(error: error)
             }
         }
         
-        table.rowHeight = 0.90 * view.frame.size.height
-        
-        for _ in 0...6 {
-            
-            let pageViewController = FitPageVC(images: ["1","2","3","4","5"] )
-            pageViewControllers.append(pageViewController)
+        DispatchQueue.main.async {
+            self.table.reloadData()
         }
         
     }
     
     func handle(error: Error) {
-        print("Uh oh, something went wrong. You can do what you want with this \(error)")
+        print("Uh oh, something went wrong while fetchig data from Contentful")
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -68,7 +74,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return pageViewControllers.count
         
     }
     
@@ -90,19 +96,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let pageViewController = pageViewControllers[indexPath.row]
         pageViewController.removeFromParentViewController()
         pageViewController.view.removeFromSuperview()
-
+        
     }
- 
     
-
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     
-
-
+    
+    
 }
 

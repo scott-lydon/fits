@@ -20,6 +20,8 @@ class FitVC: UIViewController {
     
     @IBOutlet weak var price: UILabel!
     
+    
+    
     var fit : Fit?
     
     var index = 0
@@ -35,7 +37,7 @@ class FitVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         if index == 0 {
             
             self.imageView.image = loadImage(atURL: (fit?.imageURL)!)
@@ -43,15 +45,14 @@ class FitVC: UIViewController {
             self.text.text = fit?.text
             self.price.text = " "
             self.button.isHidden = true
-            
 
         } else {
             
             self.imageView.image = loadImage(atURL: (fit?.productImage[index-1])!)
             self.name.text = fit?.brand[index-1]
             self.text.text = fit?.productName[index-1]
-            self.price.text = "$ " + "\(fit?.price[index-1])"
-            self.button.titleLabel?.text = "Buy at " + (fit?.storeName[index-1])!
+            self.price.text = "$ " + "\(fit!.price[index-1])"
+            self.button.setTitle("Buy at " + (fit?.storeName[index-1])!, for: UIControlState.normal)
             
         }
         

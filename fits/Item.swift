@@ -13,6 +13,6 @@ struct Item {
     var product : String
     var price : String
     var buyLink : String
-    var imageURL : String
+    var imageURL : URL
     var storeName : String
 }

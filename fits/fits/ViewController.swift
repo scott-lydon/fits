@@ -22,19 +22,80 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var pageViewControllers = [FitPageVC]()
 
 
-
+    private func loadImage(atURL url: URL) -> UIImage? {
+        
+        if let data = try? Data(contentsOf: url) {
+            return UIImage(data: data)
+        }
+        
+        return nil
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        client.fetchEntries(matching: ["limit": 100]) { [weak self] (result: Result<Contentful.Array<Entry>>) in
+        client.fetchEntries(matching: ["limit": 5]) { [weak self] (result: Result<Contentful.Array<Entry>>) in
             switch result {
             case .success(let entries):
-                print("=================Printing Entries=================")
                 entries.items.forEach { entry in
-                    print(entry.identifier)
+                    
+                    if let name = entry.fields["name"] as? String {
+                        print(name)
+                    }
+                    
+                    if let text = entry.fields["text"] as? String {
+                        print(text)
+                    }
+                    
+                    
+                    if let imageAsset = entry.fields["image"] as? Asset {
+                        
+                        if let file = imageAsset.fields["file"] as? [String:Any] {
+                            
+                            if let url = file["url"] as? String {
+                            
+                                let newURL = "https:"+url+"?w=700"
+                                
+                                if let imageURL = URL(string: newURL) {
+                                    
+                                    print(imageURL)
+                                }
+                                
+                            }
+                        }
+                    }
+                    
+//                    if let image = self.loadImage(atURL: entry.fields) {
+//                        print("YES")
+//                    }
+                    
+                    if let brand = entry.fields["brand"] as? [String] {
+                        print(brand)
+                    }
+                    
+                   
+                    
+                    if let productName = entry.fields["productName"] as? [String] {
+                        print(productName)
+                    }
+                    
+                    if let price = entry.fields["price"] as? [Any] {
+                        print(price)
+                    }
+                    
+                    if let storeName = entry.fields["storeName"] as? [String] {
+                        print(storeName)
+                    }
+                    
+                    if let buyLink = entry.fields["buyLink"] as? [String] {
+                        print(buyLink)
+                    }
+                    
+                    print("")
+                    print("")
+
+                    
                 }
-                print("==============Done Printing Entries===============")
             case .error(let error):
                 self?.handle(error: error)
             }

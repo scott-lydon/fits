@@ -23,12 +23,12 @@
 /* Begin PBXFileReference section */
 		333E278A1E7CA27600306FEB /* fits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		333E278D1E7CA27600306FEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		333E278F1E7CA27600306FEB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		333E278F1E7CA27600306FEB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = fits/ViewController.swift; sourceTree = "<group>"; };
 		333E27921E7CA27600306FEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		333E27941E7CA27600306FEB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		333E27971E7CA27600306FEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		333E27991E7CA27600306FEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		336BD7731E8330F90081165D /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		336BD7731E8330F90081165D /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		337D9A6A1E8073910032824D /* FitVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FitVC.swift; sourceTree = "<group>"; };
 		337D9A6C1E80746B0032824D /* FitPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FitPageVC.swift; sourceTree = "<group>"; };
 		337D9A6E1E8089400032824D /* Fit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Fit.swift; path = fits/Fit.swift; sourceTree = "<group>"; };
@@ -57,6 +57,7 @@
 				337D9A6C1E80746B0032824D /* FitPageVC.swift */,
 				337D9A6E1E8089400032824D /* Fit.swift */,
 				33DB85F01E81E7050033D26E /* Item.swift */,
+				333E278F1E7CA27600306FEB /* ViewController.swift */,
 				333E278C1E7CA27600306FEB /* fits */,
 				333E278B1E7CA27600306FEB /* Products */,
 				336BD7731E8330F90081165D /* Podfile */,
@@ -76,7 +77,6 @@
 		333E278C1E7CA27600306FEB /* fits */ = {
 			isa = PBXGroup;
 			children = (
-				333E278F1E7CA27600306FEB /* ViewController.swift */,
 				333E27911E7CA27600306FEB /* Main.storyboard */,
 				333E278D1E7CA27600306FEB /* AppDelegate.swift */,
 				333E27941E7CA27600306FEB /* Assets.xcassets */,

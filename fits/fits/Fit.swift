@@ -7,29 +7,108 @@
 //
 
 import Foundation
+import Contentful
 
 class Fit {
     
-    var name : String
-    var text : String
-    var imageURL : URL
-    var productImage : [URL]
-    var brand : [String]
-    var productName : [String]
-    var price : [Int]
-    var storeName : [String]
-    var buyLink : [URL]
+    var name : String = ""
+    var text : String = ""
+    var imageURL : URL?
+    var productImage : [URL] = []
+    var brand : [String] = []
+    var productName : [String] = []
+    var price : [Int] = []
+    var storeName : [String] = []
+    var buyLink : [URL] = []
     
-    init(name:String, text:String, imageURL : URL, productImage : [URL], brand : [String], productName : [String], price : [Int], storeName : [String], buyLink : [URL]) {
-        self.name = name
-        self.text = text
-        self.imageURL = imageURL
-        self.productImage = productImage
-        self.brand = brand
-        self.productName = productName
-        self.price = price
-        self.storeName = storeName
-        self.buyLink = buyLink
+    init(entry: Entry) {
         
+        if let name = entry.fields["name"] as? String {
+            self.name = name
+
+        }
+        
+        if let text = entry.fields["text"] as? String {
+            self.text = text
+
+        }
+        
+        
+        if let imageAsset = entry.fields["image"] as? Asset {
+            
+            if let file = imageAsset.fields["file"] as? [String:Any] {
+                
+                if let url = file["url"] as? String {
+                    
+                    let newURL = "https:"+url+"?w=700"
+                    
+                    if let imageURL = URL(string: newURL) {
+                        
+                        self.imageURL = imageURL
+
+                    }
+                    
+                }
+            }
+        }
+        
+        if let productImageAssets = entry.fields["productImage"] as? [Asset] {
+            
+            var productImage : [URL] = []
+            
+            for asset in productImageAssets {
+                
+                if let file = asset.fields["file"] as? [String:Any] {
+                    
+                    if let url = file["url"] as? String {
+                        
+                        let newURL = "https:"+url+"?w=700"
+                        
+                        if let productURL = URL(string: newURL) {
+                            
+                            productImage.append(productURL)
+                        }
+                        
+                    }
+                }
+            }
+            
+            self.productImage = productImage
+        }
+        
+        
+        if let brand = entry.fields["brand"] as? [String] {
+            self.brand = brand
+        }
+        
+        if let productName = entry.fields["productName"] as? [String] {
+            self.productName = productName
+        }
+        
+        if let priceString = entry.fields["price"] as? [String] {
+            var price = [Int]()
+            for string in priceString {
+                if let int = Int("\(string)") {
+                    price.append(int)
+                }
+            }
+            self.price = price
+        }
+        
+        if let storeName = entry.fields["storeName"] as? [String] {
+            self.storeName = storeName
+        }
+        
+        if let buyLinkString = entry.fields["buyLink"] as? [String] {
+            var buyLink : [URL] = []
+            for link in buyLinkString {
+                
+                if let linkURL = URL(string: link) {
+                    buyLink.append(linkURL)
+                }
+            }
+            
+            self.buyLink = buyLink
+        }
     }
 }

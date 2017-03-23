@@ -14,6 +14,8 @@ let SPACE_ID = "omalhxi5j9ol"
 let ACCESS_TOKEN = "53feb22a0f6700e51ae6308aaa809fba1c700e13a9f65d9395132d8b812f5a1f"
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    var fits = [Fit]()
 
     let client: Client = Client(spaceIdentifier: SPACE_ID, accessToken: ACCESS_TOKEN)
 
@@ -38,7 +40,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             switch result {
             case .success(let entries):
                 entries.items.forEach { entry in
-                    
+                                        
                     if let name = entry.fields["name"] as? String {
                         print(name)
                     }
@@ -77,9 +79,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                                     
                                     let newURL = "https:"+url+"?w=700"
                                     
-                                    if let imageURL = URL(string: newURL) {
+                                    if let productURL = URL(string: newURL) {
                                         
-                                        productImage.append(imageURL)
+                                        productImage.append(productURL)
                                     }
                                     
                                 }
@@ -98,7 +100,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                         print(productName)
                     }
                     
-                    if let price = entry.fields["price"] as? [Any] {
+                    if let priceString = entry.fields["price"] as? [String] {
+                        var price = [Int]()
+                        for string in priceString {
+                            if let int = Int("\(string)") {
+                                price.append(int)
+                            }
+                        }
                         print(price)
                     }
                     
@@ -118,9 +126,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                         print(buyLink)
                     }
                     
+                    
                     print("")
                     print("")
 
+//                fits.append(Fit(name: name, text: text, imageURL: imageURL, productImage: productImage, brand: brand, productName: productName, price: price, storeName: storeName, buyLink: buyLink))
                     
                 }
             case .error(let error):

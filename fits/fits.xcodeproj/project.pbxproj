@@ -16,7 +16,6 @@
 		337D9A6B1E8073910032824D /* FitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337D9A6A1E8073910032824D /* FitVC.swift */; };
 		337D9A6D1E80746B0032824D /* FitPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337D9A6C1E80746B0032824D /* FitPageVC.swift */; };
 		337D9A6F1E8089400032824D /* Fit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337D9A6E1E8089400032824D /* Fit.swift */; };
-		33DB85F11E81E7050033D26E /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DB85F01E81E7050033D26E /* Item.swift */; };
 		6E0CDEAC1E5521784CDEA5AE /* Pods_fits.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFDAB4B6D10669F5CE807DB9 /* Pods_fits.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,7 +31,6 @@
 		337D9A6A1E8073910032824D /* FitVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FitVC.swift; sourceTree = "<group>"; };
 		337D9A6C1E80746B0032824D /* FitPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FitPageVC.swift; sourceTree = "<group>"; };
 		337D9A6E1E8089400032824D /* Fit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Fit.swift; path = fits/Fit.swift; sourceTree = "<group>"; };
-		33DB85F01E81E7050033D26E /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		6D2A57DABCADC7B095CCC2B3 /* Pods-fits.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fits.release.xcconfig"; path = "Pods/Target Support Files/Pods-fits/Pods-fits.release.xcconfig"; sourceTree = "<group>"; };
 		F8B97D0250A5CBB28BB16D96 /* Pods-fits.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fits.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fits/Pods-fits.debug.xcconfig"; sourceTree = "<group>"; };
 		FFDAB4B6D10669F5CE807DB9 /* Pods_fits.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fits.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,7 +54,6 @@
 				337D9A6A1E8073910032824D /* FitVC.swift */,
 				337D9A6C1E80746B0032824D /* FitPageVC.swift */,
 				337D9A6E1E8089400032824D /* Fit.swift */,
-				33DB85F01E81E7050033D26E /* Item.swift */,
 				333E278F1E7CA27600306FEB /* ViewController.swift */,
 				333E278C1E7CA27600306FEB /* fits */,
 				333E278B1E7CA27600306FEB /* Products */,
@@ -232,7 +229,6 @@
 				337D9A6B1E8073910032824D /* FitVC.swift in Sources */,
 				337D9A6F1E8089400032824D /* Fit.swift in Sources */,
 				333E278E1E7CA27600306FEB /* AppDelegate.swift in Sources */,
-				33DB85F11E81E7050033D26E /* Item.swift in Sources */,
 				337D9A6D1E80746B0032824D /* FitPageVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

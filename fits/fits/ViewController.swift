@@ -57,7 +57,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                                 let newURL = "https:"+url+"?w=700"
                                 
                                 if let imageURL = URL(string: newURL) {
-                                    
+                            
                                     print(imageURL)
                                 }
                                 
@@ -65,15 +65,34 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                         }
                     }
                     
-//                    if let image = self.loadImage(atURL: entry.fields) {
-//                        print("YES")
-//                    }
+                    if let productImageAssets = entry.fields["productImage"] as? [Asset] {
+                        
+                        var productImage : [URL] = []
+                        
+                        for asset in productImageAssets {
+                            
+                            if let file = asset.fields["file"] as? [String:Any] {
+                                
+                                if let url = file["url"] as? String {
+                                    
+                                    let newURL = "https:"+url+"?w=700"
+                                    
+                                    if let imageURL = URL(string: newURL) {
+                                        
+                                        productImage.append(imageURL)
+                                    }
+                                    
+                                }
+                            }
+                        }
+                        
+                        print(productImage)
+                    }
+                    
                     
                     if let brand = entry.fields["brand"] as? [String] {
                         print(brand)
                     }
-                    
-                   
                     
                     if let productName = entry.fields["productName"] as? [String] {
                         print(productName)
@@ -87,7 +106,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                         print(storeName)
                     }
                     
-                    if let buyLink = entry.fields["buyLink"] as? [String] {
+                    if let buyLinkString = entry.fields["buyLink"] as? [String] {
+                        var buyLink : [URL] = []
+                        for link in buyLinkString {
+                            
+                            if let linkURL = URL(string: link) {
+                                buyLink.append(linkURL)
+                            }
+                        }
+                        
                         print(buyLink)
                     }
                     

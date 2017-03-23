@@ -36,7 +36,9 @@ class FitVC: UIViewController {
     }
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        
     
         if index == 0 {
             
@@ -53,6 +55,7 @@ class FitVC: UIViewController {
             self.text.text = fit?.productName[index-1]
             self.price.text = "$ " + "\(fit!.price[index-1])"
             self.button.setTitle("Buy at " + (fit?.storeName[index-1])!, for: UIControlState.normal)
+            button.layer.cornerRadius = 5
             
         }
         

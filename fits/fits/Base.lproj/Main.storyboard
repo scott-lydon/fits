@@ -121,7 +121,7 @@
                         <constraints>
                             <constraint firstItem="c5i-ce-pvw" firstAttribute="trailing" secondItem="nh6-MQ-Wzh" secondAttribute="trailing" constant="-15" id="33m-mF-Pfx"/>
                             <constraint firstItem="fyC-bG-Nxi" firstAttribute="trailing" secondItem="nh6-MQ-Wzh" secondAttribute="trailing" constant="-15" id="5rf-oT-FJj"/>
-                            <constraint firstItem="0Mm-9X-d9T" firstAttribute="height" secondItem="nh6-MQ-Wzh" secondAttribute="height" multiplier="0.7" id="FaR-Sn-1HQ"/>
+                            <constraint firstItem="0Mm-9X-d9T" firstAttribute="height" secondItem="nh6-MQ-Wzh" secondAttribute="height" multiplier="0.75" id="FaR-Sn-1HQ"/>
                             <constraint firstItem="oqf-Gh-rGq" firstAttribute="top" secondItem="fyC-bG-Nxi" secondAttribute="bottom" constant="21.5" id="JCf-C7-Q5i"/>
                             <constraint firstItem="fyC-bG-Nxi" firstAttribute="top" secondItem="4n7-5x-M5R" secondAttribute="bottom" constant="10" id="OY1-qD-pK0"/>
                             <constraint firstItem="4n7-5x-M5R" firstAttribute="top" secondItem="0Mm-9X-d9T" secondAttribute="bottom" constant="15" id="Yyo-7Y-lEE"/>

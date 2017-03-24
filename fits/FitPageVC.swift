@@ -13,7 +13,7 @@ class FitPageVC: UIPageViewController {
     var fit : Fit?
     var selectedPageIndex  = 0
     
-    var pageControl : UIPageControl = UIPageControl(frame: CGRect(x: UIScreen.main.bounds.width - 70, y: 0.3 * UIScreen.main.bounds.height + 212, width: 30, height: 20))
+    var pageControl : UIPageControl = UIPageControl(frame: CGRect(x: UIScreen.main.bounds.width - 70, y: 0.684 * UIScreen.main.bounds.height, width: 30, height: 20))
     
     override func viewDidLoad() {
         super.viewDidLoad()

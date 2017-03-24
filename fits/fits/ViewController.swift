@@ -34,7 +34,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         reload()
-        table.rowHeight = 0.85 * view.frame.size.height
+        table.rowHeight = 0.88 * view.frame.size.height
         super.viewDidLoad()
         
     }

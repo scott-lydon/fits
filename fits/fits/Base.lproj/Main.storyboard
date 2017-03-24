@@ -173,7 +173,10 @@
                                     <constraint firstAttribute="width" secondItem="ym1-p1-u2y" secondAttribute="height" multiplier="1:1" id="Z5f-Ec-4Ya"/>
                                     <constraint firstAttribute="height" constant="80" id="s6q-1F-TCi"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="close"/>
+                                <state key="normal" backgroundImage="close_orange"/>
+                                <state key="selected" backgroundImage="close"/>
+                                <state key="highlighted" backgroundImage="close"/>
+                                <state key="focused" backgroundImage="close"/>
                                 <connections>
                                     <action selector="closeButton:" destination="QxR-4K-ThC" eventType="touchUpInside" id="WiH-KS-6cS"/>
                                 </connections>
@@ -191,6 +194,7 @@
                             <constraint firstItem="EJD-YI-wPB" firstAttribute="top" secondItem="qcv-qC-BiU" secondAttribute="top" id="uDY-eq-hNq"/>
                         </constraints>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="webView" destination="EJD-YI-wPB" id="u39-x1-o4L"/>
                     </connections>
@@ -202,6 +206,7 @@
     </scenes>
     <resources>
         <image name="close" width="88" height="88"/>
+        <image name="close_orange" width="99" height="100"/>
         <image name="illgroumet_red_smalll" width="152" height="30"/>
     </resources>
 </document>

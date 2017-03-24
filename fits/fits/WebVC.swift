@@ -20,7 +20,13 @@ class WebVC: UIViewController, UIWebViewDelegate {
     
     var urlReceptacle : URL?
     
-
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
+    }
+    
+    override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
+        return .fade
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

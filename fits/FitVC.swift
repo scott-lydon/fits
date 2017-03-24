@@ -20,11 +20,22 @@ class FitVC: UIViewController {
     
     @IBOutlet weak var price: UILabel!
     
-    
-    
     var fit : Fit?
     
     var index = 0
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let destination = segue.destination as? WebVC {
+            destination.urlReceptacle = fit?.buyLink[index-1]
+            
+        }
+    }
+    
+    @IBAction func webSegue(_ sender: Any) {
+        
+        self.performSegue(withIdentifier: "webSegue", sender: Any?.self)
+    }
     
 //    private func loadImage(atURL url: URL) -> UIImage? {
 //        
@@ -45,7 +56,6 @@ class FitVC: UIViewController {
                 DispatchQueue.main.async {
                     self.imageView.image = fetchedImage
                 }
-                
             })
             self.name.text = fit?.name
             self.text.text = fit?.text
@@ -54,7 +64,9 @@ class FitVC: UIViewController {
 
         } else {
             fit?.loadImage(atURL: (fit?.productImage[index-1])!, completion: { (fetchedImage) in
-                self.imageView.image = fetchedImage
+                DispatchQueue.main.async {
+                    self.imageView.image = fetchedImage
+                }
             })
             self.name.text = fit?.brand[index-1]
             self.text.text = fit?.productName[index-1]

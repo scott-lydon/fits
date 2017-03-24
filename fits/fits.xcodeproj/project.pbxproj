@@ -16,6 +16,7 @@
 		337D9A6B1E8073910032824D /* FitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337D9A6A1E8073910032824D /* FitVC.swift */; };
 		337D9A6D1E80746B0032824D /* FitPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337D9A6C1E80746B0032824D /* FitPageVC.swift */; };
 		337D9A6F1E8089400032824D /* Fit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337D9A6E1E8089400032824D /* Fit.swift */; };
+		33AF388D1E85B8A800377615 /* WebVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AF388C1E85B8A800377615 /* WebVC.swift */; };
 		33C21EA31E8367D400A66BF1 /* ContentfulManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C21EA21E8367D400A66BF1 /* ContentfulManager.swift */; };
 		6E0CDEAC1E5521784CDEA5AE /* Pods_fits.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFDAB4B6D10669F5CE807DB9 /* Pods_fits.framework */; };
 /* End PBXBuildFile section */
@@ -32,6 +33,7 @@
 		337D9A6A1E8073910032824D /* FitVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FitVC.swift; sourceTree = "<group>"; };
 		337D9A6C1E80746B0032824D /* FitPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FitPageVC.swift; sourceTree = "<group>"; };
 		337D9A6E1E8089400032824D /* Fit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Fit.swift; path = fits/Fit.swift; sourceTree = "<group>"; };
+		33AF388C1E85B8A800377615 /* WebVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebVC.swift; sourceTree = "<group>"; };
 		33C21EA21E8367D400A66BF1 /* ContentfulManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentfulManager.swift; sourceTree = "<group>"; };
 		6D2A57DABCADC7B095CCC2B3 /* Pods-fits.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fits.release.xcconfig"; path = "Pods/Target Support Files/Pods-fits/Pods-fits.release.xcconfig"; sourceTree = "<group>"; };
 		F8B97D0250A5CBB28BB16D96 /* Pods-fits.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fits.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fits/Pods-fits.debug.xcconfig"; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				333E27911E7CA27600306FEB /* Main.storyboard */,
+				33AF388C1E85B8A800377615 /* WebVC.swift */,
 				333E278D1E7CA27600306FEB /* AppDelegate.swift */,
 				333E27941E7CA27600306FEB /* Assets.xcassets */,
 				333E27961E7CA27600306FEB /* LaunchScreen.storyboard */,
@@ -229,6 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				333E27901E7CA27600306FEB /* ViewController.swift in Sources */,
+				33AF388D1E85B8A800377615 /* WebVC.swift in Sources */,
 				337D9A6B1E8073910032824D /* FitVC.swift in Sources */,
 				337D9A6F1E8089400032824D /* Fit.swift in Sources */,
 				333E278E1E7CA27600306FEB /* AppDelegate.swift in Sources */,

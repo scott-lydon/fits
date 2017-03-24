@@ -109,6 +109,10 @@
                                 <state key="highlighted">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="0.38266915137614677" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="webSegue:" destination="A38-lh-bua" eventType="touchUpInside" id="KhS-Z5-zL4"/>
+                                    <segue destination="QxR-4K-ThC" kind="show" identifier="webSegue" id="ikR-W6-ApK"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Bathing Ape" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4n7-5x-M5R">
                                 <rect key="frame" x="15" y="465" width="106" height="22"/>
@@ -147,10 +151,10 @@
             </objects>
             <point key="canvasLocation" x="1016.8" y="138.98050974512745"/>
         </scene>
-        <!--View Controller-->
+        <!--WebVC-->
         <scene sceneID="onO-2R-Xk4">
             <objects>
-                <viewController id="QxR-4K-ThC" sceneMemberID="viewController">
+                <viewController id="QxR-4K-ThC" customClass="WebVC" customModule="fits" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="dwf-4C-rBR"/>
                         <viewControllerLayoutGuide type="bottom" id="JpC-xL-9Jf"/>
@@ -170,6 +174,9 @@
                                     <constraint firstAttribute="height" constant="80" id="s6q-1F-TCi"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="close"/>
+                                <connections>
+                                    <action selector="closeButton:" destination="QxR-4K-ThC" eventType="touchUpInside" id="WiH-KS-6cS"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -184,6 +191,9 @@
                             <constraint firstItem="EJD-YI-wPB" firstAttribute="top" secondItem="qcv-qC-BiU" secondAttribute="top" id="uDY-eq-hNq"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="webView" destination="EJD-YI-wPB" id="u39-x1-o4L"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P4f-Rn-MVG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -20,17 +20,20 @@ class Fit {
     var price : [Int] = []
     var storeName : [String] = []
     var buyLink : [URL] = []
+    var images : [URL: UIImage] = [:]
+
+    private let queue = DispatchQueue(label: "privateQueue", qos: DispatchQoS.background, attributes: .concurrent, autoreleaseFrequency: DispatchQueue.AutoreleaseFrequency.inherit, target: nil)
     
     init(entry: Entry) {
         
         if let name = entry.fields["name"] as? String {
             self.name = name
-
+            
         }
         
         if let text = entry.fields["text"] as? String {
             self.text = text
-
+            
         }
         
         
@@ -45,7 +48,7 @@ class Fit {
                     if let imageURL = URL(string: newURL) {
                         
                         self.imageURL = imageURL
-
+                        
                     }
                     
                 }
@@ -109,6 +112,27 @@ class Fit {
             }
             
             self.buyLink = buyLink
+        }
+    }
+    
+    public func loadImage(atURL url: URL, completion : @escaping (UIImage) -> Void)  {
+        queue.async {
+            if let image = self.images[url] {
+                completion(image)
+            } else {
+                URLSession.shared.dataTask(with: url, completionHandler: { (data, _, _) in
+                    if let newImage = UIImage(data: data!) {
+                        self.images[url] = newImage
+                        completion(newImage)
+                    }
+                }).resume()
+                if let data = try? Data(contentsOf: url) {
+                    if let newImage = UIImage(data: data) {
+                        self.images[url] = newImage
+                        completion(newImage)
+                    }
+                }
+            }
         }
     }
 }

@@ -7,16 +7,26 @@
 //
 
 import UIKit
+import Mixpanel
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    
+   
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        Mixpanel.initialize(token: "96e11d1fc0b860fec053d7737e96ded5")
+        FIRApp.configure()
+
         return true
+    }
+    
+    
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?)  -> Bool {
+            return true
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

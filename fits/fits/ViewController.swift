@@ -9,13 +9,17 @@
 import UIKit
 import Contentful
 import Interstellar
+import Mixpanel
 
 let SPACE_ID = "omalhxi5j9ol"
 let ACCESS_TOKEN = "53feb22a0f6700e51ae6308aaa809fba1c700e13a9f65d9395132d8b812f5a1f"
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    
     var pageViewControllers = [FitPageVC]()
+    
+    private let refreshControl = UIRefreshControl()
     
     let client: Client = Client(spaceIdentifier: SPACE_ID, accessToken: ACCESS_TOKEN)
     
@@ -81,6 +85,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "fitCell", for: indexPath)
         
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshControl
+        } else {
+            tableView.addSubview(refreshControl)
+        }
+        
+
         
         let pageViewController = pageViewControllers[indexPath.row]
         addChildViewController(pageViewController)
@@ -104,7 +115,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
     
     
     

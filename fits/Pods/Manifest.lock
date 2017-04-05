@@ -3,6 +3,9 @@ PODS:
     - Decodable (~> 0.5)
     - Interstellar (~> 2.0.0)
   - Decodable (0.5)
+  - Digits (2.8.0):
+    - TwitterCore (= 2.8.0)
+  - Fabric (1.6.11)
   - Firebase/Auth (3.15.0):
     - Firebase/Core
     - FirebaseAuth (= 3.1.1)
@@ -38,16 +41,25 @@ PODS:
   - Interstellar/Warpdrive (2.0.0):
     - Interstellar/Core
   - Mixpanel-swift (2.1.4)
+  - TwitterCore (2.8.0):
+    - Fabric
+  - UXCam (2.5.8)
 
 DEPENDENCIES:
   - Contentful
+  - Digits
+  - Fabric
   - Firebase/Auth
   - Firebase/Core
   - Mixpanel-swift
+  - TwitterCore
+  - UXCam
 
 SPEC CHECKSUMS:
   Contentful: 2b3ffedfdf360e97a49f722148526c85d4f40e60
   Decodable: 7c90acc68d357b71d0d6efc120faf9c53c644b7e
+  Digits: 401151fdcc955738142d53b89112960d3c2e3930
+  Fabric: 5911403591946b8228ab1c51d98f1d7137e863c6
   Firebase: 2b1cdfba1cda8589f32904a697cc753322bff9d8
   FirebaseAnalytics: 0d1b7d81d5021155be37702a94ba1ec16d45365d
   FirebaseAuth: cc8a1824170adbd351edb7f994490a3fb5c18be6
@@ -57,7 +69,9 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 5c046c76a1f859bc9c187e918f18e4fc7bb57b5e
   Interstellar: 63a760ff3a3657f791a4523de4b89727c51edec3
   Mixpanel-swift: 02c76c6ff25cac461eabb4d47365aab1681fb5d9
+  TwitterCore: e959987be23c767004d29eb7fab8d85d8585a2e5
+  UXCam: 76cb857694b8f1776998028de985d737b6852bce
 
-PODFILE CHECKSUM: efbbc18923a6bb5a010e72389be9210216c71d08
+PODFILE CHECKSUM: acf1dadfa3ec2aa1ff885f05482aae24b329a131
 
 COCOAPODS: 1.2.0

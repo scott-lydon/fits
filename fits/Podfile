@@ -7,5 +7,8 @@ target 'fits' do
     pod 'Mixpanel-swift'
     pod 'Firebase/Auth' 
     pod 'Firebase/Core'
-
+    pod 'UXCam'
+    pod 'Fabric'
+    pod 'Digits'
+    pod 'TwitterCore'
 end

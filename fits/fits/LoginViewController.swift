@@ -61,7 +61,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func signup(_ sender: Any) {
         
-        let alert = UIAlertController(title: "HEY", message: "YP", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Sign Up", message: "Please use a valid email address and password.", preferredStyle: .alert)
         
         let saveAction = UIAlertAction(title: "Save", style: .default) { action in
             
@@ -95,8 +95,9 @@ class LoginViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+// MARK: -Changes color of bottom line of username and password textfields.
+        username.addBottomBorderWithColor(color: UIColor.white, width: 1)
+        password.addBottomBorderWithColor(color: UIColor.white, width: 1)
     }
 
     override func didReceiveMemoryWarning() {
@@ -134,3 +135,12 @@ class LoginViewController: UIViewController {
 //    }
 //    
 //}
+// MARK: - Adds bottom line to username and password tesxtfields.
+extension UITextField {
+    func addBottomBorderWithColor(color: UIColor, width: CGFloat) {
+        let border = CALayer()
+        border.backgroundColor = color.cgColor
+        border.frame = CGRect(x: 0, y: self.frame.size.height - width, width: frame.size.width, height: width)
+        self.layer.addSublayer(border)
+    }
+}

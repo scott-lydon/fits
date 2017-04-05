@@ -20,7 +20,7 @@
 		338B4F041E8B0D8F00BEE1E9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 338B4F031E8B0D8F00BEE1E9 /* AVFoundation.framework */; };
 		33AF388D1E85B8A800377615 /* WebVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AF388C1E85B8A800377615 /* WebVC.swift */; };
 		33C21EA31E8367D400A66BF1 /* ContentfulManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C21EA21E8367D400A66BF1 /* ContentfulManager.swift */; };
-		33CAEB231E946B8900D4B80A /* GoogleService-Info (4).plist in Resources */ = {isa = PBXBuildFile; fileRef = 33CAEB221E946B8900D4B80A /* GoogleService-Info (4).plist */; };
+		33CAEB231E946B8900D4B80A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 33CAEB221E946B8900D4B80A /* GoogleService-Info.plist */; };
 		6E0CDEAC1E5521784CDEA5AE /* Pods_fits.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFDAB4B6D10669F5CE807DB9 /* Pods_fits.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,7 +40,7 @@
 		338B4F031E8B0D8F00BEE1E9 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		33AF388C1E85B8A800377615 /* WebVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebVC.swift; sourceTree = "<group>"; };
 		33C21EA21E8367D400A66BF1 /* ContentfulManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentfulManager.swift; sourceTree = "<group>"; };
-		33CAEB221E946B8900D4B80A /* GoogleService-Info (4).plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info (4).plist"; sourceTree = "<group>"; };
+		33CAEB221E946B8900D4B80A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6D2A57DABCADC7B095CCC2B3 /* Pods-fits.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fits.release.xcconfig"; path = "Pods/Target Support Files/Pods-fits/Pods-fits.release.xcconfig"; sourceTree = "<group>"; };
 		F8B97D0250A5CBB28BB16D96 /* Pods-fits.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fits.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fits/Pods-fits.debug.xcconfig"; sourceTree = "<group>"; };
 		FFDAB4B6D10669F5CE807DB9 /* Pods_fits.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fits.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,7 +67,7 @@
 				337D9A6E1E8089400032824D /* Fit.swift */,
 				333E278F1E7CA27600306FEB /* ViewController.swift */,
 				33C21EA21E8367D400A66BF1 /* ContentfulManager.swift */,
-				33CAEB221E946B8900D4B80A /* GoogleService-Info (4).plist */,
+				33CAEB221E946B8900D4B80A /* GoogleService-Info.plist */,
 				333E278C1E7CA27600306FEB /* fits */,
 				333E278B1E7CA27600306FEB /* Products */,
 				336BD7731E8330F90081165D /* Podfile */,
@@ -179,7 +179,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				33CAEB231E946B8900D4B80A /* GoogleService-Info (4).plist in Resources */,
+				33CAEB231E946B8900D4B80A /* GoogleService-Info.plist in Resources */,
 				333E27981E7CA27600306FEB /* LaunchScreen.storyboard in Resources */,
 				333E27951E7CA27600306FEB /* Assets.xcassets in Resources */,
 				336BD7741E8330F90081165D /* Podfile in Resources */,

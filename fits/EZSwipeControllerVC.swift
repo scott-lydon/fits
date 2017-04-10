@@ -82,7 +82,6 @@ extension EZSwipeControllerVC: EZSwipeControllerDataSource {
             leftPageRightIconView.addSubview(leftPageRightIconImage)
             
             let rightIconImage = #imageLiteral(resourceName: "ill_tiny_nav_icon")
-            UIBarButtonItem(
             let rightButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "ill_tiny_nav_icon"), style: UIBarButtonItemStyle.plain, target: self, action: nil)
 //            rightButtonItem.customView = leftPageRightIconView
 

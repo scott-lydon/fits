@@ -27,6 +27,8 @@
 		7522A5A31E9606F000EE13F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7522A5A21E9606F000EE13F2 /* Main.storyboard */; };
 		7538302C1E9C001400B422E4 /* AddLook.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7538302B1E9C001400B422E4 /* AddLook.storyboard */; };
 		7538302E1E9C005700B422E4 /* AddLookFVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7538302D1E9C005700B422E4 /* AddLookFVC.swift */; };
+		755A2B1A1E9C41C2000788E7 /* ImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755A2B171E9C41C2000788E7 /* ImagePickerController.swift */; };
+		755A2B1B1E9C41C2000788E7 /* ImageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755A2B181E9C41C2000788E7 /* ImageRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,8 @@
 		7522A5A21E9606F000EE13F2 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		7538302B1E9C001400B422E4 /* AddLook.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddLook.storyboard; sourceTree = "<group>"; };
 		7538302D1E9C005700B422E4 /* AddLookFVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddLookFVC.swift; sourceTree = "<group>"; };
+		755A2B171E9C41C2000788E7 /* ImagePickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImagePickerController.swift; path = Example/CustomRows/ImageRow/ImagePickerController.swift; sourceTree = "<group>"; };
+		755A2B181E9C41C2000788E7 /* ImageRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageRow.swift; path = Example/CustomRows/ImageRow/ImageRow.swift; sourceTree = "<group>"; };
 		F8B97D0250A5CBB28BB16D96 /* Pods-fits.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fits.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fits/Pods-fits.debug.xcconfig"; sourceTree = "<group>"; };
 		FFDAB4B6D10669F5CE807DB9 /* Pods_fits.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fits.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -126,8 +130,19 @@
 			children = (
 				7538302D1E9C005700B422E4 /* AddLookFVC.swift */,
 				7538302B1E9C001400B422E4 /* AddLook.storyboard */,
+				755A2B191E9C41C2000788E7 /* ImageRow */,
 			);
 			name = AddLooks;
+			sourceTree = "<group>";
+		};
+		755A2B191E9C41C2000788E7 /* ImageRow */ = {
+			isa = PBXGroup;
+			children = (
+				755A2B171E9C41C2000788E7 /* ImagePickerController.swift */,
+				755A2B181E9C41C2000788E7 /* ImageRow.swift */,
+			);
+			name = ImageRow;
+			path = "../../../Downloads/Eureka-master/Example";
 			sourceTree = "<group>";
 		};
 		E789E7E316A8E866E23FCAB5 /* Frameworks */ = {
@@ -266,11 +281,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				755A2B1B1E9C41C2000788E7 /* ImageRow.swift in Sources */,
 				333E27901E7CA27600306FEB /* ViewController.swift in Sources */,
 				7522A5A11E95FDA300EE13F2 /* CartVC.swift in Sources */,
 				33AF388D1E85B8A800377615 /* WebVC.swift in Sources */,
 				337D9A6B1E8073910032824D /* FitVC.swift in Sources */,
 				7538302E1E9C005700B422E4 /* AddLookFVC.swift in Sources */,
+				755A2B1A1E9C41C2000788E7 /* ImagePickerController.swift in Sources */,
 				7522A59F1E95FD5200EE13F2 /* UserProfileVC.swift in Sources */,
 				337D9A6F1E8089400032824D /* Fit.swift in Sources */,
 				7522A59D1E95D21C00EE13F2 /* EZSwipeControllerVC.swift in Sources */,

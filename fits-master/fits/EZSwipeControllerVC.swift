@@ -10,10 +10,12 @@ class EZSwipeControllerVC: EZSwipeController {
 
     override func setupView() {
         datasource = self
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = UIColor.white
     }
 }
 

@@ -96,6 +96,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/GoogleToolboxForMac/GoogleToolboxForMac.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Interstellar/Interstellar.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Mixpanel-swift/Mixpanel.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Stripe/Stripe.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/Contentful/Contentful.framework"
@@ -105,6 +106,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/GoogleToolboxForMac/GoogleToolboxForMac.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Interstellar/Interstellar.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Mixpanel-swift/Mixpanel.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Stripe/Stripe.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

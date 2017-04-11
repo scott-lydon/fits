@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		331D701F1E9D839000878B2E /* PaymentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331D701E1E9D839000878B2E /* PaymentHandler.swift */; };
+		331D70211E9D841D00878B2E /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331D70201E9D841D00878B2E /* Configuration.swift */; };
+		331D70261E9D8B1C00878B2E /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331D70251E9D8B1C00878B2E /* IntentHandler.swift */; };
 		332E715E1E8B1A5900836D6E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 332E715D1E8B1A5900836D6E /* GoogleService-Info.plist */; };
 		332E71601E8B1B3E00836D6E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332E715F1E8B1B3E00836D6E /* LoginViewController.swift */; };
 		333E278E1E7CA27600306FEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333E278D1E7CA27600306FEB /* AppDelegate.swift */; };
@@ -18,8 +21,9 @@
 		337D9A6D1E80746B0032824D /* FitPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337D9A6C1E80746B0032824D /* FitPageVC.swift */; };
 		337D9A6F1E8089400032824D /* Fit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337D9A6E1E8089400032824D /* Fit.swift */; };
 		338B4F041E8B0D8F00BEE1E9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 338B4F031E8B0D8F00BEE1E9 /* AVFoundation.framework */; };
+		3393F8501E9D5D060006E3BE /* CartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3393F84E1E9D5D060006E3BE /* CartCell.swift */; };
+		3393F8511E9D5D060006E3BE /* CartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3393F84F1E9D5D060006E3BE /* CartCell.xib */; };
 		33AF388D1E85B8A800377615 /* WebVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AF388C1E85B8A800377615 /* WebVC.swift */; };
-		33C21EA31E8367D400A66BF1 /* ContentfulManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C21EA21E8367D400A66BF1 /* ContentfulManager.swift */; };
 		6E0CDEAC1E5521784CDEA5AE /* Pods_fits.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFDAB4B6D10669F5CE807DB9 /* Pods_fits.framework */; };
 		7522A59D1E95D21C00EE13F2 /* EZSwipeControllerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7522A59C1E95D21C00EE13F2 /* EZSwipeControllerVC.swift */; };
 		7522A59F1E95FD5200EE13F2 /* UserProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7522A59E1E95FD5200EE13F2 /* UserProfileVC.swift */; };
@@ -28,26 +32,31 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		332E715D1E8B1A5900836D6E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		332E715F1E8B1B3E00836D6E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		331D701E1E9D839000878B2E /* PaymentHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentHandler.swift; sourceTree = "<group>"; };
+		331D70201E9D841D00878B2E /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		331D70251E9D8B1C00878B2E /* IntentHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
+		331D70281E9D8B6000878B2E /* fits.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = fits.entitlements; sourceTree = "<group>"; };
+		332E715D1E8B1A5900836D6E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		332E715F1E8B1B3E00836D6E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = fits/LoginViewController.swift; sourceTree = "<group>"; };
 		333E278A1E7CA27600306FEB /* fits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fits.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		333E278D1E7CA27600306FEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		333E278D1E7CA27600306FEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = fits/AppDelegate.swift; sourceTree = "<group>"; };
 		333E278F1E7CA27600306FEB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = fits/ViewController.swift; sourceTree = "<group>"; };
 		333E27941E7CA27600306FEB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		333E27971E7CA27600306FEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		333E27991E7CA27600306FEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		336BD7731E8330F90081165D /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		337D9A6A1E8073910032824D /* FitVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FitVC.swift; sourceTree = "<group>"; };
-		337D9A6C1E80746B0032824D /* FitPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FitPageVC.swift; sourceTree = "<group>"; };
-		337D9A6E1E8089400032824D /* Fit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Fit.swift; path = fits/Fit.swift; sourceTree = "<group>"; };
+		337D9A6A1E8073910032824D /* FitVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FitVC.swift; path = ../FitVC.swift; sourceTree = "<group>"; };
+		337D9A6C1E80746B0032824D /* FitPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FitPageVC.swift; path = ../FitPageVC.swift; sourceTree = "<group>"; };
+		337D9A6E1E8089400032824D /* Fit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fit.swift; sourceTree = "<group>"; };
 		338B4F031E8B0D8F00BEE1E9 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		3393F84E1E9D5D060006E3BE /* CartCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartCell.swift; sourceTree = "<group>"; };
+		3393F84F1E9D5D060006E3BE /* CartCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CartCell.xib; sourceTree = "<group>"; };
 		33AF388C1E85B8A800377615 /* WebVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebVC.swift; sourceTree = "<group>"; };
-		33C21EA21E8367D400A66BF1 /* ContentfulManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentfulManager.swift; sourceTree = "<group>"; };
 		6D2A57DABCADC7B095CCC2B3 /* Pods-fits.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fits.release.xcconfig"; path = "Pods/Target Support Files/Pods-fits/Pods-fits.release.xcconfig"; sourceTree = "<group>"; };
-		7522A59C1E95D21C00EE13F2 /* EZSwipeControllerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EZSwipeControllerVC.swift; sourceTree = "<group>"; };
+		7522A59C1E95D21C00EE13F2 /* EZSwipeControllerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EZSwipeControllerVC.swift; path = fits/EZSwipeControllerVC.swift; sourceTree = "<group>"; };
 		7522A59E1E95FD5200EE13F2 /* UserProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileVC.swift; sourceTree = "<group>"; };
 		7522A5A01E95FDA300EE13F2 /* CartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartVC.swift; sourceTree = "<group>"; };
-		7522A5A21E9606F000EE13F2 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		7522A5A21E9606F000EE13F2 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = fits/Main.storyboard; sourceTree = "<group>"; };
 		F8B97D0250A5CBB28BB16D96 /* Pods-fits.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fits.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fits/Pods-fits.debug.xcconfig"; sourceTree = "<group>"; };
 		FFDAB4B6D10669F5CE807DB9 /* Pods_fits.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fits.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -65,16 +74,65 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		331D70221E9D842900878B2E /* ApplePay */ = {
+			isa = PBXGroup;
+			children = (
+				331D70271E9D8B2400878B2E /* Intents Extension */,
+				331D701E1E9D839000878B2E /* PaymentHandler.swift */,
+				331D70201E9D841D00878B2E /* Configuration.swift */,
+			);
+			name = ApplePay;
+			path = fits;
+			sourceTree = "<group>";
+		};
+		331D70231E9D886100878B2E /* CartCell */ = {
+			isa = PBXGroup;
+			children = (
+				3393F84E1E9D5D060006E3BE /* CartCell.swift */,
+				3393F84F1E9D5D060006E3BE /* CartCell.xib */,
+			);
+			name = CartCell;
+			sourceTree = "<group>";
+		};
+		331D70241E9D886B00878B2E /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				7522A5A01E95FDA300EE13F2 /* CartVC.swift */,
+				331D70231E9D886100878B2E /* CartCell */,
+			);
+			name = Cart;
+			path = fits;
+			sourceTree = "<group>";
+		};
+		331D70271E9D8B2400878B2E /* Intents Extension */ = {
+			isa = PBXGroup;
+			children = (
+				331D70251E9D8B1C00878B2E /* IntentHandler.swift */,
+			);
+			name = "Intents Extension";
+			sourceTree = "<group>";
+		};
+		331D70291E9D8BE000878B2E /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				7522A59E1E95FD5200EE13F2 /* UserProfileVC.swift */,
+			);
+			name = Profile;
+			path = fits;
+			sourceTree = "<group>";
+		};
 		333E27811E7CA27600306FEB = {
 			isa = PBXGroup;
 			children = (
-				337D9A6A1E8073910032824D /* FitVC.swift */,
-				337D9A6C1E80746B0032824D /* FitPageVC.swift */,
-				337D9A6E1E8089400032824D /* Fit.swift */,
+				7522A5A21E9606F000EE13F2 /* Main.storyboard */,
+				333E278D1E7CA27600306FEB /* AppDelegate.swift */,
 				333E278F1E7CA27600306FEB /* ViewController.swift */,
-				33C21EA21E8367D400A66BF1 /* ContentfulManager.swift */,
-				332E715D1E8B1A5900836D6E /* GoogleService-Info.plist */,
+				331D70241E9D886B00878B2E /* Cart */,
+				331D70291E9D8BE000878B2E /* Profile */,
+				332E715F1E8B1B3E00836D6E /* LoginViewController.swift */,
+				7522A59C1E95D21C00EE13F2 /* EZSwipeControllerVC.swift */,
 				333E278C1E7CA27600306FEB /* fits */,
+				331D70221E9D842900878B2E /* ApplePay */,
 				333E278B1E7CA27600306FEB /* Products */,
 				336BD7731E8330F90081165D /* Podfile */,
 				4DD2E0956F59860E2B53C2A4 /* Pods */,
@@ -93,15 +151,14 @@
 		333E278C1E7CA27600306FEB /* fits */ = {
 			isa = PBXGroup;
 			children = (
-				7522A5A01E95FDA300EE13F2 /* CartVC.swift */,
-				7522A59E1E95FD5200EE13F2 /* UserProfileVC.swift */,
-				7522A5A21E9606F000EE13F2 /* Main.storyboard */,
-				7522A59C1E95D21C00EE13F2 /* EZSwipeControllerVC.swift */,
-				332E715F1E8B1B3E00836D6E /* LoginViewController.swift */,
+				331D70281E9D8B6000878B2E /* fits.entitlements */,
+				337D9A6A1E8073910032824D /* FitVC.swift */,
+				337D9A6C1E80746B0032824D /* FitPageVC.swift */,
+				337D9A6E1E8089400032824D /* Fit.swift */,
 				33AF388C1E85B8A800377615 /* WebVC.swift */,
-				333E278D1E7CA27600306FEB /* AppDelegate.swift */,
 				333E27941E7CA27600306FEB /* Assets.xcassets */,
 				333E27961E7CA27600306FEB /* LaunchScreen.storyboard */,
+				332E715D1E8B1A5900836D6E /* GoogleService-Info.plist */,
 				333E27991E7CA27600306FEB /* Info.plist */,
 			);
 			path = fits;
@@ -160,8 +217,13 @@
 				TargetAttributes = {
 					333E27891E7CA27600306FEB = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 8L7Z3WU967;
+						DevelopmentTeam = 44PY6HEEAQ;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplePay = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -191,6 +253,7 @@
 				333E27981E7CA27600306FEB /* LaunchScreen.storyboard in Resources */,
 				7522A5A31E9606F000EE13F2 /* Main.storyboard in Resources */,
 				333E27951E7CA27600306FEB /* Assets.xcassets in Resources */,
+				3393F8511E9D5D060006E3BE /* CartCell.xib in Resources */,
 				332E715E1E8B1A5900836D6E /* GoogleService-Info.plist in Resources */,
 				336BD7741E8330F90081165D /* Podfile in Resources */,
 			);
@@ -253,15 +316,18 @@
 			files = (
 				333E27901E7CA27600306FEB /* ViewController.swift in Sources */,
 				7522A5A11E95FDA300EE13F2 /* CartVC.swift in Sources */,
+				331D70211E9D841D00878B2E /* Configuration.swift in Sources */,
 				33AF388D1E85B8A800377615 /* WebVC.swift in Sources */,
+				331D70261E9D8B1C00878B2E /* IntentHandler.swift in Sources */,
+				331D701F1E9D839000878B2E /* PaymentHandler.swift in Sources */,
 				337D9A6B1E8073910032824D /* FitVC.swift in Sources */,
 				7522A59F1E95FD5200EE13F2 /* UserProfileVC.swift in Sources */,
 				337D9A6F1E8089400032824D /* Fit.swift in Sources */,
 				7522A59D1E95D21C00EE13F2 /* EZSwipeControllerVC.swift in Sources */,
+				3393F8501E9D5D060006E3BE /* CartCell.swift in Sources */,
 				332E71601E8B1B3E00836D6E /* LoginViewController.swift in Sources */,
 				333E278E1E7CA27600306FEB /* AppDelegate.swift in Sources */,
 				337D9A6D1E80746B0032824D /* FitPageVC.swift in Sources */,
-				33C21EA31E8367D400A66BF1 /* ContentfulManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,10 +441,11 @@
 			baseConfigurationReference = F8B97D0250A5CBB28BB16D96 /* Pods-fits.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = fits/fits.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 8L7Z3WU967;
+				DEVELOPMENT_TEAM = 44PY6HEEAQ;
 				INFOPLIST_FILE = fits/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = vibes.illgourmet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -391,10 +458,11 @@
 			baseConfigurationReference = 6D2A57DABCADC7B095CCC2B3 /* Pods-fits.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = fits/fits.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 8L7Z3WU967;
+				DEVELOPMENT_TEAM = 44PY6HEEAQ;
 				INFOPLIST_FILE = fits/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = vibes.illgourmet;
 				PRODUCT_NAME = "$(TARGET_NAME)";

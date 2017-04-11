@@ -39,6 +39,7 @@ PODS:
   - Interstellar/Warpdrive (2.0.0):
     - Interstellar/Core
   - Mixpanel-swift (2.1.5)
+  - Stripe (10.0.1)
   - UXCam (2.5.8)
 
 DEPENDENCIES:
@@ -47,6 +48,7 @@ DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Core
   - Mixpanel-swift
+  - Stripe
   - UXCam
 
 SPEC CHECKSUMS:
@@ -62,8 +64,9 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 5c046c76a1f859bc9c187e918f18e4fc7bb57b5e
   Interstellar: 63a760ff3a3657f791a4523de4b89727c51edec3
   Mixpanel-swift: bcf863981f72c3bb2a51549292da61f13043d944
+  Stripe: dd6df0e2c6a8463e2f1ca9b15dc246e5ae1eee64
   UXCam: 76cb857694b8f1776998028de985d737b6852bce
 
-PODFILE CHECKSUM: 16990de8831a6e1dee965020b10baa74dec30426
+PODFILE CHECKSUM: cae03e1ed808cb113dca10381780acea708a9d07
 
 COCOAPODS: 1.2.0

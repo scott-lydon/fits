@@ -325,22 +325,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="$232" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oqf-Gh-rGq">
-                                <rect key="frame" x="15" y="554.5" width="39" height="18"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c5i-ce-pvw">
-                                <rect key="frame" x="160" y="548" width="200" height="30"/>
-                                <color key="backgroundColor" red="1" green="0.31372549019607843" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c5i-ce-pvw">
+                                <rect key="frame" x="15" y="598.5" width="200" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.31372549019607843" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="cDv-Gp-iDB"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Buy at Versace.com">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Add to Cart">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <state key="highlighted">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="0.38266915137614677" colorSpace="calibratedRGB"/>
@@ -371,15 +365,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="c5i-ce-pvw" firstAttribute="trailing" secondItem="nh6-MQ-Wzh" secondAttribute="trailing" constant="-15" id="33m-mF-Pfx"/>
                             <constraint firstItem="fyC-bG-Nxi" firstAttribute="trailing" secondItem="nh6-MQ-Wzh" secondAttribute="trailing" constant="-15" id="5rf-oT-FJj"/>
                             <constraint firstItem="N03-N4-101" firstAttribute="bottom" secondItem="0Mm-9X-d9T" secondAttribute="bottom" constant="-15" id="E83-3O-2NA"/>
                             <constraint firstItem="0Mm-9X-d9T" firstAttribute="height" secondItem="nh6-MQ-Wzh" secondAttribute="height" multiplier="0.75" id="FaR-Sn-1HQ"/>
-                            <constraint firstItem="oqf-Gh-rGq" firstAttribute="top" secondItem="fyC-bG-Nxi" secondAttribute="bottom" constant="21.5" id="JCf-C7-Q5i"/>
                             <constraint firstItem="fyC-bG-Nxi" firstAttribute="top" secondItem="4n7-5x-M5R" secondAttribute="bottom" constant="10" id="OY1-qD-pK0"/>
+                            <constraint firstItem="c5i-ce-pvw" firstAttribute="leading" secondItem="nh6-MQ-Wzh" secondAttribute="leading" constant="15" id="XvD-Ua-Rei"/>
                             <constraint firstItem="4n7-5x-M5R" firstAttribute="top" secondItem="0Mm-9X-d9T" secondAttribute="bottom" constant="15" id="Yyo-7Y-lEE"/>
                             <constraint firstItem="c5i-ce-pvw" firstAttribute="top" secondItem="fyC-bG-Nxi" secondAttribute="bottom" constant="15" id="ZAq-re-gbE"/>
-                            <constraint firstItem="oqf-Gh-rGq" firstAttribute="leading" secondItem="nh6-MQ-Wzh" secondAttribute="leading" constant="15" id="Zn0-GV-JH2"/>
                             <constraint firstItem="0Mm-9X-d9T" firstAttribute="top" secondItem="nh6-MQ-Wzh" secondAttribute="top" id="cZn-E4-hAA"/>
                             <constraint firstAttribute="trailing" secondItem="N03-N4-101" secondAttribute="trailing" constant="15" id="hBX-cg-gi0"/>
                             <constraint firstItem="fyC-bG-Nxi" firstAttribute="leading" secondItem="nh6-MQ-Wzh" secondAttribute="leading" constant="15" id="iYt-jD-zPt"/>
@@ -392,7 +384,6 @@
                         <outlet property="button" destination="c5i-ce-pvw" id="U0M-nO-WAH"/>
                         <outlet property="imageView" destination="0Mm-9X-d9T" id="t0C-7Z-hT5"/>
                         <outlet property="name" destination="4n7-5x-M5R" id="KXD-Zu-Kjr"/>
-                        <outlet property="price" destination="oqf-Gh-rGq" id="zUW-8e-Zv6"/>
                         <outlet property="text" destination="fyC-bG-Nxi" id="4XO-U3-rx2"/>
                     </connections>
                 </viewController>

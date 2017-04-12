@@ -50,9 +50,7 @@ class FitVC: UIViewController, UINavigationControllerDelegate, UIImagePickerCont
     @IBOutlet weak var text: UILabel!
     
     @IBOutlet weak var button: UIButton!
-    
-    @IBOutlet weak var price: UILabel!
-    
+        
     var fit : Fit?
     
     var index = 0
@@ -83,7 +81,6 @@ class FitVC: UIViewController, UINavigationControllerDelegate, UIImagePickerCont
             })
             self.name.text = fit?.name
             self.text.text = fit?.text
-            self.price.text = " "
             self.button.isHidden = true
 
         } else {
@@ -94,9 +91,10 @@ class FitVC: UIViewController, UINavigationControllerDelegate, UIImagePickerCont
             })
             self.name.text = fit?.brand[index-1]
             self.text.text = fit?.productName[index-1]
-            self.price.text = "$ " + "\(fit!.price[index-1])"
-            self.button.setTitle("Buy at " + (fit?.storeName[index-1])!, for: UIControlState.normal)
+            self.button.setTitle("$ " + "\(fit!.price[index-1])" + " - Add to Bag", for: UIControlState.normal)
             button.layer.cornerRadius = 5
+            button.layer.borderWidth = 1
+            button.layer.borderColor = UIColor.black.cgColor
             
         }
     }

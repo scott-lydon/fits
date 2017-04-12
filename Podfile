@@ -5,7 +5,9 @@ target 'fits' do
     platform :ios, '8.0'
 
     pod 'Contentful'
-    pod 'Firebase/Auth'
+    pod 'Mixpanel-swift'
+    pod 'Firebase'
+    pod 'Firebase/Auth' 
     pod 'Firebase/Core'
     pod 'EZSwipeController'
     pod 'Eureka'

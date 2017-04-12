@@ -5,6 +5,8 @@ PODS:
   - Decodable (0.5)
   - Eureka (2.0.1)
   - EZSwipeController (0.6.1)
+  - Firebase (3.15.0):
+    - Firebase/Core (= 3.15.0)
   - Firebase/Auth (3.15.0):
     - Firebase/Core
     - FirebaseAuth (= 3.1.1)
@@ -39,13 +41,16 @@ PODS:
   - Interstellar/Core (2.0.0)
   - Interstellar/Warpdrive (2.0.0):
     - Interstellar/Core
+  - Mixpanel-swift (2.1.5)
 
 DEPENDENCIES:
   - Contentful
   - Eureka
   - EZSwipeController
+  - Firebase
   - Firebase/Auth
   - Firebase/Core
+  - Mixpanel-swift
 
 SPEC CHECKSUMS:
   Contentful: 2b3ffedfdf360e97a49f722148526c85d4f40e60
@@ -60,7 +65,8 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMSessionFetcher: 5c046c76a1f859bc9c187e918f18e4fc7bb57b5e
   Interstellar: 63a760ff3a3657f791a4523de4b89727c51edec3
+  Mixpanel-swift: bcf863981f72c3bb2a51549292da61f13043d944
 
-PODFILE CHECKSUM: 33f561dda6fd0e2172bf7abd064ba52825f728d0
+PODFILE CHECKSUM: bbefed972aa1c9e93b8caed7c4ea5f16ba0ae266
 
 COCOAPODS: 1.2.0

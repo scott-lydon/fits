@@ -8,129 +8,147 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
-
+    
     private var _authHandle: FIRAuthStateDidChangeListenerHandle!
     
     var user: FIRUser?
     
-    @IBOutlet weak var username: UITextField!
-    @IBOutlet weak var password: UITextField!
-
+    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var signUpLink: UIButton!
     
     func configureAuth() {
+
+// MARK: Signout user. REMOVE PRIOR TO 
+        try? FIRAuth.auth()?.signOut()
         _authHandle = FIRAuth.auth()?.addStateDidChangeListener({ (auth:FIRAuth, user:FIRUser?) in
-            if user != nil {
-                print(" user \(user?.email)")
+            if let user = user {
+                self.user = user
+                
+// MARK: Segue to Looks view controller
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                
+                let loggedInScene = storyboard.instantiateViewController(withIdentifier: "SwipeControllerVC") as! EZSwipeControllerVC
+                
+                self.present(loggedInScene, animated: true)
             }
         })
         
     }
     
     func deconfigureAuth() {
-        
         FIRAuth.auth()?.removeStateDidChangeListener(_authHandle!)
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+// MARK: Border color of email and password text fields.
+        usernameTextField.layer.borderColor = UIColor(red: 255/255.0, green: 80/255.0, blue: 0, alpha: 1.0).cgColor
+        usernameTextField.layer.borderWidth = 1.0
+        usernameTextField.setNeedsLayout()
+        passwordTextField.layer.borderColor = UIColor(red: 255/255.0, green: 80/255.0, blue: 0, alpha: 1.0).cgColor
+        passwordTextField.layer.borderWidth = 1.0
+        passwordTextField.setNeedsLayout()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         configureAuth()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
         deconfigureAuth()
     }
     
-    @IBAction func login(_ sender: Any) {
+// MARK: Firebase user login
+    @IBAction func loginAction(_ sender: AnyObject) {
         
-        FIRAuth.auth()?.signIn(withEmail: username.text!, password: password.text!) {
-            (user, error) in
+// MARK: Alert for Invalid Username
+        if (usernameTextField.text?.isEmpty)! {
+            let alertLogin = UIAlertController(title: "Invalid Username", message: "Username field can not be left empty.", preferredStyle: UIAlertControllerStyle.alert)
             
-            if user != nil && error == nil {
+            let okButton = UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil)
+            
+            self.present(alertLogin, animated: true, completion: nil)
+            
+            alertLogin.addAction(okButton)
+ 
+// MARK: Alert for Invalid Password
+        } else if (passwordTextField.text?.isEmpty)! {
+            let alertPassword = UIAlertController(title: "Invalid Password", message: "Password field can not be left empty.", preferredStyle: UIAlertControllerStyle.alert)
+            
+            let okButton = UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil)
+            
+            self.present(alertPassword, animated: true, completion: nil)
+            
+            alertPassword.addAction(okButton)
+        }
+
+        guard let email = usernameTextField.text, !email.isEmpty else { return }
+        guard let password = passwordTextField.text, !password.isEmpty else { return }
+        
+        FIRAuth.auth()?.signIn(withEmail: email, password: password) { (user, error) in
+            if let user = user, error == nil {
+                print("user logged in \(user.email!)")
+            } else if let error = error as NSError?, let firAuthError = FIRAuthErrorCode(rawValue: error.code) {
                 
-                print("user logged in \(user?.email!)")
+// MARK: Alerts for Firebase login errors
+                let alertFIRLogin = UIAlertController(title: firAuthError.title, message: firAuthError.message, preferredStyle: UIAlertControllerStyle.alert)
+
+                let okButton = UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil)
                 
-            } else {
+                self.present(alertFIRLogin, animated: true, completion: nil)
                 
-                print("error : \(error)")
+                alertFIRLogin.addAction(okButton)
             }
-            
         }
-
     }
-    
-    @IBAction func signup(_ sender: Any) {
-        
-        let alert = UIAlertController(title: "HEY", message: "YP", preferredStyle: .alert)
-        
-        let saveAction = UIAlertAction(title: "Save", style: .default) { action in
-            
-            let emailField = alert.textFields![0]
-            let passwordField = alert.textFields![1]
-            
-            FIRAuth.auth()?.createUser(withEmail: emailField.text!, password: passwordField.text!) { (user, error) in
-                
-                FIRAuth.auth()?.signIn(withEmail: self.username.text!, password: self.password.text! )
-            }
-            
-        }
-        
-    let cancelAction = UIAlertAction(title: "cancel", style: .cancel)
-        
-        alert.addTextField { textEmail in textEmail.placeholder = " Email" }
-        alert.addTextField { textPassword in
-            textPassword.placeholder = "pw"
-            textPassword.isSecureTextEntry = true
-        }
-    
-        
-        
-        alert.addAction(saveAction)
-        alert.addAction(cancelAction)
-        
-        present(alert,animated: true,completion: nil)
-        
-        
-        
-    }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
+// MARK: List of Firebase errors and messages
+extension FIRAuthErrorCode {
+    var title: String {
+        return ""
+    }
+    
+    var message: String {
+        switch self {
+        case .errorCodeEmailAlreadyInUse:
+            return ("Email address already in use.")
+        case .errorCodeInvalidEmail:
+            return ("Invalid email address.")
+        case .errorCodeUserNotFound:
+            return ("User not found.")
+        case .errorCodeWeakPassword:
+            return ("Weak password.")
+        case .errorCodeWrongPassword:
+            return ("Wrong password.")
+        case .errorCodeKeychainError:
+            return ("Key chain error.")
+        default:
+            return ("This is Vibhas fault. Merge error.")
+        }
+    }
+}
 
-//extension LoginViewController : UITextFieldDelegate {
-//    
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        
-//        if textField = username {
-//            username.becomeFirstResponder()
-//        }
-//        
-//        if textField = password {
-//            password.becomeFirstResponder()
-//        }
-//        
-//        return true
-//    }
-//    
-//}
+extension LoginViewController : UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        if textField == usernameTextField {
+            usernameTextField.becomeFirstResponder()
+        }
+        
+        if textField == passwordTextField {
+            passwordTextField.becomeFirstResponder()
+        }
+        
+        return true
+    }
+    
+}

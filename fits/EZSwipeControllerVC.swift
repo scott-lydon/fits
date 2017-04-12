@@ -2,12 +2,13 @@
 
 import UIKit
 import EZSwipeController
+import Firebase
 
 let illOrange = UIColor(red:1.00, green:0.31, blue:0.00, alpha:1.0)
 let illGray = UIColor(red:0.59, green:0.59, blue:0.59, alpha:1.0)
 
 class EZSwipeControllerVC: EZSwipeController {
-
+    
     override func setupView() {
         datasource = self
         
@@ -50,8 +51,15 @@ extension EZSwipeControllerVC: EZSwipeControllerDataSource {
         
 //MARK: Setting title
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
+        
+        //setting a UIImageView with the image and assigning it to another constant
         let imageView = UIImageView(image: #imageLiteral(resourceName: "illgourmet"))
-        imageView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
+        
+        //setting the imageView to the superview
+        imageView.frame = CGRect(x: 0, y: 12, width: view.frame.width, height: view.frame.height)
+        
+        //setting the image to the subview of the titleView
+
         view.addSubview(imageView)
         navigationItem.titleView = view
         
@@ -65,7 +73,18 @@ extension EZSwipeControllerVC: EZSwipeControllerDataSource {
             navigationItem.titleView = nil
             navigationItem.title = "Your Account"
             
-            navigationItem.rightBarButtonItem = makeButtonImg(image: #imageLiteral(resourceName: "ill_tiny_nav_icon"), w: 22, h: 22, tintColor: illOrange)
+            //Right
+            let leftPageRightIconView = UIView(frame: CGRect(x: 0, y: 0, width: 22, height: 18))
+            let leftPageRightIconImage = UIImageView(image: #imageLiteral(resourceName: "ill_tiny_nav_icon"))
+            leftPageRightIconImage.frame = CGRect(x: 0, y: 0, width: leftPageRightIconView.frame.width, height: leftPageRightIconView.frame.height)
+            leftPageRightIconView.addSubview(leftPageRightIconImage)
+            
+            let rightIconImage = #imageLiteral(resourceName: "ill_tiny_nav_icon")
+            let rightButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "ill_tiny_nav_icon"), style: UIBarButtonItemStyle.plain, target: self, action: nil)
+//            rightButtonItem.customView = leftPageRightIconView
+
+            rightButtonItem.tintColor = illOrange
+            navigationItem.rightBarButtonItem = rightButtonItem
             
 //MARK: Page Center
         } else if index == 1 {

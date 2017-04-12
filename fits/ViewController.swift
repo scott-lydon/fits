@@ -14,7 +14,7 @@ import EZSwipeController
 let SPACE_ID = "omalhxi5j9ol"
 let ACCESS_TOKEN = "53feb22a0f6700e51ae6308aaa809fba1c700e13a9f65d9395132d8b812f5a1f"
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate  {
     
     
     var pageViewControllers = [FitPageVC]()
@@ -34,7 +34,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }()
     
     @IBOutlet weak var table: UITableView!
-    
     
     override func viewDidLoad() {
         reload()

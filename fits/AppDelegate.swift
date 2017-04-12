@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Contentful
 import Firebase
 
 @UIApplicationMain

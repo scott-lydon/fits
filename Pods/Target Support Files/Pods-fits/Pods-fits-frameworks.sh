@@ -92,21 +92,19 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/Contentful/Contentful.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Decodable/Decodable.framework"
   install_framework "$BUILT_PRODUCTS_DIR/EZSwipeController/EZSwipeController.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Eureka/Eureka.framework"
   install_framework "$BUILT_PRODUCTS_DIR/GTMSessionFetcher/GTMSessionFetcher.framework"
   install_framework "$BUILT_PRODUCTS_DIR/GoogleToolboxForMac/GoogleToolboxForMac.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Interstellar/Interstellar.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/Mixpanel-swift/Mixpanel.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/Stripe/Stripe.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/Contentful/Contentful.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Decodable/Decodable.framework"
   install_framework "$BUILT_PRODUCTS_DIR/EZSwipeController/EZSwipeController.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Eureka/Eureka.framework"
   install_framework "$BUILT_PRODUCTS_DIR/GTMSessionFetcher/GTMSessionFetcher.framework"
   install_framework "$BUILT_PRODUCTS_DIR/GoogleToolboxForMac/GoogleToolboxForMac.framework"
   install_framework "$BUILT_PRODUCTS_DIR/Interstellar/Interstellar.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/Mixpanel-swift/Mixpanel.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/Stripe/Stripe.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

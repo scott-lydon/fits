@@ -10,20 +10,23 @@ class EZSwipeControllerVC: EZSwipeController {
 
     override func setupView() {
         datasource = self
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = UIColor.white
     }
 }
 
 extension EZSwipeControllerVC: EZSwipeControllerDataSource {
     
-    
+//MARK set center page as the start
     func indexOfStartingPage() -> Int {
-        return 1 // EZSwipeController starts from 2nd, green page
+        return 1
     }
-    
+
+//MARK: setup for 3 page swipe
     func viewControllerData() -> [UIViewController] {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -35,6 +38,7 @@ extension EZSwipeControllerVC: EZSwipeControllerDataSource {
         return [UserProfileVC, viewController, CartVC]
     }
     
+//MARK: Create Nav bar
     func navigationBarDataForPageIndex(_ index: Int) -> UINavigationBar {
         let title = ""
         let navigationBar = UINavigationBar()
@@ -44,72 +48,36 @@ extension EZSwipeControllerVC: EZSwipeControllerDataSource {
         navigationItem.hidesBackButton = true
         
         
-//Setting the middle b
-        //setting a view to a constant
+//MARK: Setting title
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
-        
-        //setting a UIImageView with the image and assigning it to another constant
-       let imageView = UIImageView(image: #imageLiteral(resourceName: "illgourmet"))
-        
-        //setting the imageView to the superview
-        imageView.frame = CGRect(x: 0, y: 12, width: view.frame.width, height: view.frame.height)
-        
-        //setting the image to the subview of the titleView
+        let imageView = UIImageView(image: #imageLiteral(resourceName: "illgourmet"))
+        imageView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
         view.addSubview(imageView)
-        
-        //setting the view equal to the navigation item's title view.
         navigationItem.titleView = view
         
-        //<-Left page
+//MARK: Page Left
         if index == 0 {
             
-            //Left
             let leftButtonItem = UIBarButtonItem(title: "Logout", style: UIBarButtonItemStyle.plain, target: self, action: nil)
             leftButtonItem.tintColor = illOrange
             navigationItem.leftBarButtonItem = leftButtonItem
             
-            //Middle
             navigationItem.titleView = nil
             navigationItem.title = "Your Account"
             
-            //Right
+            navigationItem.rightBarButtonItem = makeButtonImg(image: #imageLiteral(resourceName: "ill_tiny_nav_icon"), w: 22, h: 22, tintColor: illOrange)
             
-            
-            
-            let leftPageRightIconView = UIView(frame: CGRect(x: 0, y: 0, width: 22, height: 18))
-            let leftPageRightIconImage = UIImageView(image: #imageLiteral(resourceName: "ill_tiny_nav_icon"))
-          leftPageRightIconImage.frame = CGRect(x: 0, y: 0, width: leftPageRightIconView.frame.width, height: leftPageRightIconView.frame.height)
-            leftPageRightIconView.addSubview(leftPageRightIconImage)
-            
-            let rightIconImage = #imageLiteral(resourceName: "ill_tiny_nav_icon")
-            let rightButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "ill_tiny_nav_icon"), style: UIBarButtonItemStyle.plain, target: self, action: nil)
-//            rightButtonItem.customView = leftPageRightIconView
-
-            rightButtonItem.tintColor = illOrange
-            navigationItem.rightBarButtonItem = rightButtonItem
-            
-            
-            
-            //CENTER Page
+//MARK: Page Center
         } else if index == 1 {
             
-            //Left
-            let leftButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "profile_icon"), style: UIBarButtonItemStyle.plain, target: self, action: nil)
-            leftButtonItem.tintColor = illGray
-            navigationItem.leftBarButtonItem = leftButtonItem
+            navigationItem.leftBarButtonItem = makeButtonImg(image: #imageLiteral(resourceName: "profile_icon"), w: 22, h: 22, tintColor: illGray)
             
-            //Right
-            let rightButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "cart_icon"), style: UIBarButtonItemStyle.plain, target: self, action: nil)
-            rightButtonItem.tintColor = illGray
-            navigationItem.rightBarButtonItem = rightButtonItem
+            navigationItem.rightBarButtonItem = makeButtonImg(image: #imageLiteral(resourceName: "cart_icon"), w: 22, h: 22, tintColor: illGray)
+         
+//MARK: Page Right
+        } else if index == 2 { /*Page Right*/
             
-            
-            //Right page ->
-        } else if index == 2 {
-            
-            let leftButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "ill_tiny_nav_icon"), style: UIBarButtonItemStyle.done, target: self, action: nil)
-            leftButtonItem.tintColor = illOrange
-            navigationItem.leftBarButtonItem = leftButtonItem
+            navigationItem.leftBarButtonItem = makeButtonImg(image: #imageLiteral(resourceName: "ill_tiny_nav_icon"), w: 22, h: 22, tintColor: illOrange)
             
             navigationItem.titleView = nil
             navigationItem.title = "Your Cart"
@@ -118,4 +86,19 @@ extension EZSwipeControllerVC: EZSwipeControllerDataSource {
         navigationBar.pushItem(navigationItem, animated: false)
         return navigationBar
     }
+    
+//MARK: Make nav bar button
+    private func makeButtonImg(image: UIImage, w: CGFloat, h: CGFloat, tintColor: UIColor) -> UIBarButtonItem {
+        let newSize = CGSize(width: w, height: h)
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0)
+        image.draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
+        let newImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        let buttonItem = UIBarButtonItem(image: newImage, style: UIBarButtonItemStyle.plain, target: self, action: nil)
+        buttonItem.tintColor = tintColor
+        return buttonItem
+    }
+    
 }
+
+

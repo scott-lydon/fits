@@ -1,3 +1,4 @@
+source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
 target 'fits' do
@@ -7,5 +8,6 @@ target 'fits' do
     pod 'Firebase/Auth'
     pod 'Firebase/Core'
     pod 'EZSwipeController'
+    pod 'Eureka'
     
 end

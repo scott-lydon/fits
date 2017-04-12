@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="OAu-ii-fJn">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Add a Product-->
+        <scene sceneID="DoL-AZ-0ya">
+            <objects>
+                <viewController id="OAu-ii-fJn" customClass="AddLookFVC" customModule="fits" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zg4-D7-cSd"/>
+                        <viewControllerLayoutGuide type="bottom" id="M8U-cB-Tat"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JqP-r9-u8U">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add a Product" id="INM-XZ-3Ts"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y2t-Uq-wBu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="924" y="-21.139430284857571"/>
+        </scene>
+        <!--Add a Product-->
+        <scene sceneID="cSE-Mv-064">
+            <objects>
+                <viewController id="APV-3Y-Clq" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XGQ-KQ-dHw"/>
+                        <viewControllerLayoutGuide type="bottom" id="XOK-jU-vZl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6Za-n9-pgD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You made it" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kPd-P6-P4k">
+                                <rect key="frame" x="166" y="292" width="90" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add a Product" id="9Kr-1r-3Vc"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AeE-Ry-EN5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1684" y="-21.139430284857571"/>
+        </scene>
+    </scenes>
+</document>

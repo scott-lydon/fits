@@ -32,9 +32,9 @@ class PaymentHandler: NSObject {
     
     func startPayment(completion: @escaping PaymentCompletionHandler) {
         
-        let fare = PKPaymentSummaryItem(label: "Minimum Fare", amount: NSDecimalNumber(string: "9.99"), type: .final)
-        let tax = PKPaymentSummaryItem(label: "Tax", amount: NSDecimalNumber(string: "1.00"), type: .final)
-        let total = PKPaymentSummaryItem(label: "Emporium", amount: NSDecimalNumber(string: "10.99"), type: .pending)
+        let fare = PKPaymentSummaryItem(label: "Minimum Fare", amount: NSDecimalNumber(string: "0.00"), type: .final)
+        let tax = PKPaymentSummaryItem(label: "Tax", amount: NSDecimalNumber(string: "0.00"), type: .final)
+        let total = PKPaymentSummaryItem(label: "Emporium", amount: NSDecimalNumber(string: "0.01"), type: .pending)
         
         paymentSummaryItems = [fare, tax, total];
         completionHandler = completion
@@ -46,7 +46,7 @@ class PaymentHandler: NSObject {
         paymentRequest.merchantCapabilities = .capability3DS
         paymentRequest.countryCode = "US"
         paymentRequest.currencyCode = "USD"
-        paymentRequest.requiredShippingAddressFields = [.phone, .email]
+        paymentRequest.requiredShippingAddressFields = [.phone, .email, .postalAddress]
         paymentRequest.supportedNetworks = PaymentHandler.supportedNetworks
         
         // Display our payment request
@@ -100,10 +100,10 @@ extension PaymentHandler: PKPaymentAuthorizationControllerDelegate {
         // Here we're applying a $2 discount when a debit card is selected
         if paymentMethod.type == .debit {
             var discountedSummaryItems = paymentSummaryItems
-            let discount = PKPaymentSummaryItem(label: "Debit Card Discount", amount: NSDecimalNumber(string: "-2.00"))
+            let discount = PKPaymentSummaryItem(label: "Debit Card Discount", amount: NSDecimalNumber(string: "-0.01"))
             discountedSummaryItems.insert(discount, at: paymentSummaryItems.count - 1)
             if let total = paymentSummaryItems.last {
-                total.amount = total.amount.subtracting(NSDecimalNumber(string: "5.00"))
+                total.amount = total.amount.subtracting(NSDecimalNumber(string: "0.01"))
             }
             completion(discountedSummaryItems)
         } else {

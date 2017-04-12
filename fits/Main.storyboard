@@ -148,7 +148,7 @@
         <!--Swipe ControllerVC-->
         <scene sceneID="Qc0-7d-ftv">
             <objects>
-                <viewController id="uo5-eq-SDS" customClass="EZSwipeControllerVC" customModule="fits" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EZSwipeControllerVC" id="uo5-eq-SDS" customClass="EZSwipeControllerVC" customModule="fits" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5PY-nj-ukd"/>
                         <viewControllerLayoutGuide type="bottom" id="k4K-ni-xh0"/>

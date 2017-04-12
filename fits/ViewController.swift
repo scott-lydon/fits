@@ -40,8 +40,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         reload()
         table.rowHeight = 0.88 * view.frame.size.height
         super.viewDidLoad()
-       
-        
     }
     
     func reload() {
@@ -111,12 +109,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
     
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+ 
+    @IBAction func addLookPress(_ sender: Any) {
+
+        let secondStoryboard = UIStoryboard(name: "AddLook", bundle: nil)
+        guard let viewController = secondStoryboard.instantiateInitialViewController() else { return }
+        present(viewController, animated: true, completion: nil)
     }
-    
     
     
 }

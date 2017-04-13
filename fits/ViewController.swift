@@ -10,13 +10,16 @@ import UIKit
 import Contentful
 import Interstellar
 import EZSwipeController
+import FirebaseDatabase
+import Firebase
 
 let SPACE_ID = "omalhxi5j9ol"
 let ACCESS_TOKEN = "53feb22a0f6700e51ae6308aaa809fba1c700e13a9f65d9395132d8b812f5a1f"
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate  {
     
-    
+    var ref: FIRDatabaseReference!
+
     var pageViewControllers = [FitPageVC]()
     
     private let refreshControl = UIRefreshControl()
@@ -39,6 +42,28 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         reload()
         table.rowHeight = 0.88 * view.frame.size.height
         super.viewDidLoad()
+        ref = FIRDatabase.database().reference()
+        
+        let address = self.ref.child("look")
+        
+        address.observeSingleEvent(of: .value, with: { (snapshot) in
+            guard let dict = snapshot.value as? [String:Any] else {
+                return
+            }
+            print(dict.count)
+            print(dict.count)
+            print(dict.count)
+            print(dict.count)
+            print(dict.count)
+            print(dict.count)
+
+            
+        })
+        
+        //self.ref.child("RestaurantReviews").child("restaurants").child("4545").child("location").setValue("New Jersey")
+
+
+
     }
     
     func reload() {

@@ -14,16 +14,29 @@ import Firebase
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var storyboard: UIStoryboard?
     
    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
         // Override point for customization after application launch.
+        
         FIRApp.configure()
         print("It finished launching. With options.")
         return true
-    }
-    
+// MARK: Skip splash screen and login, if user is logged in
+//        self.storyboard =  UIStoryboard(name: "Main", bundle: Bundle.main)
+//        let currentUser = FIRAuth.auth()?.currentUser!
+//        if currentUser != nil
+//        {
+//            self.window?.rootViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController")
+//        }
+//        else
+//        {
+//            self.window?.rootViewController = self.storyboard?.instantiateViewController(withIdentifier: "SwipeControllerVC")
+//        }
+//        return true
+}
     
     private func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?)  -> Bool {
             return true
@@ -64,7 +77,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("It is going to terminate.")
 
     }
-
-
 }
-

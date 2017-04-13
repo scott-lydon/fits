@@ -19,11 +19,11 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signUpLink: UIButton!
-    
+
     func configureAuth() {
 
-// MARK: Signout user. REMOVE PRIOR TO 
-        try? FIRAuth.auth()?.signOut()
+// MARK: Signout user. REMOVE PRIOR TO LAUNCH
+       try? FIRAuth.auth()?.signOut()
         _authHandle = FIRAuth.auth()?.addStateDidChangeListener({ (auth:FIRAuth, user:FIRUser?) in
             if let user = user {
                 self.user = user
@@ -34,6 +34,7 @@ class LoginViewController: UIViewController {
                 let loggedInScene = storyboard.instantiateViewController(withIdentifier: "SwipeControllerVC") as! EZSwipeControllerVC
                 
                 self.present(loggedInScene, animated: true)
+
             }
         })
         
@@ -65,8 +66,33 @@ class LoginViewController: UIViewController {
         deconfigureAuth()
     }
     
+// MARK: Keyboard - Start editing the textfield
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        moveTextField(textField, moveDistance: -200, up: true)
+    }
+    
+// MARK: Keyboard - Finish editing the textfield
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        moveTextField(textField, moveDistance: -200, up: false)
+    }
+    
+// MARK: Keyboard animations
+    func moveTextField(_ textField: UITextField, moveDistance: Int, up: Bool) {
+        let moveDuration = 0.3
+        let movement: CGFloat = CGFloat(up ? moveDistance : -moveDistance)
+        
+        UIView.beginAnimations("animateTextField", context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(moveDuration)
+        textField.autocorrectionType = .no
+        self.view.frame = self.view.frame.offsetBy(dx: 0, dy: movement)
+        UIView.commitAnimations()
+    }
+
 // MARK: Firebase user login
     @IBAction func loginAction(_ sender: AnyObject) {
+        usernameTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
         
 // MARK: Alert for Invalid Username
         if (usernameTextField.text?.isEmpty)! {
@@ -131,13 +157,13 @@ extension FIRAuthErrorCode {
         case .errorCodeKeychainError:
             return ("Key chain error.")
         default:
-            return ("This is Vibhas fault. Merge error.")
+            return ("This is Vibhas' fault. Merge error.")
         }
     }
 }
 
-extension LoginViewController : UITextFieldDelegate {
-    
+extension LoginViewController: UITextFieldDelegate {
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         if textField == usernameTextField {
@@ -148,7 +174,10 @@ extension LoginViewController : UITextFieldDelegate {
             passwordTextField.becomeFirstResponder()
         }
         
+        if textField.resignFirstResponder() {
+
+        }
+        
         return true
     }
-    
 }

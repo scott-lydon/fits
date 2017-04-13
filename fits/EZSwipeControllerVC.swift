@@ -2,6 +2,8 @@
 
 import UIKit
 import EZSwipeController
+import Firebase
+import FirebaseAuth
 
 let illOrange = UIColor(red:1.00, green:0.31, blue:0.00, alpha:1.0)
 let illGray = UIColor(red:0.59, green:0.59, blue:0.59, alpha:1.0)
@@ -10,7 +12,6 @@ class EZSwipeControllerVC: EZSwipeController {
     
     override func setupView() {
         datasource = self
-        
     }
     
     override func viewDidLoad() {
@@ -38,7 +39,17 @@ extension EZSwipeControllerVC: EZSwipeControllerDataSource {
         return [UserProfileVC, viewController, CartVC]
     }
     
-    //MARK: Create Nav bar
+
+// MARK: User Signout/Logout of Firebase
+    @IBAction func leftButtonItemTapped(sender: UIBarButtonItem) {
+        try! FIRAuth.auth()?.signOut()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let loggedOutScene = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        present(loggedOutScene, animated: true)
+        
+    }
+    
+//MARK: Create Nav bar
     func navigationBarDataForPageIndex(_ index: Int) -> UINavigationBar {
         let title = ""
         let navigationBar = UINavigationBar()
@@ -51,6 +62,8 @@ extension EZSwipeControllerVC: EZSwipeControllerDataSource {
         //MARK: Setting title
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
         let imageView = UIImageView(image: #imageLiteral(resourceName: "illgourmet"))
+
+        
         imageView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
         view.addSubview(imageView)
         navigationItem.titleView = view
@@ -58,7 +71,10 @@ extension EZSwipeControllerVC: EZSwipeControllerDataSource {
         //MARK: Page Left
         if index == 0 {
             
-            let leftButtonItem = UIBarButtonItem(title: "Logout", style: UIBarButtonItemStyle.plain, target: self, action: nil)
+            let leftButtonItem = UIBarButtonItem(title: "Logout", style: UIBarButtonItemStyle.done, target: self, action: #selector(leftButtonItemTapped))
+            
+            self.navigationItem.setLeftBarButton(leftButtonItem, animated: false);
+            
             leftButtonItem.tintColor = illOrange
             navigationItem.leftBarButtonItem = leftButtonItem
             
@@ -67,7 +83,14 @@ extension EZSwipeControllerVC: EZSwipeControllerDataSource {
             
             navigationItem.rightBarButtonItem = makeButtonImg(image: #imageLiteral(resourceName: "ill_tiny_nav_icon"), w: 22, h: 22, tintColor: illOrange)
             
-            //MARK: Page Center
+            let rightIconImage = #imageLiteral(resourceName: "ill_tiny_nav_icon")
+            let rightButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "ill_tiny_nav_icon"), style: UIBarButtonItemStyle.plain, target: self, action: nil)
+            //rightButtonItem.customView = leftPageRightIconView
+
+            rightButtonItem.tintColor = illOrange
+            navigationItem.rightBarButtonItem = rightButtonItem
+            
+//MARK: Page Center
         } else if index == 1 {
             
             navigationItem.leftBarButtonItem = makeButtonImg(image: #imageLiteral(resourceName: "profile_icon"), w: 22, h: 22, tintColor: illGray)

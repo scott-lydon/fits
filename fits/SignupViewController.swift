@@ -63,6 +63,29 @@ class SignupViewController: UIViewController {
         deconfigureAuth()
     }
 
+// MARK: Keyboard - Start editing the textfield
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        moveTextField(textField, moveDistance: -200, up: true)
+    }
+    
+// MARK: Keyboard - Finish editing the textfield
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        moveTextField(textField, moveDistance: -200, up: false)
+    }
+    
+// MARK: Keyboard animations
+    func moveTextField(_ textField: UITextField, moveDistance: Int, up: Bool) {
+        let moveDuration = 0.3
+        let movement: CGFloat = CGFloat(up ? moveDistance : -moveDistance)
+        
+        UIView.beginAnimations("animateTextField", context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(moveDuration)
+        textField.autocorrectionType = .no
+        self.view.frame = self.view.frame.offsetBy(dx: 0, dy: movement)
+        UIView.commitAnimations()
+    }
+    
 // MARK: Firebase user signup
     @IBAction func signup(_ sender: Any) {
 
@@ -92,7 +115,6 @@ class SignupViewController: UIViewController {
         guard let password = signUpPasswordTextField.text, !password.isEmpty else { return }
 
         FIRAuth.auth()?.createUser(withEmail: email, password: password) { (user, error) in
-//            FIRAuth.auth()!.signIn(withEmail: email, password: password) { (user, error) in
                 if let user = user, error == nil {
                     print("user logged in \(user.email!)")
                 } else if let error = error as NSError?, let firAuthError = FIRAuthErrorCode(rawValue: error.code) {
@@ -105,11 +127,12 @@ class SignupViewController: UIViewController {
                     self.present(alertFIRLogin, animated: true, completion: nil)
         
                     alertFIRLogin.addAction(okButton)
-                }
             }
         }
     }
-//}
+
+}
+
 
 // MARK: List of Firebase errors and messages
 extension FIRAuthErrorCode {
@@ -140,11 +163,17 @@ extension FIRAuthErrorCode {
 extension SignupViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
         if textField == signUpLoginTextField {
             signUpLoginTextField.becomeFirstResponder()
         }
+        
         if textField == signUpPasswordTextField {
-            signUpPasswordTextField.resignFirstResponder()
+            signUpPasswordTextField.becomeFirstResponder()
+        }
+        
+        if textField.resignFirstResponder() {
+            
         }
         
         return true

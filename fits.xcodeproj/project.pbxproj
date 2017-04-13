@@ -40,6 +40,7 @@
 		75DE33641E9DA42E00085361 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		F7E1687B1E9F205A00B40D84 /* ImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E168791E9F205A00B40D84 /* ImagePickerController.swift */; };
 		F7E1687C1E9F205A00B40D84 /* ImageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E1687A1E9F205A00B40D84 /* ImageRow.swift */; };
+		F7E1687F1E9F399D00B40D84 /* AddProductVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E1687E1E9F399D00B40D84 /* AddProductVCViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +78,7 @@
 		6D2A57DABCADC7B095CCC2B3 /* Pods-fits.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fits.release.xcconfig"; path = "Pods/Target Support Files/Pods-fits/Pods-fits.release.xcconfig"; sourceTree = "<group>"; };
 		F7E168791E9F205A00B40D84 /* ImagePickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerController.swift; sourceTree = "<group>"; };
 		F7E1687A1E9F205A00B40D84 /* ImageRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageRow.swift; sourceTree = "<group>"; };
+		F7E1687E1E9F399D00B40D84 /* AddProductVCViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProductVCViewController.swift; sourceTree = "<group>"; };
 		F8B97D0250A5CBB28BB16D96 /* Pods-fits.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fits.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fits/Pods-fits.debug.xcconfig"; sourceTree = "<group>"; };
 		FFDAB4B6D10669F5CE807DB9 /* Pods_fits.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fits.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -217,6 +219,7 @@
 			children = (
 				33B7981B1E9ED89C0014B043 /* AddLook.storyboard */,
 				33B7981C1E9ED89C0014B043 /* AddLookFVC.swift */,
+				F7E1687E1E9F399D00B40D84 /* AddProductVCViewController.swift */,
 				F7E1687D1E9F206700B40D84 /* New Group */,
 			);
 			name = AddLooks;
@@ -383,6 +386,7 @@
 				33B798431E9ED89C0014B043 /* EZSwipeControllerVC.swift in Sources */,
 				33B798451E9ED89C0014B043 /* FitPageVC.swift in Sources */,
 				33B798511E9ED89C0014B043 /* WebVC.swift in Sources */,
+				F7E1687F1E9F399D00B40D84 /* AddProductVCViewController.swift in Sources */,
 				33B798401E9ED89C0014B043 /* ContentfulManager.swift in Sources */,
 				33B798441E9ED89C0014B043 /* Fit.swift in Sources */,
 				33B7984B1E9ED89C0014B043 /* LoginViewController.swift in Sources */,

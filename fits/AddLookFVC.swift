@@ -3,9 +3,15 @@
 import UIKit
 import Eureka
 import AVFoundation
+import Firebase
+
+
 
 class AddLookFVC: FormViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    @IBOutlet weak var submitBtn: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let navBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 65))
@@ -28,13 +34,16 @@ class AddLookFVC: FormViewController, UIImagePickerControllerDelegate, UINavigat
             <<< TextRow(){ row in
                 row.title = "Celebrity Name"
                 row.placeholder = "Kanye West"
+                row.tag = "celebrity"
             }
-            <<< TextRow(){
-                $0.title = "Description"
-                $0.placeholder = "Where was this taken?"
+            <<< TextRow(){ row in
+                row.title = "Description"
+                row.placeholder = "Where was this taken?"
+                row.tag = "description"
             }
-            <<< ImageRow() {
-                $0.title = "Image"
+            <<< ImageRow() { row in
+                row.title = "Image"
+                row.tag = "image"
         }
 
         
@@ -47,7 +56,7 @@ class AddLookFVC: FormViewController, UIImagePickerControllerDelegate, UINavigat
             section.append(k)
         }
         
-        section <<< LabelRow() {
+        section <<< TextRow() {
             $0.title = ""
             }.cellSetup { cell, row in
                 
@@ -70,11 +79,56 @@ class AddLookFVC: FormViewController, UIImagePickerControllerDelegate, UINavigat
         
         tableView?.frame = CGRect(x: 0, y: 65, width: view.frame.width, height: (view.frame.height - 65))
         
+        view.bringSubview(toFront: submitBtn)
+        
     }    
  
     @IBAction func cancelPress() {
         dismiss(animated: true, completion: nil)
     }
 
+    @IBAction func submitPress(_ sender: Any) {
+//        let lookUuid = UUID().uuidString
+//        let celebrityUuid = UUID().uuidString
+//        
+//        let celebrity: TextRow? = form.rowBy(tag: "celebrity")
+//        let celebrityName = celebrity?.value
+//        
+//        let description: TextRow? = form.rowBy(tag: "description")
+//        let lookDescription = description?.value
+//        
+//        let image: ImageRow? = form.rowBy(tag: "image")
+//        let lookImage = image?.value
+//        
+//        let imagePath = "look_photos/" + FIRAuth.auth()!.currentUser!.uid + "/\(Double(Date.timeIntervalSinceReferenceDate * 1000)).jpg"
+//        
+//       // let data = UIImageJPEGRepresentation(lookImage, 0.8)
+//        
+//        
+//        let look = ["\(lookUuid)": ["celebrityID": "\(celebrityUuid)",
+//                                    "imageURL": imagePath,
+//                                    "productIDs": [""],
+//                                    "description": "\(lookDescription)",
+//                                    "postedByUserID": "\(FIRAuth.auth()?.currentUser)",
+//                                    "approved": true]]
+//        
+//       // print(FirebaseManager.shared.ref.child("look").child("\(lookID13)"))
+//        
+//        //FirebaseManager.shared.ref.child("look").updateChildValues(look)
+//        
+//        
+//        print(imagePath)
+//        //FirebaseManager.shared.storageRef!.child(imagePath).put(photoData, metadata: metadata) { (metadata, error) in
+//            if let error = error {
+//                print ("error uploading: \(error)")
+//                return
+//            }
+//            // use SendMessage to add imageURL to database
+//            self.sendMessage(data: [Constants.ItemFields.imageUrl: FirebaseManager.shared.storageRef!.child((metadata?.path)!).description])
+//        }
+
+  
+        
+    }
 }
 

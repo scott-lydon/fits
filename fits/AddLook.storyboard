@@ -20,9 +20,23 @@
                     <view key="view" contentMode="scaleToFill" id="JqP-r9-u8U">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5QC-GE-xHV">
+                                <rect key="frame" x="16" y="578" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.65273349570046335" blue="0.29249406969079361" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="submitPress:" destination="OAu-ii-fJn" eventType="touchUpInside" id="sQN-IA-CcN"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add a Product" id="INM-XZ-3Ts"/>
+                    <connections>
+                        <outlet property="submitBtn" destination="5QC-GE-xHV" id="EYo-pI-rzi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y2t-Uq-wBu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -21,8 +21,6 @@
 		33B7983D1E9ED89C0014B043 /* CartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33B798211E9ED89C0014B043 /* CartCell.xib */; };
 		33B7983E1E9ED89C0014B043 /* CartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B798221E9ED89C0014B043 /* CartVC.swift */; };
 		33B798401E9ED89C0014B043 /* ContentfulManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B798241E9ED89C0014B043 /* ContentfulManager.swift */; };
-		33B798411E9ED89C0014B043 /* EmptyStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B798251E9ED89C0014B043 /* EmptyStateViewController.swift */; };
-		33B798421E9ED89C0014B043 /* emtpyStateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B798261E9ED89C0014B043 /* emtpyStateTableViewCell.swift */; };
 		33B798431E9ED89C0014B043 /* EZSwipeControllerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B798271E9ED89C0014B043 /* EZSwipeControllerVC.swift */; };
 		33B798441E9ED89C0014B043 /* Fit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B798281E9ED89C0014B043 /* Fit.swift */; };
 		33B798451E9ED89C0014B043 /* FitPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B798291E9ED89C0014B043 /* FitPageVC.swift */; };
@@ -65,8 +63,6 @@
 		33B798211E9ED89C0014B043 /* CartCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CartCell.xib; sourceTree = "<group>"; };
 		33B798221E9ED89C0014B043 /* CartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartVC.swift; sourceTree = "<group>"; };
 		33B798241E9ED89C0014B043 /* ContentfulManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentfulManager.swift; sourceTree = "<group>"; };
-		33B798251E9ED89C0014B043 /* EmptyStateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyStateViewController.swift; sourceTree = "<group>"; };
-		33B798261E9ED89C0014B043 /* emtpyStateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = emtpyStateTableViewCell.swift; sourceTree = "<group>"; };
 		33B798271E9ED89C0014B043 /* EZSwipeControllerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EZSwipeControllerVC.swift; sourceTree = "<group>"; };
 		33B798281E9ED89C0014B043 /* Fit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fit.swift; sourceTree = "<group>"; };
 		33B798291E9ED89C0014B043 /* FitPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FitPageVC.swift; sourceTree = "<group>"; };
@@ -168,8 +164,6 @@
 				33B7981D1E9ED89C0014B043 /* AppDelegate.swift */,
 				33B7981E1E9ED89C0014B043 /* Assets.xcassets */,
 				33B798241E9ED89C0014B043 /* ContentfulManager.swift */,
-				33B798251E9ED89C0014B043 /* EmptyStateViewController.swift */,
-				33B798261E9ED89C0014B043 /* emtpyStateTableViewCell.swift */,
 				33B798271E9ED89C0014B043 /* EZSwipeControllerVC.swift */,
 				33B798281E9ED89C0014B043 /* Fit.swift */,
 				33B7985F1E9F316F0014B043 /* Look.swift */,
@@ -417,8 +411,6 @@
 				33B7985E1E9F30E70014B043 /* Firebase.swift in Sources */,
 				33B7980F1E9EBEE20014B043 /* IntentHandler.swift in Sources */,
 				33B798601E9F316F0014B043 /* Look.swift in Sources */,
-				33B798421E9ED89C0014B043 /* emtpyStateTableViewCell.swift in Sources */,
-				75DE33641E9DA42E00085361 /* (null) in Sources */,
 				F7E1687B1E9F205A00B40D84 /* ImagePickerController.swift in Sources */,
 				33B798381E9ED89C0014B043 /* AddLookFVC.swift in Sources */,
 				33B798581E9F2EF80014B043 /* Product.swift in Sources */,

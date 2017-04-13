@@ -10,13 +10,16 @@ import UIKit
 import Contentful
 import Interstellar
 import EZSwipeController
+import FirebaseDatabase
+import Firebase
 
 let SPACE_ID = "omalhxi5j9ol"
 let ACCESS_TOKEN = "53feb22a0f6700e51ae6308aaa809fba1c700e13a9f65d9395132d8b812f5a1f"
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate  {
     
-    
+    var ref: FIRDatabaseReference!
+
     var pageViewControllers = [FitPageVC]()
     
     private let refreshControl = UIRefreshControl()
@@ -39,6 +42,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         reload()
         table.rowHeight = 0.88 * view.frame.size.height
         super.viewDidLoad()
+        ref = FIRDatabase.database().reference()
+        
+      
+
     }
     
     func reload() {
@@ -108,13 +115,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
     
- 
     @IBAction func addLookPress(_ sender: Any) {
-
         let secondStoryboard = UIStoryboard(name: "AddLook", bundle: nil)
         guard let viewController = secondStoryboard.instantiateInitialViewController() else { return }
         present(viewController, animated: true, completion: nil)
     }
+ 
+  
     
     
 }

@@ -36,6 +36,11 @@
 		33B798501E9ED89C0014B043 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B798351E9ED89C0014B043 /* ViewController.swift */; };
 		33B798511E9ED89C0014B043 /* WebVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B798361E9ED89C0014B043 /* WebVC.swift */; };
 		33B798561E9ED8EC0014B043 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33B798541E9ED8EC0014B043 /* LaunchScreen.storyboard */; };
+		33B798581E9F2EF80014B043 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B798571E9F2EF80014B043 /* Product.swift */; };
+		33B7985A1E9F2F040014B043 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B798591E9F2F040014B043 /* User.swift */; };
+		33B7985C1E9F2F0E0014B043 /* Celebrity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B7985B1E9F2F0E0014B043 /* Celebrity.swift */; };
+		33B7985E1E9F30E70014B043 /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B7985D1E9F30E70014B043 /* Firebase.swift */; };
+		33B798601E9F316F0014B043 /* Look.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B7985F1E9F316F0014B043 /* Look.swift */; };
 		6E0CDEAC1E5521784CDEA5AE /* Pods_fits.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFDAB4B6D10669F5CE807DB9 /* Pods_fits.framework */; };
 		75DE33641E9DA42E00085361 /* (null) in Sources */ = {isa = PBXBuildFile; };
 /* End PBXBuildFile section */
@@ -72,6 +77,11 @@
 		33B798351E9ED89C0014B043 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		33B798361E9ED89C0014B043 /* WebVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebVC.swift; sourceTree = "<group>"; };
 		33B798551E9ED8EC0014B043 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		33B798571E9F2EF80014B043 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		33B798591E9F2F040014B043 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		33B7985B1E9F2F0E0014B043 /* Celebrity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Celebrity.swift; sourceTree = "<group>"; };
+		33B7985D1E9F30E70014B043 /* Firebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
+		33B7985F1E9F316F0014B043 /* Look.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Look.swift; sourceTree = "<group>"; };
 		6D2A57DABCADC7B095CCC2B3 /* Pods-fits.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fits.release.xcconfig"; path = "Pods/Target Support Files/Pods-fits/Pods-fits.release.xcconfig"; sourceTree = "<group>"; };
 		F8B97D0250A5CBB28BB16D96 /* Pods-fits.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fits.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fits/Pods-fits.debug.xcconfig"; sourceTree = "<group>"; };
 		FFDAB4B6D10669F5CE807DB9 /* Pods_fits.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fits.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -156,6 +166,11 @@
 				33B798261E9ED89C0014B043 /* emtpyStateTableViewCell.swift */,
 				33B798271E9ED89C0014B043 /* EZSwipeControllerVC.swift */,
 				33B798281E9ED89C0014B043 /* Fit.swift */,
+				33B7985F1E9F316F0014B043 /* Look.swift */,
+				33B798571E9F2EF80014B043 /* Product.swift */,
+				33B7985D1E9F30E70014B043 /* Firebase.swift */,
+				33B798591E9F2F040014B043 /* User.swift */,
+				33B7985B1E9F2F0E0014B043 /* Celebrity.swift */,
 				33B798291E9ED89C0014B043 /* FitPageVC.swift */,
 				33B7982C1E9ED89C0014B043 /* FitVC.swift */,
 				33B798301E9ED89C0014B043 /* LoginViewController.swift */,
@@ -368,20 +383,25 @@
 				33B798471E9ED89C0014B043 /* FitVC.swift in Sources */,
 				33B798431E9ED89C0014B043 /* EZSwipeControllerVC.swift in Sources */,
 				33B798451E9ED89C0014B043 /* FitPageVC.swift in Sources */,
+				33B7985C1E9F2F0E0014B043 /* Celebrity.swift in Sources */,
 				33B798511E9ED89C0014B043 /* WebVC.swift in Sources */,
 				33B798401E9ED89C0014B043 /* ContentfulManager.swift in Sources */,
 				33B798441E9ED89C0014B043 /* Fit.swift in Sources */,
 				33B7984B1E9ED89C0014B043 /* LoginViewController.swift in Sources */,
+				33B7985A1E9F2F040014B043 /* User.swift in Sources */,
 				33B7984F1E9ED89C0014B043 /* UserProfileVC.swift in Sources */,
 				33B798071E9EBEE20014B043 /* Configuration.swift in Sources */,
 				33B7983C1E9ED89C0014B043 /* CartCell.swift in Sources */,
 				33B798411E9ED89C0014B043 /* EmptyStateViewController.swift in Sources */,
 				33B798501E9ED89C0014B043 /* ViewController.swift in Sources */,
 				33B7984E1E9ED89C0014B043 /* SignupViewController.swift in Sources */,
+				33B7985E1E9F30E70014B043 /* Firebase.swift in Sources */,
 				33B7980F1E9EBEE20014B043 /* IntentHandler.swift in Sources */,
+				33B798601E9F316F0014B043 /* Look.swift in Sources */,
 				33B798421E9ED89C0014B043 /* emtpyStateTableViewCell.swift in Sources */,
 				75DE33641E9DA42E00085361 /* (null) in Sources */,
 				33B798381E9ED89C0014B043 /* AddLookFVC.swift in Sources */,
+				33B798581E9F2EF80014B043 /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

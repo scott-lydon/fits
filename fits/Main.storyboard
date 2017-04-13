@@ -53,7 +53,7 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="9Hy-Xo-8wt"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GiZ-ma-uSf">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GiZ-ma-uSf">
                                 <rect key="frame" x="285" y="487" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="4QR-ui-In9"/>
@@ -71,6 +71,7 @@
                             <constraint firstItem="NsN-fE-OKf" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Fjq-Nc-T8O"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="NsN-fE-OKf" secondAttribute="bottom" id="KaG-jP-3pT"/>
                             <constraint firstItem="NsN-fE-OKf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RTV-5N-VWK"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="GiZ-ma-uSf" secondAttribute="bottom" constant="100" id="XTO-ja-7iy"/>
                             <constraint firstAttribute="trailing" secondItem="NsN-fE-OKf" secondAttribute="trailing" id="XY9-DZ-Sq5"/>
                             <constraint firstAttribute="trailing" secondItem="GiZ-ma-uSf" secondAttribute="trailing" constant="10" id="lCe-gi-c8Z"/>
                         </constraints>
@@ -408,7 +409,6 @@
                                 </state>
                                 <connections>
                                     <action selector="webSegue:" destination="A38-lh-bua" eventType="touchUpInside" id="KhS-Z5-zL4"/>
-                                    <segue destination="QxR-4K-ThC" kind="show" identifier="webSegue" id="ikR-W6-ApK"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Bathing Ape" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4n7-5x-M5R">
@@ -532,7 +532,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_rappers" translatesAutoresizingMaskIntoConstraints="NO" id="OGA-gl-xjI">
                                 <rect key="frame" x="0.0" y="212" width="375" height="159"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Buy Stuff Rappers Wear" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ob4-PV-Wa8">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Buy stuff rappers wear" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ob4-PV-Wa8">
                                 <rect key="frame" x="39" y="404" width="310" height="149"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="149" id="a6q-w8-cwc"/>
@@ -542,7 +542,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AVz-1n-xmI">
-                                <rect key="frame" x="21" y="561" width="332" height="54"/>
+                                <rect key="frame" x="21" y="561" width="331" height="54"/>
                                 <color key="backgroundColor" red="1" green="0.30948743220000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="54" id="3aZ-sn-x7V"/>
@@ -882,6 +882,6 @@
         <image name="splash_rappers" width="369" height="234"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5UX-oh-v5C"/>
+        <segue reference="pRi-Vv-xva"/>
     </inferredMetricsTieBreakers>
 </document>

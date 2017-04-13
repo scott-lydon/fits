@@ -44,25 +44,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         ref = FIRDatabase.database().reference()
         
-        let address = self.ref.child("look")
-        
-        address.observeSingleEvent(of: .value, with: { (snapshot) in
-            guard let dict = snapshot.value as? [String:Any] else {
-                return
-            }
-            print(dict.count)
-            print(dict.count)
-            print(dict.count)
-            print(dict.count)
-            print(dict.count)
-            print(dict.count)
-
-            
-        })
-        
-        //self.ref.child("RestaurantReviews").child("restaurants").child("4545").child("location").setValue("New Jersey")
-
-
+      
 
     }
     

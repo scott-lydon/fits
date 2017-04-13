@@ -65,7 +65,6 @@ class FitVC: UIViewController, UINavigationControllerDelegate, UIImagePickerCont
     
     @IBAction func webSegue(_ sender: Any) {
         
-        self.performSegue(withIdentifier: "webSegue", sender: Any?.self)
     }
     
     override func viewDidLoad() {

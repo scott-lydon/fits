@@ -156,7 +156,7 @@ class AddLookFVC: FormViewController, UIImagePickerControllerDelegate, UINavigat
                                     "imageURL": imagePath,
                                     "productIDs": lookData.productIDs,
                                     "description": lookDescription!,
-                                    "postedByUserID": userID!,
+                                    "postedByUserID": userID,
                                     "approved": true]]
         
         Firebase.shared.ref.child("look").updateChildValues(look)
@@ -190,6 +190,9 @@ class AddLookFVC: FormViewController, UIImagePickerControllerDelegate, UINavigat
                 return
             }
         }
+        dismiss(animated: true, completion: nil)
+
     }
+    
 }
 

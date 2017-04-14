@@ -11,12 +11,18 @@ import Foundation
 
 class User {
  
-    static var shared: User?
+    static let shared: User = User()
     var myLooks : [String] = []
     var favLooks : [String] = []
     var cartItems : [String] = []
     
     var email : String?
+    
+    var username: String {
+        return email?.replacingOccurrences(of: "@", with: "at").replacingOccurrences(of: ".", with: "dot") ?? ""
+    }
+    
+    private init() {}
     
 }
     

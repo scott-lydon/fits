@@ -106,11 +106,11 @@ extension EZSwipeControllerVC: EZSwipeControllerDataSource {
             
             navigationItem.rightBarButtonItem = makeButtonImg(image: #imageLiteral(resourceName: "ill_tiny_nav_icon"), w: 22, h: 22, tintColor: illOrange)
             
-            let rightButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "ill_tiny_nav_icon"), style: UIBarButtonItemStyle.plain, target: self, action: nil)
+//            let rightButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "ill_tiny_nav_icon"), style: UIBarButtonItemStyle.plain, target: self, action: nil)
             //rightButtonItem.customView = leftPageRightIconView
 
-            rightButtonItem.tintColor = illOrange
-            navigationItem.rightBarButtonItem = rightButtonItem
+//            rightButtonItem.tintColor = illOrange
+//            navigationItem.rightBarButtonItem = rightButtonItem
             
 //MARK: Page Center
         } else if index == 1 {

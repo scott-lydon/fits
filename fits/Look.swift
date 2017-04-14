@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class Look {
     
@@ -15,8 +16,9 @@ class Look {
     var imageURL : String
     var postedByUserID : String
     var productIDs : [String]
-//    var images : [URL: UIImage] = [:]
+    var image : UIImage?
 
+    private let queue = DispatchQueue(label: "privateQueue", qos: DispatchQoS.background, attributes: .concurrent, autoreleaseFrequency: DispatchQueue.AutoreleaseFrequency.inherit, target: nil)
     
     init( celebrityID : String, description : String , imageURL : String, postedByUserID : String, productIDs : [String]) {
         
@@ -27,24 +29,25 @@ class Look {
         self.productIDs = productIDs
     }
     
-//    public func loadImage(atURL url: URL, completion : @escaping (UIImage) -> Void)  {
-//        queue.async {
-//            if let image = self.images[url] {
-//                completion(image)
-//            } else {
-//                URLSession.shared.dataTask(with: url, completionHandler: { (data, _, _) in
-//                    if let newImage = UIImage(data: data!) {
-//                        self.images[url] = newImage
-//                        completion(newImage)
-//                    }
-//                }).resume()
+    public func loadImage(completion : @escaping (UIImage) -> Void)  {
+        queue.async {
+            if let image = self.image {
+                completion(image)
+            } else {
+                let url = URL(string: self.imageURL)!
+                URLSession.shared.dataTask(with: url, completionHandler: { (data, _, _) in
+                    if let newImage = UIImage(data: data!) {
+                        self.image = newImage
+                        completion(newImage)
+                    }
+                }).resume()
 //                if let data = try? Data(contentsOf: url) {
 //                    if let newImage = UIImage(data: data) {
-//                        self.images[url] = newImage
+//                        self.image = newImage
 //                        completion(newImage)
 //                    }
 //                }
-//            }
-//        }
-//    }
+            }
+        }
+    }
 }

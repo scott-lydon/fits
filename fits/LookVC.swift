@@ -10,6 +10,8 @@ class LookVC: UIViewController, UINavigationControllerDelegate {
     
     @IBOutlet weak var text: UILabel!
     
+    var index = 0
+    
     
     var look : Look?
     
@@ -17,20 +19,22 @@ class LookVC: UIViewController, UINavigationControllerDelegate {
         
         super.viewDidLoad()
         
-//            look?.loadImage(atURL: (look?.imageURL)!, completion: { (fetchedImage) in
-//                DispatchQueue.main.async {
-//                    self.imageView.image = fetchedImage
-//                }
-//            })
+            look?.loadImage( completion: { (fetchedImage) in
+                DispatchQueue.main.async {
+                    self.imageView.image = fetchedImage
+                }
+            })
+        
             self.name.text = look?.celebrityID
             self.text.text = look?.description
             
     
     }
     
-    func setValues(look:Look) {
+    func setValues(look:Look, index : Int) {
         
         self.look = look
+        self.index = index
     }
 }
 

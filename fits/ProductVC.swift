@@ -14,15 +14,18 @@ class ProductVC: UIViewController, UINavigationControllerDelegate {
     
     var product : Product?
     
+    var index = 0
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
-        //            look?.loadImage(atURL: (look?.imageURL)!, completion: { (fetchedImage) in
-        //                DispatchQueue.main.async {
-        //                    self.imageView.image = fetchedImage
-        //                }
-        //            })
+        product?.loadImage( completion: { (fetchedImage) in
+            DispatchQueue.main.async {
+                self.imageView.image = fetchedImage
+            }
+        })
+        
         self.name.text = product?.brandName
         self.text.text = product?.productName
         self.button.setTitle("$ " + "\(product!.price)" + " - Add to Bag", for: UIControlState.normal)
@@ -32,9 +35,10 @@ class ProductVC: UIViewController, UINavigationControllerDelegate {
         
     }
     
-    func setValues(product:Product) {
+    func setValues(product:Product, index : Int) {
         
         self.product = product
+        self.index = index
     }
 }
 

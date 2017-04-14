@@ -50,14 +50,14 @@ class FitPageVC: UIPageViewController {
         
         if index == 0 {
         let lookVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LookVC") as! LookVC
-        lookVC.setValues(look : look!)
+        lookVC.setValues(look : look!, index : index)
         selectedPageIndex = index
         return lookVC
             
         } else {
             
             let productVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ProductVC") as! ProductVC
-            productVC.setValues(product : products![index-1])
+            productVC.setValues(product : products![index-1], index : index)
             selectedPageIndex = index
             return productVC
         }
@@ -70,8 +70,19 @@ extension FitPageVC : UIPageViewControllerDataSource {
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
+        var index = 0
+        
+        if let VC = viewController as? LookVC {
+            
+            index = VC.index
+            
+        } else if let VC = viewController as? ProductVC {
+            
+            index = VC.index
+
+        }
 //      var index = (viewController as! FitVC).index
-        var index = selectedPageIndex
+//        var index = selectedPageIndex
 
         self.pageControl.currentPage = index
 
@@ -85,7 +96,19 @@ extension FitPageVC : UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         
 //      var index = (viewController as! FitVC).index
-        var index = selectedPageIndex
+//        var index = selectedPageIndex
+        
+        var index = 0
+        
+        if let VC = viewController as? LookVC {
+            
+            index = VC.index
+            
+        } else if let VC = viewController as? ProductVC {
+            
+            index = VC.index
+            
+        }
 
         self.pageControl.currentPage = index
 

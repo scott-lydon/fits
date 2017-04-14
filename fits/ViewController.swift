@@ -35,7 +35,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         
+        
+        
+        table.rowHeight = 0.88 * view.frame.size.height
+        super.viewDidLoad()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         Firebase.shared.getLooks { looks in
+            self.pageViewControllers.removeAll()
             
             self.looks = looks
             
@@ -44,11 +54,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 var fitPageVC = FitPageVC()
                 
                 fitPageVC.look = look
-
+                
                 Firebase.shared.getProducts(productIDs: look.productIDs) { products in
                     fitPageVC.products = products
                     fitPageVC.pageControl.numberOfPages = products.count + 1
-
+                    
                 }
                 
                 
@@ -56,21 +66,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 print(self.pageViewControllers.count)
                 
                 
-                DispatchQueue.main.async {
-                    self.table.reloadData()
-                }
+//                DispatchQueue.main.async {
+//                    self.table.reloadData()
+//                }
                 
             }
             
             DispatchQueue.main.async {
                 self.table.reloadData()
             }
-
         }
-        
-        table.rowHeight = 0.88 * view.frame.size.height
-        super.viewDidLoad()
-        
     }
     
     

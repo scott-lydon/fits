@@ -117,7 +117,9 @@ class AddProductVCViewController: FormViewController {
         let tag: TextRow? = self.form.rowBy(tag: "tags")
         self.productData.tags = (tag?.value)!
         
+
         self.productData.imageURL = "gs://ill-gourmet.appspot.com/look_photos/" + FIRAuth.auth()!.currentUser!.uid + "/\(Double(Date.timeIntervalSinceReferenceDate * 1000)).jpeg"
+
         
         lookData.products += [productData]
         

@@ -7,29 +7,26 @@ class CartVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     let paymentHandler = PaymentHandler()
-
+    
     var productIDsInCart : [String] = []
     var productsInCart : [Product] = []
     
     @IBOutlet weak var applePayView: UIView!
-
-    override func viewDidLoad() {
-        
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         Firebase.shared.getCartItems { products in
             
             self.productIDsInCart = products
             
             Firebase.shared.getProducts(productIDs: self.productIDsInCart) { products in
                 self.productsInCart = products
-                
-            
-                
                 self.tableView.reloadData()
-                
             }
-            
         }
-        
+    }
+    
+    override func viewDidLoad() {
         super.viewDidLoad()
         
         
@@ -37,7 +34,7 @@ class CartVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let result = PaymentHandler.applePayStatus()
         
         
-    
+        
         var button: UIButton?
         
         if result.canMakePayments {
@@ -52,10 +49,10 @@ class CartVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             button!.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin]
             applePayView.addSubview(button!)
         }
-
+        
         
         tableView.register(UINib(nibName: "CartCell", bundle: nil), forCellReuseIdentifier: "CartCell")
-
+        
     }
     
     func payPressed(sender: AnyObject) {
@@ -72,7 +69,7 @@ class CartVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let passLibrary = PKPassLibrary()
         passLibrary.openPaymentSetup()
     }
-
+    
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
@@ -81,16 +78,16 @@ class CartVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
         let remove = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
-//            self.toDoList.toDos.remove(at: indexPath.row)
+            //            self.toDoList.toDos.remove(at: indexPath.row)
             self.tableView.reloadData()
         }
-
+        
         
         return [remove]
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-
+        
         return 1
     }
     
@@ -100,12 +97,23 @@ class CartVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    
         
-            let cell = tableView.dequeueReusableCell(withIdentifier: "CartCell", for: indexPath) as! CartCell
         
-            cell.product = productsInCart[indexPath.row]
-            return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CartCell", for: indexPath) as! CartCell
+        
+        let product = productsInCart[indexPath.row]
+        
+        cell.brandName.text = product.brandName
+        cell.price.text = "\(product.price)"
+        cell.productName.text = product.productName
+        
+        product.loadImage( completion: { (fetchedImage) in
+            DispatchQueue.main.async {
+                cell.productImage.image = fetchedImage
+            }
+        })
+        
+        return cell
         
     }
 }

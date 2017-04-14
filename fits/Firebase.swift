@@ -28,8 +28,16 @@ class Firebase {
     
     func addToCart(productID : String) {
         
-        Firebase.shared.ref.child("users").child(User.shared.username).child("cartItems").setValue([productID: 1])
-
+        Firebase.shared.ref.child("users").child(User.shared.username).child("cartItems").observeSingleEvent(of: .value, with: { (snapshot) in
+            var cart = [String: Int]()
+            if let value = snapshot.value as? [String: Int] {
+                cart = value
+            }
+            
+            cart[productID] = 1
+            
+            Firebase.shared.ref.child("users").child(User.shared.username).child("cartItems").setValue(cart)
+        })
     }
     
 

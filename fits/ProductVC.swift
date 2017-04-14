@@ -27,12 +27,6 @@ class ProductVC: UIViewController, UINavigationControllerDelegate {
         
         super.viewDidLoad()
         
-        product?.loadImage( completion: { (fetchedImage) in
-            DispatchQueue.main.async {
-                self.imageView.image = fetchedImage
-            }
-        })
-        
         self.name.text = product?.brandName
         self.text.text = product?.productName
         self.button.setTitle("$ " + "\(product!.price)" + " - Add to Bag", for: UIControlState.normal)
@@ -42,10 +36,26 @@ class ProductVC: UIViewController, UINavigationControllerDelegate {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        product?.loadImage( completion: { (fetchedImage) in
+            DispatchQueue.main.async {
+                self.imageView.image = fetchedImage
+            }
+        })
+        
+    }
+    
     func setValues(product:Product, index : Int) {
         
         self.product = product
         self.index = index
+        
+        product.loadImage( completion: { (fetchedImage) in
+            DispatchQueue.main.async {
+                self.imageView.image = fetchedImage
+            }
+        })
     }
 }
 

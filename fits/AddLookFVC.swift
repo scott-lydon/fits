@@ -17,8 +17,6 @@ class AddLookFVC: FormViewController, UIImagePickerControllerDelegate, UINavigat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
             
             
         let navBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 65))
@@ -53,12 +51,45 @@ class AddLookFVC: FormViewController, UIImagePickerControllerDelegate, UINavigat
         }
 
         
+        createProductSection()
+        
+        tableView?.frame = CGRect(x: 0, y: 65, width: view.frame.width, height: (view.frame.height - 65))
+        
+        view.bringSubview(toFront: submitBtn)
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+       super.viewWillAppear(true)
+        
+        form.remove(at: 1)
+        createProductSection()
+        print(lookData.description)
+    }
+ 
+    @IBAction func cancelPress() {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func unwindFromProductToLook(s: UIStoryboardSegue) {
+        _ = s.source as? AddProductVCViewController
+        // source properties can be accessed with . notation
+    }
+    
+    func createProductSection() {
         let section = Section("PRODUCTS")
         
-        for _ in photos {
-            let k = LabelRow() {
-                $0.title = ""
-            }
+        for product in lookData.products {
+            let k = ButtonRow(product.productName) { row in
+                row.title = row.tag
+                
+            }.onCellSelection({ (_, _) in
+                let vc = UIStoryboard(name: "AddLook", bundle: nil).instantiateViewController(withIdentifier: "AddProduct") as? AddProductVCViewController
+                vc?.modalPresentationStyle = UIModalPresentationStyle.popover
+                vc?.lookData = self.lookData
+                vc?.productData = product
+                self.present(vc!, animated: true, completion: nil)
+            })
             section.append(k)
         }
         
@@ -76,7 +107,7 @@ class AddLookFVC: FormViewController, UIImagePickerControllerDelegate, UINavigat
                 
             }.onCellSelection {_,_ in
                 self.lookData.lookID = UUID().uuidString
-                self.lookData.userID = UUID().uuidString
+                self.lookData.userID = User.shared.username
                 
                 let celebrity: TextRow? = self.form.rowBy(tag: "celebrity")
                 self.lookData.celebrityID = (celebrity?.value)!
@@ -87,9 +118,9 @@ class AddLookFVC: FormViewController, UIImagePickerControllerDelegate, UINavigat
                 let image: ImageRow? = self.form.rowBy(tag: "image")
                 self.lookData.image = (image?.value)!
                 
-                self.lookData.imageURL = "https://images.complex.com/complex/image/upload/look_photos/" + FIRAuth.auth()!.currentUser!.uid + "/\(Double(Date.timeIntervalSinceReferenceDate * 1000)).jpg"
-              
-                self.lookData.postedByUserID = "\(String(describing: FIRAuth.auth()?.currentUser))!"
+                self.lookData.imageURL = "gs://ill-gourmet.appspot.com/look_photos" + FIRAuth.auth()!.currentUser!.uid + "/\(Double(Date.timeIntervalSinceReferenceDate * 1000)).jpg"
+                
+                
                 
                 let vc = UIStoryboard(name: "AddLook", bundle: nil).instantiateViewController(withIdentifier: "AddProduct") as? AddProductVCViewController
                 vc?.modalPresentationStyle = UIModalPresentationStyle.popover
@@ -100,26 +131,6 @@ class AddLookFVC: FormViewController, UIImagePickerControllerDelegate, UINavigat
         }
         
         form +++ section
-        
-        
-        tableView?.frame = CGRect(x: 0, y: 65, width: view.frame.width, height: (view.frame.height - 65))
-        
-        view.bringSubview(toFront: submitBtn)
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-       super.viewWillAppear(true)
-        print(lookData.description)
-    }
- 
-    @IBAction func cancelPress() {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func unwindFromProductToLook(s: UIStoryboardSegue) {
-        _ = s.source as? AddProductVCViewController
-        // source properties can be accessed with . notation
     }
 
     @IBAction func submitPress(_ sender: Any) {
@@ -133,7 +144,7 @@ class AddLookFVC: FormViewController, UIImagePickerControllerDelegate, UINavigat
         let image: ImageRow? = form.rowBy(tag: "image")
         let lookImage = image?.value
         
-        let imagePath = "https://images.complex.com/complex/image/upload/look_photos/" + FIRAuth.auth()!.currentUser!.uid + "/\(Double(Date.timeIntervalSinceReferenceDate * 1000)).jpg"
+        let imagePath = "gs://ill-gourmet.appspot.com/look_photos" + FIRAuth.auth()!.currentUser!.uid + "/\(Double(Date.timeIntervalSinceReferenceDate * 1000)).jpg"
         
         let data = UIImageJPEGRepresentation(lookImage!, 0.8)
         
@@ -144,7 +155,7 @@ class AddLookFVC: FormViewController, UIImagePickerControllerDelegate, UINavigat
         
         let look = ["\(lookData.lookID)": ["celebrityID": celebrityName!,
                                     "imageURL": imagePath,
-                                    "productIDs": [""],
+                                    "productIDs": lookData.productIDs,
                                     "description": lookDescription!,
                                     "postedByUserID": userID!,
                                     "approved": true]]
@@ -158,7 +169,10 @@ class AddLookFVC: FormViewController, UIImagePickerControllerDelegate, UINavigat
                                                                     "price": i.price,
                                                                     "imageURL": i.imageURL,
                                                                     "tag": i.tags,
-                                                                    "lookID": i.lookID]]
+                                                                    "lookID": i.lookID,
+                                                                    "productID": i.productID
+                
+                ]]
             
             Firebase.shared.ref.child("product").updateChildValues(productReady)
             

@@ -7,13 +7,13 @@ class LookData {
     var lookID = ""
     var celebrityID = ""
     var imageURL = ""
-    var productIDs = [""]
+    var productIDs = [String]()
     var description = ""
-    var postedByUserID = ""
+    var userID = ""
     var approved = true
     var products: [ProductData] = []
     var image: UIImage?
-    var userID = ""
+    
     
 
 }

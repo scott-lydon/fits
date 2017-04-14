@@ -45,6 +45,7 @@ class Product {
                         completion(newImage)
                     }
                 }).resume()
+                
                 //                if let data = try? Data(contentsOf: url) {
                 //                    if let newImage = UIImage(data: data) {
                 //                        self.image = newImage

@@ -12,6 +12,12 @@ class ProductVC: UIViewController, UINavigationControllerDelegate {
     
     @IBOutlet weak var button: UIButton!
     
+    @IBAction func button(_ sender: UIButton) {
+        
+        self.button.setTitle("Added!", for: UIControlState.normal)
+
+    }
+    
     var product : Product?
     
     var index = 0

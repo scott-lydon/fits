@@ -81,22 +81,20 @@ extension FitPageVC : UIPageViewControllerDataSource {
             index = VC.index
 
         }
-//      var index = (viewController as! FitVC).index
-//        var index = selectedPageIndex
 
         self.pageControl.currentPage = index
 
         if index == 0 {
+            
             return nil
         }
+        
         index -= 1
+        
         return viewControllerAtIndex(index)
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        
-//      var index = (viewController as! FitVC).index
-//        var index = selectedPageIndex
         
         var index = 0
         

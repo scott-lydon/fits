@@ -61,7 +61,7 @@ extension EZSwipeControllerVC: EZSwipeControllerDataSource {
         
         //MARK: Setting title
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "illgourmet"))
+        let imageView = UIImageView(image: UIImage(named: "illgourmet"))
 
         
         imageView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
@@ -83,7 +83,6 @@ extension EZSwipeControllerVC: EZSwipeControllerDataSource {
             
             navigationItem.rightBarButtonItem = makeButtonImg(image: #imageLiteral(resourceName: "ill_tiny_nav_icon"), w: 22, h: 22, tintColor: illOrange)
             
-            let rightIconImage = #imageLiteral(resourceName: "ill_tiny_nav_icon")
             let rightButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "ill_tiny_nav_icon"), style: UIBarButtonItemStyle.plain, target: self, action: nil)
             //rightButtonItem.customView = leftPageRightIconView
 
@@ -93,9 +92,9 @@ extension EZSwipeControllerVC: EZSwipeControllerDataSource {
 //MARK: Page Center
         } else if index == 1 {
             
-            navigationItem.leftBarButtonItem = makeButtonImg(image: #imageLiteral(resourceName: "profile_icon"), w: 22, h: 22, tintColor: illGray)
+            navigationItem.leftBarButtonItem = makeButtonImg(image: UIImage(named: "profile_icon")!, w: 22, h: 22, tintColor: illGray)
             
-            navigationItem.rightBarButtonItem = makeButtonImg(image: #imageLiteral(resourceName: "cart_icon"), w: 22, h: 22, tintColor: illGray)
+            navigationItem.rightBarButtonItem = makeButtonImg(image: UIImage(named: "cart_icon")!, w: 22, h: 22, tintColor: illGray)
             
             //MARK: Page Right
         } else if index == 2 { /*Page Right*/

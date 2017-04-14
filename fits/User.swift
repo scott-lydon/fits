@@ -6,4 +6,17 @@
 //  Copyright © 2017 PZRT. All rights reserved.
 //
 
+
 import Foundation
+
+class User {
+ 
+    static var shared: User?
+    var myLooks : [String] = []
+    var favLooks : [String] = []
+    var cartItems : [String] = []
+    
+    var email : String?
+    
+}
+    

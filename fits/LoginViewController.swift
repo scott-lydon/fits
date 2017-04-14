@@ -121,6 +121,7 @@ class LoginViewController: UIViewController {
         FIRAuth.auth()?.signIn(withEmail: email, password: password) { (user, error) in
             if let user = user, error == nil {
                 print("user logged in \(user.email!)")
+                User.shared?.email = user.email
             } else if let error = error as NSError?, let firAuthError = FIRAuthErrorCode(rawValue: error.code) {
                 
 // MARK: Alerts for Firebase login errors

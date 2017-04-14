@@ -14,7 +14,18 @@ class Firebase {
     
     var ref: FIRDatabaseReference = FIRDatabase.database().reference()
     
+    fileprivate var _authHandle: FIRAuthStateDidChangeListenerHandle!
+    
+    fileprivate var _refHandle: FIRDatabaseHandle!
+    
+    var user: FIRUser?
+    
     static let shared = Firebase()
+    
+    // USER STUFF
+    
+
+    // GET STUFF
     
     func getProducts(productIDs : [String], completion : @escaping ([Product]) -> Void) {
         
@@ -78,12 +89,11 @@ class Firebase {
         
     }
     
+    // ADD TO CART / FAVORITES
     
     
     //self.ref.child("RestaurantReviews").child("restaurants").child("4545").child("location").setValue("New Jersey")
     
-    
-    
-    
+
     
 }

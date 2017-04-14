@@ -101,7 +101,8 @@ class AddProductVCViewController: FormViewController {
         self.productData.productName = (product?.value)!
         
         let image: ImageRow? = self.form.rowBy(tag: "productImage")
-        self.productData.image = image?.value
+        self.productData.image = image?.value?.imageWithImage(scaledToSize: CGSize(width: 700, height: 700))
+        
         
         let price: DecimalRow? = self.form.rowBy(tag: "price")
         self.productData.price = (price?.value)!
@@ -109,7 +110,7 @@ class AddProductVCViewController: FormViewController {
         let tag: TextRow? = self.form.rowBy(tag: "tags")
         self.productData.tags = (tag?.value)!
         
-        self.productData.imageURL = "https://images.complex.com/complex/image/upload/look_photos/" + FIRAuth.auth()!.currentUser!.uid + "/\(Double(Date.timeIntervalSinceReferenceDate * 1000)).jpg"
+        self.productData.imageURL = "gs://ill-gourmet.appspot.com/look_photos" + FIRAuth.auth()!.currentUser!.uid + "/\(Double(Date.timeIntervalSinceReferenceDate * 1000)).jpg"
         
         lookData.products += [productData]
         
@@ -118,11 +119,11 @@ class AddProductVCViewController: FormViewController {
         let metadata = FIRStorageMetadata()
         metadata.contentType = "image/jpeg"
         
-        lookData.userID = "\(String(describing: FIRAuth.auth()?.currentUser))!"
+        lookData.userID = User.shared.username
         
         let look = ["\(lookData.lookID)": ["celebrityID": lookData.celebrityID,
                                     "imageURL": lookData.imageURL,
-                                    "productIDs": [""],
+                                    "productIDs": lookData.productIDs,
                                     "description": lookData.description,
                                     "postedByUserID": lookData.userID,
                                     "approved": true]]
@@ -132,7 +133,9 @@ class AddProductVCViewController: FormViewController {
                                                                 "price": self.productData.price,
                                                                 "imageURL": self.productData.imageURL,
                                                                 "tag": self.productData.tags,
-                                                                "lookID": self.lookData.lookID]]
+                                                                "lookID": self.lookData.lookID,
+                                                                "productID": "\(self.productData.productID)"
+            ]]
         
         
         Firebase.shared.ref.child("look").updateChildValues(look)
@@ -147,6 +150,16 @@ class AddProductVCViewController: FormViewController {
         performSegue(withIdentifier: "unwindFromProductToLook", sender: nil)
     }
     
+}
+
+extension UIImage {
+    func imageWithImage(scaledToSize newSize:CGSize) -> UIImage{
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0);
+        self.draw(in: CGRect(origin: CGPoint.zero, size: CGSize(width: newSize.width, height: newSize.height)))
+        let newImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return newImage
+    }
 }
 
 class CurrencyFormatter : NumberFormatter, FormatterProtocol {

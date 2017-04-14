@@ -17,7 +17,7 @@ class AddLookFVC: FormViewController, UIImagePickerControllerDelegate, UINavigat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-            
+        
             
         let navBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 65))
         self.view.addSubview(navBar)
@@ -48,8 +48,13 @@ class AddLookFVC: FormViewController, UIImagePickerControllerDelegate, UINavigat
             <<< ImageRow() { row in
                 row.title = "Image"
                 row.tag = "image"
+                
+                
         }
 
+        
+        
+        
         
         createProductSection()
         
@@ -94,11 +99,11 @@ class AddLookFVC: FormViewController, UIImagePickerControllerDelegate, UINavigat
         }
         
         section <<< LabelRow() {
-            $0.title = ""
+            $0.title = "           Add Product"
             }.cellSetup { cell, row in
                 
-                let imageView = UIImageView(frame: CGRect(x: 10, y: 10, width: 20, height: 20))
-                imageView.image = #imageLiteral(resourceName: "fillerPhoto")
+                let imageView = UIImageView(frame: CGRect(x: 10, y: 12, width: 20, height: 20))
+                imageView.image = #imageLiteral(resourceName: "plus_button")
                 cell.contentView.addSubview(imageView)
                 let titleLabel = UILabel(frame: CGRect(x: 30, y: 10, width: cell.bounds.width, height: cell.bounds.height))
                 titleLabel.text = "Add a Product"
@@ -118,7 +123,7 @@ class AddLookFVC: FormViewController, UIImagePickerControllerDelegate, UINavigat
                 let image: ImageRow? = self.form.rowBy(tag: "image")
                 self.lookData.image = (image?.value)!
                 
-                self.lookData.imageURL = "gs://ill-gourmet.appspot.com/look_photos" + FIRAuth.auth()!.currentUser!.uid + "/\(Double(Date.timeIntervalSinceReferenceDate * 1000)).jpg"
+                self.lookData.imageURL = "gs://ill-gourmet.appspot.com/look_photos/" + FIRAuth.auth()!.currentUser!.uid + "/\(Double(Date.timeIntervalSinceReferenceDate * 1000)).jpg"
      
                 
                 let vc = UIStoryboard(name: "AddLook", bundle: nil).instantiateViewController(withIdentifier: "AddProduct") as? AddProductVCViewController
@@ -143,7 +148,7 @@ class AddLookFVC: FormViewController, UIImagePickerControllerDelegate, UINavigat
         let image: ImageRow? = form.rowBy(tag: "image")
         let lookImage = image?.value
         
-        let imagePath = "gs://ill-gourmet.appspot.com/look_photos" + FIRAuth.auth()!.currentUser!.uid + "/\(Double(Date.timeIntervalSinceReferenceDate * 1000)).jpg"
+        let imagePath = "gs://ill-gourmet.appspot.com/look_photos/" + FIRAuth.auth()!.currentUser!.uid + "/\(Double(Date.timeIntervalSinceReferenceDate * 1000)).jpeg"
         
         let data = UIImageJPEGRepresentation(lookImage!, 0.8)
         

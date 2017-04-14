@@ -38,10 +38,15 @@ class AddProductVCViewController: FormViewController {
             <<< TextRow(){ row in
                 row.title = "Brand Name"
                 row.tag = "brand"
+                row.value = productData.brandName
+//                if let productData.brandName.characters.count > 2 {
+//                    row.value = productData.brandName
+//                }
             }
             <<< TextRow(){
                 $0.title = "Product Name"
                 $0.tag = "productName"
+                $0.value = productData.brandName
             }
             
 //            +++ Section() { section in
@@ -64,12 +69,13 @@ class AddProductVCViewController: FormViewController {
             <<< ImageRow() {
                 $0.title = "Image"
                 $0.tag = "productImage"
+                $0.value = productData.image
             }
             
             <<< DecimalRow() {
                 $0.useFormatterDuringInput = true
                 $0.title = "Price"
-                $0.value = 0
+                $0.value = productData.price
                 let formatter = CurrencyFormatter()
                 formatter.locale = .current
                 formatter.numberStyle = .currency
@@ -80,6 +86,7 @@ class AddProductVCViewController: FormViewController {
                 $0.title = "Tags"
                 $0.placeholder = "Seperated by Commas"
                 $0.tag = "tags"
+                $0.value = productData.tags
             }
         view.bringSubview(toFront: saveBtn)
         tableView?.frame = CGRect(x: 0, y: 65, width: view.frame.width, height: (view.frame.height - 65))
@@ -110,7 +117,7 @@ class AddProductVCViewController: FormViewController {
         let tag: TextRow? = self.form.rowBy(tag: "tags")
         self.productData.tags = (tag?.value)!
         
-        self.productData.imageURL = "gs://ill-gourmet.appspot.com/look_photos" + FIRAuth.auth()!.currentUser!.uid + "/\(Double(Date.timeIntervalSinceReferenceDate * 1000)).jpg"
+        self.productData.imageURL = "gs://ill-gourmet.appspot.com/look_photos/" + FIRAuth.auth()!.currentUser!.uid + "/\(Double(Date.timeIntervalSinceReferenceDate * 1000)).jpeg"
         
         lookData.products += [productData]
         

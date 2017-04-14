@@ -41,6 +41,7 @@ class Product {
             } else {
                 
                 Firebase.shared.storageRef.storage.reference(forURL: self.productImage).data(withMaxSize: INT64_MAX, completion: { (data, error) in
+                    print(error)
                     guard let data = data else { return }
                     if let newImage = UIImage(data: data) {
                         self.image = newImage

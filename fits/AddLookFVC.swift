@@ -142,8 +142,9 @@ class AddLookFVC: FormViewController, UIImagePickerControllerDelegate, UINavigat
         
         let image: ImageRow? = form.rowBy(tag: "image")
         let lookImage = image?.value
+
         
-        let imagePath = "gs://ill-gourmet.appspot.com/look_photos" + FIRAuth.auth()!.currentUser!.uid + "/\(Double(Date.timeIntervalSinceReferenceDate * 1000)).jpg"
+        let imagePath = "gs://ill-gourmet.appspot.com/look_photos/" + FIRAuth.auth()!.currentUser!.uid + "/\(celebrityName!)\(description!).jpg"
         
         let data = UIImageJPEGRepresentation(lookImage!, 0.8)
         

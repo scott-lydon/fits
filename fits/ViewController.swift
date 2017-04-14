@@ -45,6 +45,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         Firebase.shared.getLooks { looks in
+            self.pageViewControllers.removeAll()
             
             self.looks = looks
             
@@ -65,9 +66,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 print(self.pageViewControllers.count)
                 
                 
-                DispatchQueue.main.async {
-                    self.table.reloadData()
-                }
+//                DispatchQueue.main.async {
+//                    self.table.reloadData()
+//                }
                 
             }
             

@@ -174,6 +174,7 @@
 				33B7985D1E9F30E70014B043 /* Firebase.swift */,
 				33B798591E9F2F040014B043 /* User.swift */,
 				33B798291E9ED89C0014B043 /* FitPageVC.swift */,
+				33B798541E9ED8EC0014B043 /* LaunchScreen.storyboard */,
 				33E0C1021EA0366A00CA7393 /* ProductVC.swift */,
 				33E0C1001EA01B6900CA7393 /* LookVC.swift */,
 				33B798301E9ED89C0014B043 /* LoginViewController.swift */,
@@ -203,7 +204,6 @@
 		33B797E51E9EBE580014B043 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				33B798541E9ED8EC0014B043 /* LaunchScreen.storyboard */,
 				33B798311E9ED89C0014B043 /* Main.storyboard */,
 			);
 			name = Storyboards;

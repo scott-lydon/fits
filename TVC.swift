@@ -11,7 +11,9 @@ class TVC: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource
     override func awakeFromNib() {
         super.awakeFromNib()
         productCollection.register(UINib(nibName: "CVC", bundle: nil), forCellWithReuseIdentifier: "CVC")
+        
     }
+    
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1

@@ -6,6 +6,8 @@ class AddProductVCViewController: FormViewController {
 
     @IBOutlet weak var saveBtn: UIButton!
     
+    var collectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let navBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 65))
@@ -37,6 +39,11 @@ class AddProductVCViewController: FormViewController {
                 
                 // Will be called every time the header appears on screen
                 header.onSetupView = { view, _ in
+                    for i in view.subviews[0].subviews {
+                        if let collectionView = i as? UICollectionView {
+                            self.collectionView = collectionView
+                        }
+                    }
                     // Commonly used to setup texts inside the view
                     // Don't change the view hierarchy or size here!
                 }
@@ -64,7 +71,7 @@ class AddProductVCViewController: FormViewController {
                 $0.placeholder = "Seperated by Commas"
             }
         view.bringSubview(toFront: saveBtn)
-
+        
     }
     
     

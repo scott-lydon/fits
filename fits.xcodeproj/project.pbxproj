@@ -44,7 +44,6 @@
 		F7E1687C1E9F205A00B40D84 /* ImageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E1687A1E9F205A00B40D84 /* ImageRow.swift */; };
 		F7E1687F1E9F399D00B40D84 /* AddProductVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E1687E1E9F399D00B40D84 /* AddProductVCViewController.swift */; };
 		F7E168831EA0143200B40D84 /* LookData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E168821EA0143200B40D84 /* LookData.swift */; };
-		F7E168851EA0147000B40D84 /* ProductData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E168841EA0147000B40D84 /* ProductData.swift */; };
 		F7E168D31EA046C500B40D84 /* TVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E168D11EA046C500B40D84 /* TVC.swift */; };
 		F7E168D41EA046C500B40D84 /* TVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7E168D21EA046C500B40D84 /* TVC.xib */; };
 		F7E168D71EA0479B00B40D84 /* CVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E168D51EA0479B00B40D84 /* CVC.swift */; };
@@ -91,7 +90,6 @@
 		F7E1687A1E9F205A00B40D84 /* ImageRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageRow.swift; sourceTree = "<group>"; };
 		F7E1687E1E9F399D00B40D84 /* AddProductVCViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProductVCViewController.swift; sourceTree = "<group>"; };
 		F7E168821EA0143200B40D84 /* LookData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LookData.swift; sourceTree = "<group>"; };
-		F7E168841EA0147000B40D84 /* ProductData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductData.swift; sourceTree = "<group>"; };
 		F7E168D11EA046C500B40D84 /* TVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TVC.swift; sourceTree = "<group>"; };
 		F7E168D21EA046C500B40D84 /* TVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TVC.xib; sourceTree = "<group>"; };
 		F7E168D51EA0479B00B40D84 /* CVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CVC.swift; sourceTree = "<group>"; };
@@ -239,9 +237,8 @@
 			children = (
 				33B7981B1E9ED89C0014B043 /* AddLook.storyboard */,
 				33B7981C1E9ED89C0014B043 /* AddLookFVC.swift */,
-				F7E168821EA0143200B40D84 /* LookData.swift */,
-				F7E168841EA0147000B40D84 /* ProductData.swift */,
 				F7E1687E1E9F399D00B40D84 /* AddProductVCViewController.swift */,
+				F7E168821EA0143200B40D84 /* LookData.swift */,
 				F7E168D91EA048DD00B40D84 /* XibsForCollection */,
 				F7E1687D1E9F206700B40D84 /* ImageFiles */,
 			);
@@ -436,7 +433,6 @@
 				F7E1687C1E9F205A00B40D84 /* ImageRow.swift in Sources */,
 				33B798501E9ED89C0014B043 /* ViewController.swift in Sources */,
 				33B7984E1E9ED89C0014B043 /* SignupViewController.swift in Sources */,
-				F7E168851EA0147000B40D84 /* ProductData.swift in Sources */,
 				33B7985E1E9F30E70014B043 /* Firebase.swift in Sources */,
 				33B7980F1E9EBEE20014B043 /* IntentHandler.swift in Sources */,
 				33B798601E9F316F0014B043 /* Look.swift in Sources */,

@@ -10,6 +10,8 @@ class AddLookFVC: FormViewController, UIImagePickerControllerDelegate, UINavigat
     
     @IBOutlet weak var submitBtn: UIButton!
     
+    var productData = ProductData()
+    var lookData = LookData()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +23,6 @@ class AddLookFVC: FormViewController, UIImagePickerControllerDelegate, UINavigat
         navItem.leftBarButtonItem?.tintColor = illOrange
         navBar.setItems([navItem], animated: false)
         let photos = ["cats", "dgst"]
-        
         
         ImageRow.defaultCellUpdate = { cell, row in
             cell.accessoryView?.layer.cornerRadius = 17
@@ -93,7 +94,6 @@ class AddLookFVC: FormViewController, UIImagePickerControllerDelegate, UINavigat
 
     @IBAction func submitPress(_ sender: Any) {
         let lookUuid = UUID().uuidString
-        let celebrityUuid = UUID().uuidString
         
         let celebrity: TextRow? = form.rowBy(tag: "celebrity")
         let celebrityName = celebrity?.value
@@ -111,8 +111,8 @@ class AddLookFVC: FormViewController, UIImagePickerControllerDelegate, UINavigat
         let metadata = FIRStorageMetadata()
         metadata.contentType = "image/jpeg"
         
-        let look = ["\(lookUuid)": ["celebrityID": "\(celebrityUuid)",
-                                    "imageURL": imagePath,
+        let look = ["\(lookUuid)": ["celebrityID": "\(celebrityName)",
+                                    "imageURL": "https://images.complex.com/complex/image/upload/\(imagePath)",
                                     "productIDs": [""],
                                     "description": "\(lookDescription)",
                                     "postedByUserID": "\(FIRAuth.auth()?.currentUser)",

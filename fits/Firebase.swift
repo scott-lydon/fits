@@ -16,30 +16,82 @@ class Firebase {
     var storageRef = FIRStorage.storage().reference()
     
     
+    fileprivate var _authHandle: FIRAuthStateDidChangeListenerHandle!
+    
+    fileprivate var _refHandle: FIRDatabaseHandle!
+    
+    var user: FIRUser?
+    
     static let shared = Firebase()
     
-    func getProduct(productID : String)  {
+    // USER STUFF
+    
+
+    // GET STUFF
+    
+    func getProducts(productIDs : [String], completion : @escaping ([Product]) -> Void) {
         
-        let address = ref.child("product").child(productID)
+        var products : [Product] = []
+        
+        let address = ref.child("product")
         
         address.observeSingleEvent(of: .value, with: { (snapshot) in
             
             guard let dict = snapshot.value as? [String:Any] else { return }
-                
-            guard let imageURL = dict["imageURL"] as? String else { return }
-            guard let brandName = dict["brandName"] as? String else { return }
-            guard let productName = dict["productName"] as? String else { return }
-            guard let price = dict["price"] as? Double else { return }
-            guard let lookID = dict["lookID"] as? String else { return }
             
-            var product = Product(productImage: imageURL, brandName: brandName, productName: productName, price: price, lookID: lookID)
-           
+            for product in productIDs {
+                
+                guard let prod = dict[product] as? [String:Any] else {return}
+                
+                guard let brandName = prod["brandName"] as? String else { return }
+                guard let lookID = prod["lookID"] as? String else { return }
+                guard let price = prod["price"] as? Double else { return }
+                guard let imageURL = prod["imageURL"] as? String else { return }
+                guard let productName = prod["productName"] as? String else { return }
+                
+                let product = Product(productImage: imageURL, brandName: brandName, productName: productName, price: price, lookID: lookID)
+                
+                products.append(product)
+                
+            }
+            
+            completion(products)
+            
+        })
+        
+    }
+    
+    func getLooks(completion : @escaping ([Look]) -> Void)  {
+        
+        var looks : [Look] = []
+        
+        let address = ref.child("look")
+        
+        address.observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            guard let dict = snapshot.value as? [String:Any] else { return }
+            
+            for (key,_) in dict {
+                
+                guard let lookDict = dict[key] as? [String:Any] else { return }
+                guard let imageURL = lookDict["imageURL"] as? String else { return }
+                guard let postedByUserID = lookDict["postedByUserID"] as? String else { return }
+                guard let description = lookDict["description"] as? String else { return }
+                guard let celebrityID = lookDict["celebrityID"] as? String else { return }
+                guard let productIDs = lookDict["productIDs"] as? [String] else { return }
+                
+                let look = Look(celebrityID: celebrityID, description: description, imageURL: imageURL, postedByUserID: postedByUserID, productIDs: productIDs)
+                
+                looks.append(look)
+                
+            }
+            
+            completion(looks)
         })
         
     }
     
     
 
-    
     
 }

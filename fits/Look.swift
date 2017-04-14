@@ -7,3 +7,47 @@
 //
 
 import Foundation
+import UIKit
+
+class Look {
+    
+    var celebrityID : String
+    var description : String
+    var imageURL : String
+    var postedByUserID : String
+    var productIDs : [String]
+    var image : UIImage?
+
+    private let queue = DispatchQueue(label: "privateQueue", qos: DispatchQoS.background, attributes: .concurrent, autoreleaseFrequency: DispatchQueue.AutoreleaseFrequency.inherit, target: nil)
+    
+    init( celebrityID : String, description : String , imageURL : String, postedByUserID : String, productIDs : [String]) {
+        
+        self.celebrityID = celebrityID
+        self.description = description
+        self.imageURL = imageURL
+        self.postedByUserID = postedByUserID
+        self.productIDs = productIDs
+    }
+    
+    public func loadImage(completion : @escaping (UIImage) -> Void)  {
+        queue.async {
+            if let image = self.image {
+                completion(image)
+            } else {
+                let url = URL(string: self.imageURL)!
+                URLSession.shared.dataTask(with: url, completionHandler: { (data, _, _) in
+                    if let newImage = UIImage(data: data!) {
+                        self.image = newImage
+                        completion(newImage)
+                    }
+                }).resume()
+//                if let data = try? Data(contentsOf: url) {
+//                    if let newImage = UIImage(data: data) {
+//                        self.image = newImage
+//                        completion(newImage)
+//                    }
+//                }
+            }
+        }
+    }
+}

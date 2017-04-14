@@ -1,7 +1,6 @@
 
 
 import UIKit
-import Contentful
 import Interstellar
 import EZSwipeController
 

@@ -41,10 +41,20 @@ extension EZSwipeControllerVC: EZSwipeControllerDataSource {
     
 
 // MARK: User Signout/Logout of Firebase
-    @IBAction func leftButtonItemTapped(sender: UIBarButtonItem) {
+//    @IBAction func leftButtonItemTapped(sender: UIBarButtonItem) {
+//        try! FIRAuth.auth()?.signOut()
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let loggedOutScene = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+//        present(loggedOutScene, animated: true)
+//        
+//    }
+    
+    func leftButtonItemTapped(sender: Any?) {
+        print("The following user has logged out:\(FIRAuth.auth()?.currentUser?.email)")
         try! FIRAuth.auth()?.signOut()
+//        print("The following user has loged out:\(FIRAuth.auth()?.currentUser)")
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let loggedOutScene = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        let loggedOutScene = storyboard.instantiateViewController(withIdentifier: "splashVC")
         present(loggedOutScene, animated: true)
         
     }
@@ -61,7 +71,7 @@ extension EZSwipeControllerVC: EZSwipeControllerDataSource {
         
         //MARK: Setting title
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
-        let imageView = UIImageView(image: #imageLiteral(resourceName: "illgourmet"))
+        let imageView = UIImageView(image: UIImage(named: "illgourmet"))
 
         
         imageView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
@@ -71,19 +81,31 @@ extension EZSwipeControllerVC: EZSwipeControllerDataSource {
         //MARK: Page Left
         if index == 0 {
             
-            let leftButtonItem = UIBarButtonItem(title: "Logout", style: UIBarButtonItemStyle.done, target: self, action: #selector(leftButtonItemTapped))
+            let leftButton = UIButton(type: .custom)
+            leftButton.frame = CGRect(x: 0, y: 0, width: 60, height: 30)
+            leftButton.setTitle("Logout", for: .normal)
+            leftButton.setTitleColor(illOrange, for: .normal)
+            leftButton.addTarget(self, action:#selector(leftButtonItemTapped), for: .touchUpInside)
             
+            
+            let leftButtonItem = UIBarButtonItem(customView: leftButton)
             self.navigationItem.setLeftBarButton(leftButtonItem, animated: false);
             
-            leftButtonItem.tintColor = illOrange
             navigationItem.leftBarButtonItem = leftButtonItem
+//            
+//            
+//            let leftButtonItem = UIBarButtonItem(title: "Logout", style: UIBarButtonItemStyle.done, target: self, action: #selector(leftButtonItemTapped))
+//            
+            self.navigationItem.setLeftBarButton(leftButtonItem, animated: false);
+//            
+//            leftButtonItem.tintColor = illOrange
+//            navigationItem.leftBarButtonItem = leftButtonItem
             
             navigationItem.titleView = nil
             navigationItem.title = "Your Account"
             
             navigationItem.rightBarButtonItem = makeButtonImg(image: #imageLiteral(resourceName: "ill_tiny_nav_icon"), w: 22, h: 22, tintColor: illOrange)
             
-            let rightIconImage = #imageLiteral(resourceName: "ill_tiny_nav_icon")
             let rightButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "ill_tiny_nav_icon"), style: UIBarButtonItemStyle.plain, target: self, action: nil)
             //rightButtonItem.customView = leftPageRightIconView
 
@@ -93,9 +115,9 @@ extension EZSwipeControllerVC: EZSwipeControllerDataSource {
 //MARK: Page Center
         } else if index == 1 {
             
-            navigationItem.leftBarButtonItem = makeButtonImg(image: #imageLiteral(resourceName: "profile_icon"), w: 22, h: 22, tintColor: illGray)
+            navigationItem.leftBarButtonItem = makeButtonImg(image: UIImage(named: "profile_icon")!, w: 22, h: 22, tintColor: illGray)
             
-            navigationItem.rightBarButtonItem = makeButtonImg(image: #imageLiteral(resourceName: "cart_icon"), w: 22, h: 22, tintColor: illGray)
+            navigationItem.rightBarButtonItem = makeButtonImg(image: UIImage(named: "cart_icon")!, w: 22, h: 22, tintColor: illGray)
             
             //MARK: Page Right
         } else if index == 2 { /*Page Right*/

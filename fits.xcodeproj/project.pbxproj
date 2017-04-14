@@ -20,11 +20,8 @@
 		33B7983C1E9ED89C0014B043 /* CartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B798201E9ED89C0014B043 /* CartCell.swift */; };
 		33B7983D1E9ED89C0014B043 /* CartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33B798211E9ED89C0014B043 /* CartCell.xib */; };
 		33B7983E1E9ED89C0014B043 /* CartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B798221E9ED89C0014B043 /* CartVC.swift */; };
-		33B798401E9ED89C0014B043 /* ContentfulManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B798241E9ED89C0014B043 /* ContentfulManager.swift */; };
 		33B798431E9ED89C0014B043 /* EZSwipeControllerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B798271E9ED89C0014B043 /* EZSwipeControllerVC.swift */; };
-		33B798441E9ED89C0014B043 /* Fit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B798281E9ED89C0014B043 /* Fit.swift */; };
 		33B798451E9ED89C0014B043 /* FitPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B798291E9ED89C0014B043 /* FitPageVC.swift */; };
-		33B798471E9ED89C0014B043 /* FitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B7982C1E9ED89C0014B043 /* FitVC.swift */; };
 		33B798481E9ED89C0014B043 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 33B7982D1E9ED89C0014B043 /* GoogleService-Info.plist */; };
 		33B798491E9ED89C0014B043 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 33B7982E1E9ED89C0014B043 /* Info.plist */; };
 		33B7984B1E9ED89C0014B043 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B798301E9ED89C0014B043 /* LoginViewController.swift */; };
@@ -32,13 +29,13 @@
 		33B7984E1E9ED89C0014B043 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B798331E9ED89C0014B043 /* SignupViewController.swift */; };
 		33B7984F1E9ED89C0014B043 /* UserProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B798341E9ED89C0014B043 /* UserProfileVC.swift */; };
 		33B798501E9ED89C0014B043 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B798351E9ED89C0014B043 /* ViewController.swift */; };
-		33B798511E9ED89C0014B043 /* WebVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B798361E9ED89C0014B043 /* WebVC.swift */; };
 		33B798561E9ED8EC0014B043 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33B798541E9ED8EC0014B043 /* LaunchScreen.storyboard */; };
 		33B798581E9F2EF80014B043 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B798571E9F2EF80014B043 /* Product.swift */; };
 		33B7985A1E9F2F040014B043 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B798591E9F2F040014B043 /* User.swift */; };
-		33B7985C1E9F2F0E0014B043 /* Celebrity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B7985B1E9F2F0E0014B043 /* Celebrity.swift */; };
 		33B7985E1E9F30E70014B043 /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B7985D1E9F30E70014B043 /* Firebase.swift */; };
 		33B798601E9F316F0014B043 /* Look.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B7985F1E9F316F0014B043 /* Look.swift */; };
+		33E0C1011EA01B6900CA7393 /* LookVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E0C1001EA01B6900CA7393 /* LookVC.swift */; };
+		33E0C1031EA0366A00CA7393 /* ProductVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E0C1021EA0366A00CA7393 /* ProductVC.swift */; };
 		6E0CDEAC1E5521784CDEA5AE /* Pods_fits.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFDAB4B6D10669F5CE807DB9 /* Pods_fits.framework */; };
 		F7B6A0F91EA1297100462184 /* ProductData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B6A0F81EA1297100462184 /* ProductData.swift */; };
 		F7E1687B1E9F205A00B40D84 /* ImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E168791E9F205A00B40D84 /* ImagePickerController.swift */; };
@@ -67,11 +64,8 @@
 		33B798201E9ED89C0014B043 /* CartCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartCell.swift; sourceTree = "<group>"; };
 		33B798211E9ED89C0014B043 /* CartCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CartCell.xib; sourceTree = "<group>"; };
 		33B798221E9ED89C0014B043 /* CartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartVC.swift; sourceTree = "<group>"; };
-		33B798241E9ED89C0014B043 /* ContentfulManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentfulManager.swift; sourceTree = "<group>"; };
 		33B798271E9ED89C0014B043 /* EZSwipeControllerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EZSwipeControllerVC.swift; sourceTree = "<group>"; };
-		33B798281E9ED89C0014B043 /* Fit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fit.swift; sourceTree = "<group>"; };
 		33B798291E9ED89C0014B043 /* FitPageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FitPageVC.swift; sourceTree = "<group>"; };
-		33B7982C1E9ED89C0014B043 /* FitVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FitVC.swift; sourceTree = "<group>"; };
 		33B7982D1E9ED89C0014B043 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		33B7982E1E9ED89C0014B043 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		33B798301E9ED89C0014B043 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -79,13 +73,13 @@
 		33B798331E9ED89C0014B043 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		33B798341E9ED89C0014B043 /* UserProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileVC.swift; sourceTree = "<group>"; };
 		33B798351E9ED89C0014B043 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		33B798361E9ED89C0014B043 /* WebVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebVC.swift; sourceTree = "<group>"; };
 		33B798551E9ED8EC0014B043 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		33B798571E9F2EF80014B043 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		33B798591E9F2F040014B043 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		33B7985B1E9F2F0E0014B043 /* Celebrity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Celebrity.swift; sourceTree = "<group>"; };
 		33B7985D1E9F30E70014B043 /* Firebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
 		33B7985F1E9F316F0014B043 /* Look.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Look.swift; sourceTree = "<group>"; };
+		33E0C1001EA01B6900CA7393 /* LookVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LookVC.swift; sourceTree = "<group>"; };
+		33E0C1021EA0366A00CA7393 /* ProductVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductVC.swift; sourceTree = "<group>"; };
 		6D2A57DABCADC7B095CCC2B3 /* Pods-fits.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fits.release.xcconfig"; path = "Pods/Target Support Files/Pods-fits/Pods-fits.release.xcconfig"; sourceTree = "<group>"; };
 		F7B6A0F81EA1297100462184 /* ProductData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductData.swift; sourceTree = "<group>"; };
 		F7E168791E9F205A00B40D84 /* ImagePickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerController.swift; sourceTree = "<group>"; };
@@ -174,21 +168,18 @@
 			children = (
 				33B7981D1E9ED89C0014B043 /* AppDelegate.swift */,
 				33B7981E1E9ED89C0014B043 /* Assets.xcassets */,
-				33B798241E9ED89C0014B043 /* ContentfulManager.swift */,
 				33B798271E9ED89C0014B043 /* EZSwipeControllerVC.swift */,
-				33B798281E9ED89C0014B043 /* Fit.swift */,
 				33B7985F1E9F316F0014B043 /* Look.swift */,
 				33B798571E9F2EF80014B043 /* Product.swift */,
 				33B7985D1E9F30E70014B043 /* Firebase.swift */,
 				33B798591E9F2F040014B043 /* User.swift */,
-				33B7985B1E9F2F0E0014B043 /* Celebrity.swift */,
 				33B798291E9ED89C0014B043 /* FitPageVC.swift */,
-				33B7982C1E9ED89C0014B043 /* FitVC.swift */,
+				33E0C1021EA0366A00CA7393 /* ProductVC.swift */,
+				33E0C1001EA01B6900CA7393 /* LookVC.swift */,
 				33B798301E9ED89C0014B043 /* LoginViewController.swift */,
 				33B798331E9ED89C0014B043 /* SignupViewController.swift */,
 				33B798341E9ED89C0014B043 /* UserProfileVC.swift */,
 				33B798351E9ED89C0014B043 /* ViewController.swift */,
-				33B798361E9ED89C0014B043 /* WebVC.swift */,
 				33B798191E9EBFD70014B043 /* Login */,
 				7538302F1E9C008600B422E4 /* AddLooks */,
 				331D70241E9D886B00878B2E /* Cart */,
@@ -419,15 +410,11 @@
 				33B7983E1E9ED89C0014B043 /* CartVC.swift in Sources */,
 				F7B6A0F91EA1297100462184 /* ProductData.swift in Sources */,
 				33B798391E9ED89C0014B043 /* AppDelegate.swift in Sources */,
-				33B798471E9ED89C0014B043 /* FitVC.swift in Sources */,
 				33B798431E9ED89C0014B043 /* EZSwipeControllerVC.swift in Sources */,
 				F7E168D31EA046C500B40D84 /* TVC.swift in Sources */,
 				33B798451E9ED89C0014B043 /* FitPageVC.swift in Sources */,
-				33B7985C1E9F2F0E0014B043 /* Celebrity.swift in Sources */,
-				33B798511E9ED89C0014B043 /* WebVC.swift in Sources */,
+				33E0C1031EA0366A00CA7393 /* ProductVC.swift in Sources */,
 				F7E1687F1E9F399D00B40D84 /* AddProductVCViewController.swift in Sources */,
-				33B798401E9ED89C0014B043 /* ContentfulManager.swift in Sources */,
-				33B798441E9ED89C0014B043 /* Fit.swift in Sources */,
 				33B7984B1E9ED89C0014B043 /* LoginViewController.swift in Sources */,
 				33B7985A1E9F2F040014B043 /* User.swift in Sources */,
 				33B7984F1E9ED89C0014B043 /* UserProfileVC.swift in Sources */,
@@ -435,6 +422,7 @@
 				33B798071E9EBEE20014B043 /* Configuration.swift in Sources */,
 				33B7983C1E9ED89C0014B043 /* CartCell.swift in Sources */,
 				F7E1687C1E9F205A00B40D84 /* ImageRow.swift in Sources */,
+				33E0C1011EA01B6900CA7393 /* LookVC.swift in Sources */,
 				33B798501E9ED89C0014B043 /* ViewController.swift in Sources */,
 				33B7984E1E9ED89C0014B043 /* SignupViewController.swift in Sources */,
 				33B7985E1E9F30E70014B043 /* Firebase.swift in Sources */,

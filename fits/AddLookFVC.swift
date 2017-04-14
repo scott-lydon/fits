@@ -93,7 +93,7 @@ class AddLookFVC: FormViewController, UIImagePickerControllerDelegate, UINavigat
             section.append(k)
         }
         
-        section <<< TextRow() {
+        section <<< LabelRow() {
             $0.title = ""
             }.cellSetup { cell, row in
                 
@@ -119,8 +119,7 @@ class AddLookFVC: FormViewController, UIImagePickerControllerDelegate, UINavigat
                 self.lookData.image = (image?.value)!
                 
                 self.lookData.imageURL = "gs://ill-gourmet.appspot.com/look_photos" + FIRAuth.auth()!.currentUser!.uid + "/\(Double(Date.timeIntervalSinceReferenceDate * 1000)).jpg"
-                
-                
+     
                 
                 let vc = UIStoryboard(name: "AddLook", bundle: nil).instantiateViewController(withIdentifier: "AddProduct") as? AddProductVCViewController
                 vc?.modalPresentationStyle = UIModalPresentationStyle.popover

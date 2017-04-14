@@ -150,7 +150,7 @@ class AddLookFVC: FormViewController, UIImagePickerControllerDelegate, UINavigat
         let metadata = FIRStorageMetadata()
         metadata.contentType = "image/jpeg"
         
-        let userID = FIRAuth.auth()?.currentUser
+        let userID = User.shared.username
         
         let look = ["\(lookData.lookID)": ["celebrityID": celebrityName!,
                                     "imageURL": imagePath,

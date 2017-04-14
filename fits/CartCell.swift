@@ -28,6 +28,12 @@ class CartCell: UITableViewCell {
         self.price.text = "\(product?.price)" ?? "0"
         self.productName.text = product?.productName
         
+        product?.loadImage( completion: { (fetchedImage) in
+            DispatchQueue.main.async {
+                self.productImage.image = fetchedImage
+            }
+        })
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

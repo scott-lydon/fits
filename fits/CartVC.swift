@@ -22,6 +22,8 @@ class CartVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             Firebase.shared.getProducts(productIDs: self.productIDsInCart) { products in
                 self.productsInCart = products
                 
+            
+                
                 self.tableView.reloadData()
                 
             }
@@ -29,6 +31,8 @@ class CartVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
         
         super.viewDidLoad()
+        
+        
         
         let result = PaymentHandler.applePayStatus()
         

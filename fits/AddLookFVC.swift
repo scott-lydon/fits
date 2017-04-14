@@ -150,13 +150,13 @@ class AddLookFVC: FormViewController, UIImagePickerControllerDelegate, UINavigat
         let metadata = FIRStorageMetadata()
         metadata.contentType = "image/jpeg"
         
-        let userID = FIRAuth.auth()?.currentUser
+        let userID = User.shared.username
         
         let look = ["\(lookData.lookID)": ["celebrityID": celebrityName!,
                                     "imageURL": imagePath,
                                     "productIDs": lookData.productIDs,
                                     "description": lookDescription!,
-                                    "postedByUserID": userID!,
+                                    "postedByUserID": userID,
                                     "approved": true]]
         
         Firebase.shared.ref.child("look").updateChildValues(look)
@@ -190,6 +190,9 @@ class AddLookFVC: FormViewController, UIImagePickerControllerDelegate, UINavigat
                 return
             }
         }
+        dismiss(animated: true, completion: nil)
+
     }
+    
 }
 

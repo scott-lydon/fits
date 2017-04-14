@@ -6,9 +6,8 @@ import AVFoundation
 import Firebase
 
 
-
 class AddLookFVC: FormViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+    
     @IBOutlet weak var submitBtn: UIButton!
     
     
@@ -86,49 +85,51 @@ class AddLookFVC: FormViewController, UIImagePickerControllerDelegate, UINavigat
     @IBAction func cancelPress() {
         dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func unwindFromProductToLook(s: UIStoryboardSegue) {
+        let source = s.source as? AddProductVCViewController
+        // source properties can be accessed with . notation
+    }
 
     @IBAction func submitPress(_ sender: Any) {
-//        let lookUuid = UUID().uuidString
-//        let celebrityUuid = UUID().uuidString
-//        
-//        let celebrity: TextRow? = form.rowBy(tag: "celebrity")
-//        let celebrityName = celebrity?.value
-//        
-//        let description: TextRow? = form.rowBy(tag: "description")
-//        let lookDescription = description?.value
-//        
-//        let image: ImageRow? = form.rowBy(tag: "image")
-//        let lookImage = image?.value
-//        
-//        let imagePath = "look_photos/" + FIRAuth.auth()!.currentUser!.uid + "/\(Double(Date.timeIntervalSinceReferenceDate * 1000)).jpg"
-//        
-//       // let data = UIImageJPEGRepresentation(lookImage, 0.8)
-//        
-//        
-//        let look = ["\(lookUuid)": ["celebrityID": "\(celebrityUuid)",
-//                                    "imageURL": imagePath,
-//                                    "productIDs": [""],
-//                                    "description": "\(lookDescription)",
-//                                    "postedByUserID": "\(FIRAuth.auth()?.currentUser)",
-//                                    "approved": true]]
-//        
-//       // print(FirebaseManager.shared.ref.child("look").child("\(lookID13)"))
-//        
-//        //FirebaseManager.shared.ref.child("look").updateChildValues(look)
-//        
-//        
-//        print(imagePath)
-//        //FirebaseManager.shared.storageRef!.child(imagePath).put(photoData, metadata: metadata) { (metadata, error) in
-//            if let error = error {
-//                print ("error uploading: \(error)")
-//                return
-//            }
-//            // use SendMessage to add imageURL to database
-//            self.sendMessage(data: [Constants.ItemFields.imageUrl: FirebaseManager.shared.storageRef!.child((metadata?.path)!).description])
-//        }
-
-  
+        let lookUuid = UUID().uuidString
+        let celebrityUuid = UUID().uuidString
         
+        let celebrity: TextRow? = form.rowBy(tag: "celebrity")
+        let celebrityName = celebrity?.value
+        
+        let description: TextRow? = form.rowBy(tag: "description")
+        let lookDescription = description?.value
+        
+        let image: ImageRow? = form.rowBy(tag: "image")
+        let lookImage = image?.value
+        
+        let imagePath = "look_photos/" + FIRAuth.auth()!.currentUser!.uid + "/\(Double(Date.timeIntervalSinceReferenceDate * 1000)).jpg"
+        
+        let data = UIImageJPEGRepresentation(lookImage!, 0.8)
+        
+        let metadata = FIRStorageMetadata()
+        metadata.contentType = "image/jpeg"
+        
+        let look = ["\(lookUuid)": ["celebrityID": "\(celebrityUuid)",
+                                    "imageURL": imagePath,
+                                    "productIDs": [""],
+                                    "description": "\(lookDescription)",
+                                    "postedByUserID": "\(FIRAuth.auth()?.currentUser)",
+                                    "approved": true]]
+        
+        print(Firebase.shared.ref.child("look").child("lookID13"))
+        
+        Firebase.shared.ref.child("look").updateChildValues(look)
+        
+        
+        print(imagePath)
+        Firebase.shared.storageRef.child(imagePath).put(data!, metadata: metadata) { (metadata, error) in
+            if let error = error {
+                print ("error uploading: \(error)")
+                return
+            }
+        }
     }
 }
 

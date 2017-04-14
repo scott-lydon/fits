@@ -12,7 +12,9 @@ import FirebaseDatabase
 
 class Firebase {
     
-    var ref: FIRDatabaseReference = FIRDatabase.database().reference()
+    var ref = FIRDatabase.database().reference()
+    var storageRef = FIRStorage.storage().reference()
+    
     
     static let shared = Firebase()
     

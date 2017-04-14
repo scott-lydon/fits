@@ -10,7 +10,9 @@ import UIKit
 
 class FitPageVC: UIPageViewController {
     
-    var fit : Fit?
+    var look : Look?
+    var products : [Product]?
+    
     var selectedPageIndex  = 0
     
     var pageControl : UIPageControl = UIPageControl(frame: CGRect(x: UIScreen.main.bounds.width - 70, y: 0.684 * UIScreen.main.bounds.height, width: 30, height: 20))
@@ -23,7 +25,6 @@ class FitPageVC: UIPageViewController {
         setViewControllers([viewControllerAtIndex(0)], direction: .forward, animated: true, completion: nil)
         
         self.pageControl.currentPage = 0
-        self.pageControl.numberOfPages = (fit?.brand.count)! + 1
         self.pageControl.pageIndicatorTintColor = UIColor(red:0.60, green:0.60, blue:0.60, alpha:0.3)
         self.pageControl.currentPageIndicatorTintColor = UIColor.black
         self.view.addSubview(pageControl)
@@ -35,23 +36,33 @@ class FitPageVC: UIPageViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    init(fit:Fit) {
+    init() {
         
         super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
-        self.fit = fit
+        
     }
     
     required init?(coder:NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func viewControllerAtIndex (_ index:Int) -> FitVC {
-        let fitVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FitVC") as! FitVC
-        fitVC.setValues(fit : fit!, index: index)
+    func viewControllerAtIndex (_ index:Int) -> UIViewController {
+        
+        if index == 0 {
+        let lookVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LookVC") as! LookVC
+        lookVC.setValues(look : look!)
         selectedPageIndex = index
-        return fitVC
+        return lookVC
+            
+        } else {
+            
+            let productVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ProductVC") as! ProductVC
+            productVC.setValues(product : products![index-1])
+            selectedPageIndex = index
+            return productVC
+        }
     }
-    
+
 
 }
 
@@ -59,7 +70,9 @@ extension FitPageVC : UIPageViewControllerDataSource {
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
-        var index = (viewController as! FitVC).index
+//      var index = (viewController as! FitVC).index
+        var index = selectedPageIndex
+
         self.pageControl.currentPage = index
 
         if index == 0 {
@@ -71,12 +84,14 @@ extension FitPageVC : UIPageViewControllerDataSource {
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         
-        var index = (viewController as! FitVC).index
+//      var index = (viewController as! FitVC).index
+        var index = selectedPageIndex
+
         self.pageControl.currentPage = index
 
         index += 1
 
-        if index == (fit?.brand.count)! + 1 {
+        if index == (products?.count)! + 1 {
             return nil
         }
         

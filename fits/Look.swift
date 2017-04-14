@@ -34,13 +34,14 @@ class Look {
             if let image = self.image {
                 completion(image)
             } else {
-                let url = URL(string: self.imageURL)!
-                URLSession.shared.dataTask(with: url, completionHandler: { (data, _, _) in
-                    if let newImage = UIImage(data: data!) {
+                Firebase.shared.storageRef.storage.reference(forURL: self.imageURL).data(withMaxSize: INT64_MAX, completion: { (data, error) in
+                    guard let data = data else { return }
+                    if let newImage = UIImage(data: data) {
                         self.image = newImage
                         completion(newImage)
                     }
-                }).resume()
+                })
+                
 //                if let data = try? Data(contentsOf: url) {
 //                    if let newImage = UIImage(data: data) {
 //                        self.image = newImage

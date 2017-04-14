@@ -41,10 +41,20 @@ extension EZSwipeControllerVC: EZSwipeControllerDataSource {
     
 
 // MARK: User Signout/Logout of Firebase
-    @IBAction func leftButtonItemTapped(sender: UIBarButtonItem) {
+//    @IBAction func leftButtonItemTapped(sender: UIBarButtonItem) {
+//        try! FIRAuth.auth()?.signOut()
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let loggedOutScene = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+//        present(loggedOutScene, animated: true)
+//        
+//    }
+    
+    func leftButtonItemTapped(sender: Any?) {
+        print("The following user has logged out:\(FIRAuth.auth()?.currentUser?.email)")
         try! FIRAuth.auth()?.signOut()
+//        print("The following user has loged out:\(FIRAuth.auth()?.currentUser)")
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let loggedOutScene = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        let loggedOutScene = storyboard.instantiateViewController(withIdentifier: "splashVC")
         present(loggedOutScene, animated: true)
         
     }
@@ -71,12 +81,25 @@ extension EZSwipeControllerVC: EZSwipeControllerDataSource {
         //MARK: Page Left
         if index == 0 {
             
-            let leftButtonItem = UIBarButtonItem(title: "Logout", style: UIBarButtonItemStyle.done, target: self, action: #selector(leftButtonItemTapped))
+            let leftButton = UIButton(type: .custom)
+            leftButton.frame = CGRect(x: 0, y: 0, width: 60, height: 30)
+            leftButton.setTitle("Logout", for: .normal)
+            leftButton.setTitleColor(illOrange, for: .normal)
+            leftButton.addTarget(self, action:#selector(leftButtonItemTapped), for: .touchUpInside)
             
+            
+            let leftButtonItem = UIBarButtonItem(customView: leftButton)
             self.navigationItem.setLeftBarButton(leftButtonItem, animated: false);
             
-            leftButtonItem.tintColor = illOrange
             navigationItem.leftBarButtonItem = leftButtonItem
+//            
+//            
+//            let leftButtonItem = UIBarButtonItem(title: "Logout", style: UIBarButtonItemStyle.done, target: self, action: #selector(leftButtonItemTapped))
+//            
+            self.navigationItem.setLeftBarButton(leftButtonItem, animated: false);
+//            
+//            leftButtonItem.tintColor = illOrange
+//            navigationItem.leftBarButtonItem = leftButtonItem
             
             navigationItem.titleView = nil
             navigationItem.title = "Your Account"

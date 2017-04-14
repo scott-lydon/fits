@@ -3,11 +3,24 @@
 import UIKit
 import Eureka
 import AVFoundation
+import Firebase
+
 
 class AddLookFVC: FormViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+    
+    @IBOutlet weak var submitBtn: UIButton!
+    
+    
+    var productData = ProductData()
+    var lookData = LookData()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+            
+            
         let navBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 65))
         self.view.addSubview(navBar)
         let navItem = UINavigationItem(title: "Add a Look")
@@ -16,7 +29,6 @@ class AddLookFVC: FormViewController, UIImagePickerControllerDelegate, UINavigat
         navItem.leftBarButtonItem?.tintColor = illOrange
         navBar.setItems([navItem], animated: false)
         let photos = ["cats", "dgst"]
-        
         
         ImageRow.defaultCellUpdate = { cell, row in
             cell.accessoryView?.layer.cornerRadius = 17
@@ -28,13 +40,16 @@ class AddLookFVC: FormViewController, UIImagePickerControllerDelegate, UINavigat
             <<< TextRow(){ row in
                 row.title = "Celebrity Name"
                 row.placeholder = "Kanye West"
+                row.tag = "celebrity"
             }
-            <<< TextRow(){
-                $0.title = "Description"
-                $0.placeholder = "Where was this taken?"
+            <<< TextRow(){ row in
+                row.title = "Description"
+                row.placeholder = "Where was this taken?"
+                row.tag = "description"
             }
-            <<< ImageRow() {
-                $0.title = "Image"
+            <<< ImageRow() { row in
+                row.title = "Image"
+                row.tag = "image"
         }
 
         
@@ -47,7 +62,7 @@ class AddLookFVC: FormViewController, UIImagePickerControllerDelegate, UINavigat
             section.append(k)
         }
         
-        section <<< LabelRow() {
+        section <<< TextRow() {
             $0.title = ""
             }.cellSetup { cell, row in
                 
@@ -56,13 +71,32 @@ class AddLookFVC: FormViewController, UIImagePickerControllerDelegate, UINavigat
                 cell.contentView.addSubview(imageView)
                 let titleLabel = UILabel(frame: CGRect(x: 30, y: 10, width: cell.bounds.width, height: cell.bounds.height))
                 titleLabel.text = "Add a Product"
-                cell.contentView.addSubview(titleLabel)
+                //cell.contentView.ad/Users/ga-6/Desktop/fits/fits/AddLookFVC.swiftdSubview(titleLabel)
                 
                 
             }.onCellSelection {_,_ in
-                let vc = UIStoryboard(name: "AddLook", bundle: nil).instantiateViewController(withIdentifier: "AddProduct")
-                vc.modalPresentationStyle = UIModalPresentationStyle.popover
-                self.present(vc, animated: true, completion: nil)
+                self.lookData.lookID = UUID().uuidString
+                self.lookData.userID = UUID().uuidString
+                
+                let celebrity: TextRow? = self.form.rowBy(tag: "celebrity")
+                self.lookData.celebrityID = (celebrity?.value)!
+                
+                let description: TextRow? = self.form.rowBy(tag: "description")
+                self.lookData.description = (description?.value)!
+                
+                let image: ImageRow? = self.form.rowBy(tag: "image")
+                self.lookData.image = (image?.value)!
+                
+                self.lookData.imageURL = "https://images.complex.com/complex/image/upload/look_photos/" + FIRAuth.auth()!.currentUser!.uid + "/\(Double(Date.timeIntervalSinceReferenceDate * 1000)).jpg"
+              
+                self.lookData.postedByUserID = "\(String(describing: FIRAuth.auth()?.currentUser))!"
+                
+                let vc = UIStoryboard(name: "AddLook", bundle: nil).instantiateViewController(withIdentifier: "AddProduct") as? AddProductVCViewController
+                vc?.modalPresentationStyle = UIModalPresentationStyle.popover
+                vc?.lookData = self.lookData
+                vc?.productData = self.productData
+                self.present(vc!, animated: true, completion: nil)
+                
         }
         
         form +++ section
@@ -70,11 +104,79 @@ class AddLookFVC: FormViewController, UIImagePickerControllerDelegate, UINavigat
         
         tableView?.frame = CGRect(x: 0, y: 65, width: view.frame.width, height: (view.frame.height - 65))
         
-    }    
+        view.bringSubview(toFront: submitBtn)
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+       super.viewWillAppear(true)
+        print(lookData.description)
+    }
  
     @IBAction func cancelPress() {
         dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func unwindFromProductToLook(s: UIStoryboardSegue) {
+        _ = s.source as? AddProductVCViewController
+        // source properties can be accessed with . notation
+    }
 
+    @IBAction func submitPress(_ sender: Any) {
+        
+        let celebrity: TextRow? = form.rowBy(tag: "celebrity")
+        let celebrityName = celebrity?.value
+        
+        let description: TextRow? = form.rowBy(tag: "description")
+        let lookDescription = description?.value
+        
+        let image: ImageRow? = form.rowBy(tag: "image")
+        let lookImage = image?.value
+        
+        let imagePath = "https://images.complex.com/complex/image/upload/look_photos/" + FIRAuth.auth()!.currentUser!.uid + "/\(Double(Date.timeIntervalSinceReferenceDate * 1000)).jpg"
+        
+        let data = UIImageJPEGRepresentation(lookImage!, 0.8)
+        
+        let metadata = FIRStorageMetadata()
+        metadata.contentType = "image/jpeg"
+        
+        let userID = FIRAuth.auth()?.currentUser
+        
+        let look = ["\(lookData.lookID)": ["celebrityID": celebrityName!,
+                                    "imageURL": imagePath,
+                                    "productIDs": [""],
+                                    "description": lookDescription!,
+                                    "postedByUserID": userID!,
+                                    "approved": true]]
+        
+        Firebase.shared.ref.child("look").updateChildValues(look)
+        
+        var productReady = [String: [String: Any]]()
+        for i in lookData.products {
+            productReady = ["\(i.productID)": [  "brandName": i.brandName,
+                                                                    "productName": i.productName,
+                                                                    "price": i.price,
+                                                                    "imageURL": i.imageURL,
+                                                                    "tag": i.tags,
+                                                                    "lookID": i.lookID]]
+            
+            Firebase.shared.ref.child("product").updateChildValues(productReady)
+            
+            Firebase.shared.storageRef.child(i.imageURL).put(data!, metadata: metadata) { (metadata, error) in
+                if let error = error {
+                    print ("error uploading: \(error)")
+                    return
+                }
+            }
+        }
+        
+        
+        Firebase.shared.storageRef.child(imagePath).put(data!, metadata: metadata) { (metadata, error) in
+            if let error = error {
+                print ("error uploading: \(error)")
+                return
+            }
+        }
+    }
 }
 

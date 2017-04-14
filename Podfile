@@ -10,6 +10,7 @@ target 'fits' do
     pod 'EZSwipeController'
     pod 'Eureka'
     pod 'Firebase/Database'
+    pod 'Firebase/Storage'
 
 
 end

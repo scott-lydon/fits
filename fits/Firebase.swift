@@ -12,7 +12,9 @@ import FirebaseDatabase
 
 class Firebase {
     
-    var ref: FIRDatabaseReference = FIRDatabase.database().reference()
+    var ref = FIRDatabase.database().reference()
+    var storageRef = FIRStorage.storage().reference()
+    
     
     fileprivate var _authHandle: FIRAuthStateDidChangeListenerHandle!
     
@@ -89,10 +91,6 @@ class Firebase {
         
     }
     
-    // ADD TO CART / FAVORITES
-    
-    
-    //self.ref.child("RestaurantReviews").child("restaurants").child("4545").child("location").setValue("New Jersey")
     
 
     

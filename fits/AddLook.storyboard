@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Add a Product-->
+        <!--Add a Look-->
         <scene sceneID="DoL-AZ-0ya">
             <objects>
-                <viewController id="OAu-ii-fJn" customClass="AddLookFVC" customModule="fits" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="OAu-ii-fJn" userLabel="Add a Look" customClass="AddLookFVC" customModule="fits" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zg4-D7-cSd"/>
                         <viewControllerLayoutGuide type="bottom" id="M8U-cB-Tat"/>
@@ -20,9 +20,23 @@
                     <view key="view" contentMode="scaleToFill" id="JqP-r9-u8U">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5QC-GE-xHV">
+                                <rect key="frame" x="16" y="530" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.65273349570046335" blue="0.29249406969079361" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="submitPress:" destination="OAu-ii-fJn" eventType="touchUpInside" id="sQN-IA-CcN"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add a Product" id="INM-XZ-3Ts"/>
+                    <connections>
+                        <outlet property="submitBtn" destination="5QC-GE-xHV" id="EYo-pI-rzi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y2t-Uq-wBu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -40,19 +54,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You made it" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kPd-P6-P4k">
-                                <rect key="frame" x="166" y="292" width="90" height="21"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vXc-mG-Vx3">
+                                <rect key="frame" x="16" y="530" width="343" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <color key="backgroundColor" red="1" green="0.65273349570000005" blue="0.29249406970000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="savePress:" destination="APV-3Y-Clq" eventType="touchUpInside" id="z6N-Qu-GEm"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add a Product" id="9Kr-1r-3Vc"/>
+                    <connections>
+                        <outlet property="saveBtn" destination="vXc-mG-Vx3" id="J5Y-em-Lf4"/>
+                        <segue destination="TBu-XM-M1k" kind="unwind" identifier="unwindFromProductToLook" unwindAction="unwindFromProductToLookWithS:" id="URc-K0-MHO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AeE-Ry-EN5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="TBu-XM-M1k" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1684" y="-21.139430284857571"/>
         </scene>

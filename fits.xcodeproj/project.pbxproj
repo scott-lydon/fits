@@ -40,6 +40,7 @@
 		33B7985E1E9F30E70014B043 /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B7985D1E9F30E70014B043 /* Firebase.swift */; };
 		33B798601E9F316F0014B043 /* Look.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33B7985F1E9F316F0014B043 /* Look.swift */; };
 		6E0CDEAC1E5521784CDEA5AE /* Pods_fits.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFDAB4B6D10669F5CE807DB9 /* Pods_fits.framework */; };
+		F7B6A0F91EA1297100462184 /* ProductData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B6A0F81EA1297100462184 /* ProductData.swift */; };
 		F7E1687B1E9F205A00B40D84 /* ImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E168791E9F205A00B40D84 /* ImagePickerController.swift */; };
 		F7E1687C1E9F205A00B40D84 /* ImageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E1687A1E9F205A00B40D84 /* ImageRow.swift */; };
 		F7E1687F1E9F399D00B40D84 /* AddProductVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E1687E1E9F399D00B40D84 /* AddProductVCViewController.swift */; };
@@ -86,6 +87,7 @@
 		33B7985D1E9F30E70014B043 /* Firebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
 		33B7985F1E9F316F0014B043 /* Look.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Look.swift; sourceTree = "<group>"; };
 		6D2A57DABCADC7B095CCC2B3 /* Pods-fits.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fits.release.xcconfig"; path = "Pods/Target Support Files/Pods-fits/Pods-fits.release.xcconfig"; sourceTree = "<group>"; };
+		F7B6A0F81EA1297100462184 /* ProductData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductData.swift; sourceTree = "<group>"; };
 		F7E168791E9F205A00B40D84 /* ImagePickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerController.swift; sourceTree = "<group>"; };
 		F7E1687A1E9F205A00B40D84 /* ImageRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageRow.swift; sourceTree = "<group>"; };
 		F7E1687E1E9F399D00B40D84 /* AddProductVCViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProductVCViewController.swift; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 				33B7981C1E9ED89C0014B043 /* AddLookFVC.swift */,
 				F7E1687E1E9F399D00B40D84 /* AddProductVCViewController.swift */,
 				F7E168821EA0143200B40D84 /* LookData.swift */,
+				F7B6A0F81EA1297100462184 /* ProductData.swift */,
 				F7E168D91EA048DD00B40D84 /* XibsForCollection */,
 				F7E1687D1E9F206700B40D84 /* ImageFiles */,
 			);
@@ -310,7 +313,7 @@
 				TargetAttributes = {
 					333E27891E7CA27600306FEB = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 44PY6HEEAQ;
+						DevelopmentTeam = 8L7Z3WU967;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplePay = {
@@ -414,6 +417,7 @@
 			files = (
 				33B798121E9EBEE20014B043 /* PaymentHandler.swift in Sources */,
 				33B7983E1E9ED89C0014B043 /* CartVC.swift in Sources */,
+				F7B6A0F91EA1297100462184 /* ProductData.swift in Sources */,
 				33B798391E9ED89C0014B043 /* AppDelegate.swift in Sources */,
 				33B798471E9ED89C0014B043 /* FitVC.swift in Sources */,
 				33B798431E9ED89C0014B043 /* EZSwipeControllerVC.swift in Sources */,
@@ -555,12 +559,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = fits/fits.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 44PY6HEEAQ;
+				DEVELOPMENT_TEAM = 8L7Z3WU967;
 				INFOPLIST_FILE = fits/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = vibes.illgourmet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -572,12 +577,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = fits/fits.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 44PY6HEEAQ;
+				DEVELOPMENT_TEAM = 8L7Z3WU967;
 				INFOPLIST_FILE = fits/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = vibes.illgourmet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

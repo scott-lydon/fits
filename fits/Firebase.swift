@@ -38,10 +38,6 @@ class Firebase {
         
     }
     
-   
-    
-    //self.ref.child("RestaurantReviews").child("restaurants").child("4545").child("location").setValue("New Jersey")
-
     
 
     

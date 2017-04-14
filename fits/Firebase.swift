@@ -9,12 +9,12 @@
 import Foundation
 import Firebase
 import FirebaseDatabase
+import FirebaseStorage
 
 class Firebase {
     
     var ref = FIRDatabase.database().reference()
     var storageRef = FIRStorage.storage().reference()
-    
     
     fileprivate var _authHandle: FIRAuthStateDidChangeListenerHandle!
     
@@ -24,7 +24,13 @@ class Firebase {
     
     static let shared = Firebase()
     
-    // USER STUFF
+    // ADD STUFF
+    
+    func addToCart(productID : String) {
+        
+        Firebase.shared.ref.child("users").child(User.shared.username).child("cartItems").setValue([productID: 1])
+
+    }
     
 
     // GET STUFF
@@ -48,8 +54,9 @@ class Firebase {
                 guard let price = prod["price"] as? Double else { return }
                 guard let imageURL = prod["imageURL"] as? String else { return }
                 guard let productName = prod["productName"] as? String else { return }
+                guard let productID = prod["productID"] as? String else { return }
                 
-                let product = Product(productImage: imageURL, brandName: brandName, productName: productName, price: price, lookID: lookID)
+                let product = Product(productImage: imageURL, brandName: brandName, productName: productName, price: price, lookID: lookID, productID : productID)
                 
                 products.append(product)
                 
@@ -91,7 +98,27 @@ class Firebase {
         
     }
     
+    func getCartItems(completion : @escaping ([String]) -> Void)  {
+        
+        var productsInCart : [String] = []
+        
+        let address = ref.child("users").child(User.shared.username).child("cartItems")
+        
+        address.observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            guard let dict = snapshot.value as? [String:Any] else { return }
+            
+            for (key,_) in dict {
+                
+                productsInCart.append(key)
+
+            }
+            
+            completion(productsInCart)
     
+        })
+        
+    }
 
     
 }

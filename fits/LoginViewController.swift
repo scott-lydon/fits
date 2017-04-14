@@ -125,6 +125,7 @@ class LoginViewController: UIViewController {
                 User.shared.email = user.email
             
                 Firebase.shared.ref.child("users").child(User.shared.username).setValue(["email": user.email])
+
                 
             } else if let error = error as NSError?, let firAuthError = FIRAuthErrorCode(rawValue: error.code) {
                 

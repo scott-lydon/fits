@@ -18,18 +18,19 @@ class Product {
     var tags : [String] = []
     var lookID : String
     var image : UIImage?
+    var productID : String
     
     private let queue = DispatchQueue(label: "privateQueue", qos: DispatchQoS.background, attributes: .concurrent, autoreleaseFrequency: DispatchQueue.AutoreleaseFrequency.inherit, target: nil)
 
-
     
-    init(productImage : String, brandName : String, productName : String, price: Double, lookID : String) {
+    init(productImage : String, brandName : String, productName : String, price: Double, lookID : String, productID : String) {
         
         self.productImage = productImage
         self.brandName = brandName
         self.productName = productName
         self.price = price 
         self.lookID = lookID
+        self.productID = productID
         
     }
     

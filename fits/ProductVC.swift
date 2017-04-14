@@ -15,7 +15,8 @@ class ProductVC: UIViewController, UINavigationControllerDelegate {
     @IBAction func button(_ sender: UIButton) {
         
         self.button.setTitle("Added!", for: UIControlState.normal)
-
+        Firebase.shared.addToCart(productID: (product?.productID)!)
+        
     }
     
     var product : Product?

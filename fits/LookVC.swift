@@ -27,7 +27,6 @@ class LookVC: UIViewController, UINavigationControllerDelegate {
         
             self.name.text = look?.celebrityID
             self.text.text = look?.description
-            
     
     }
     

@@ -8,12 +8,32 @@ class CartVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     let paymentHandler = PaymentHandler()
 
+    var productIDsInCart : [String] = []
+    var productsInCart : [Product] = []
+    
     @IBOutlet weak var applePayView: UIView!
 
     override func viewDidLoad() {
+        
+        Firebase.shared.getCartItems { products in
+            
+            self.productIDsInCart = products
+            
+            Firebase.shared.getProducts(productIDs: self.productIDsInCart) { products in
+                self.productsInCart = products
+                
+                self.tableView.reloadData()
+                
+            }
+            
+        }
+        
         super.viewDidLoad()
+        
         let result = PaymentHandler.applePayStatus()
         
+        
+    
         var button: UIButton?
         
         if result.canMakePayments {
@@ -72,19 +92,16 @@ class CartVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 5
+        return productsInCart.count
     }
-    
-   
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
         
             let cell = tableView.dequeueReusableCell(withIdentifier: "CartCell", for: indexPath) as! CartCell
         
-            
+            cell.product = productsInCart[indexPath.row]
             return cell
-        
         
     }
 }

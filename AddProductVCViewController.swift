@@ -96,7 +96,11 @@ class AddProductVCViewController: FormViewController {
     @IBAction func cancelPress() {
         dismiss(animated: true, completion: nil)
     }
+
     
+    
+    
+//MARK 
     @IBAction func savePress(_ sender: Any) {
         self.productData.productID = UUID().uuidString
         lookData.productIDs += [self.productData.productID]
@@ -108,7 +112,8 @@ class AddProductVCViewController: FormViewController {
         self.productData.productName = (product?.value)!
         
         let image: ImageRow? = self.form.rowBy(tag: "productImage")
-        self.productData.image = image?.value?.imageWithImage(scaledToSize: CGSize(width: 700, height: 700))
+        self.productData.image = image?.value?.resized(toWidth: 700)
+        
         
         
         let price: DecimalRow? = self.form.rowBy(tag: "price")
@@ -118,7 +123,7 @@ class AddProductVCViewController: FormViewController {
         self.productData.tags = (tag?.value)!
         
 
-        self.productData.imageURL = "gs://ill-gourmet.appspot.com/look_photos/" + FIRAuth.auth()!.currentUser!.uid + "/\(Double(Date.timeIntervalSinceReferenceDate * 1000)).jpeg"
+        self.productData.imageURL = "gs://ill-gourmet.appspot.com/look_photos/" + FIRAuth.auth()!.currentUser!.uid + "/\(Double(Date.timeIntervalSinceReferenceDate * 1000)).jpg"
 
         
         lookData.products += [productData]
@@ -146,10 +151,19 @@ class AddProductVCViewController: FormViewController {
                                                                 "productID": "\(self.productData.productID)"
             ]]
         
-        
+        print("look image uRL from add productVC")
+        print(lookData.imageURL)
+        print("product image URL from add productVC")
+        print(productData.imageURL)
         Firebase.shared.ref.child("look").updateChildValues(look)
         Firebase.shared.ref.child("product").updateChildValues(productReady)
         
+        print("IMage path from add productVC")
+        print(productData.imageURL)
+        print("data from add productVC")
+        print(data!)
+        print("metadata from add productVC")
+        print(metadata)
         Firebase.shared.storageRef.child(productData.imageURL).put(data!, metadata: metadata) { (metadata, error) in
             if let error = error {
                 print ("error uploading: \(error)")

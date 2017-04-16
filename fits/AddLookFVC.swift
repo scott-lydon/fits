@@ -121,9 +121,9 @@ class AddLookFVC: FormViewController, UIImagePickerControllerDelegate, UINavigat
                 self.lookData.description = (description?.value)!
                 
                 let image: ImageRow? = self.form.rowBy(tag: "image")
-                self.lookData.image = (image?.value)!
+                self.lookData.image = (image?.value)!.resized(toWidth: 700)
                 
-                self.lookData.imageURL = "gs://ill-gourmet.appspot.com/look_photos/" + FIRAuth.auth()!.currentUser!.uid + "/\(Double(Date.timeIntervalSinceReferenceDate * 1000)).jpg"
+                self.lookData.imageURL = "gs://ill-gourmet.appspot.com/" + FIRAuth.auth()!.currentUser!.uid + "/\(Double(Date.timeIntervalSinceReferenceDate * 1000)).jpg"
      
                 
                 let vc = UIStoryboard(name: "AddLook", bundle: nil).instantiateViewController(withIdentifier: "AddProduct") as? AddProductVCViewController
@@ -146,11 +146,13 @@ class AddLookFVC: FormViewController, UIImagePickerControllerDelegate, UINavigat
         let lookDescription = description?.value
         
         let image: ImageRow? = form.rowBy(tag: "image")
-        let lookImage = image?.value
+        var lookImage = image?.value
+        lookImage = lookImage?.resized(toWidth: 700)
+        
 
         
 
-        let imagePath = "gs://ill-gourmet.appspot.com/look_photos/" + FIRAuth.auth()!.currentUser!.uid + "/\(Double(Date.timeIntervalSinceReferenceDate * 1000)).jpeg"
+        let imagePath = "gs://ill-gourmet.appspot.com/" + FIRAuth.auth()!.currentUser!.uid + "\(Double(Date.timeIntervalSinceReferenceDate * 1000)).jpg"
 
         
         let data = UIImageJPEGRepresentation(lookImage!, 0.8)
@@ -166,7 +168,8 @@ class AddLookFVC: FormViewController, UIImagePickerControllerDelegate, UINavigat
                                     "description": lookDescription!,
                                     "postedByUserID": userID,
                                     "approved": true]]
-        
+        print("imagePath for look")
+        print(imagePath)
         Firebase.shared.ref.child("look").updateChildValues(look)
         
         var productReady = [String: [String: Any]]()
@@ -180,7 +183,14 @@ class AddLookFVC: FormViewController, UIImagePickerControllerDelegate, UINavigat
                                                                     "productID": i.productID
                 
                 ]]
+            print(i.productID)
+            print(i.brandName)
+            print(i.productName)
+            print(i.price)
             
+            
+            print("product imageURL is ...")
+            print(i.imageURL)
             Firebase.shared.ref.child("product").updateChildValues(productReady)
             
             Firebase.shared.storageRef.child(i.imageURL).put(data!, metadata: metadata) { (metadata, error) in
@@ -191,6 +201,12 @@ class AddLookFVC: FormViewController, UIImagePickerControllerDelegate, UINavigat
             }
         }
         
+        print("This is imagePath 204")
+        print(imagePath)
+        print("this is data 206")
+        print(data!)
+        print("this is metadata 208")
+        print(metadata)
         
         Firebase.shared.storageRef.child(imagePath).put(data!, metadata: metadata) { (metadata, error) in
             if let error = error {
@@ -204,3 +220,12 @@ class AddLookFVC: FormViewController, UIImagePickerControllerDelegate, UINavigat
     
 }
 
+extension UIImage {
+    func resized(toWidth width: CGFloat) -> UIImage? {
+        let canvasSize = CGSize(width: width, height: CGFloat(ceil(width/size.width * size.height)))
+        UIGraphicsBeginImageContextWithOptions(canvasSize, false, scale)
+        defer { UIGraphicsEndImageContext() }
+        draw(in: CGRect(origin: .zero, size: canvasSize))
+        return UIGraphicsGetImageFromCurrentImageContext()
+    }
+}
